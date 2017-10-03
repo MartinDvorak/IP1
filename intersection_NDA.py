@@ -59,6 +59,15 @@ def scan_parser(fd):
 
 	return Trans,Queue
 
+def epsilon_transition(Trans):
+	''' Find all epsilon transition '''
+	epsilon_state = {}
+	for source in Trans.keys():
+		if '()' in Trans[source].keys():
+			epsilon_state[source] = Trans[source]['()']  
+
+	return epsilon_state
+
 def merge_list(first_list, second_list):
 	''' do combination of two input lists, combinations are tuples in list
 	'''
@@ -71,12 +80,23 @@ def merge_list(first_list, second_list):
 def relations_intersection(Trans, Queue):
 	''' looking for states which can by active in the same time'''
 	relations = Queue[:]
+	epsilon_state = epsilon_transition(Trans)
+	
 	while Queue:
 		vertex = Queue.pop(0)
-
-		# becouse in Trans may not to be all informations (e.g. state haven't got any transition) 
+		
+		new_vertex = []			
+		# be aware of epsilon transition 
+		if epsilon_state:
+			if vertex[0] in epsilon_state and vertex[1] in epsilon_state:
+				new_vertex.extend(merge_list(epsilon_state[vertex[0]],epsilon_state[vertex[1]]))
+			elif vertex[0] in epsilon_state:
+				new_vertex.extend(merge_list(epsilon_state[vertex[0]],list(vertex[1])))
+			elif vertex[1] in epsilon_state:
+				new_vertex.extend(merge_list(list(vertex[0]),epsilon_state[vertex[1]]))
+			
+		# becouse in Trans may not to be all informations (e.g. state haven't got any transition) 	
 		try:
-			new_vertex = []
 			for i in Trans[vertex[0]].keys():
 				for j in Trans[vertex[1]].keys():
 					if i == j:
