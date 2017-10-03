@@ -2,30 +2,12 @@
 import sys
 import re
 
-def init_state(line):
-	''' inicialization of state'''
-	trans = {}
-	string = ""
-	for ch in line: #blanket chars == separator
-		if ch in {' ', '\t', '\n'}:
-			trans[string] = {}
-			string = ""
-		else:
-			string += ch
-	if not trans:
-		raise Exception('Missing states')		
-	return(trans)
+#import from https://github.com/ondrik/automata-benchmarks/blob/master/vtf/util/VTFParser.py
+from VTFParser import parsevtf
 
-def init_queue(line):
-	''' insetr start state to queue'''
-	start_state = []
-	string = ""
-	for ch in line:
-		if ch in {' ', '\t', '\n'}:
-			start_state.append(string)
-			string = ""
-		else:
-			string += ch
+def init_queue(vertexes):
+	''' insetr start states to queue'''
+	start_state = vertexes
 
 	queue = []
 	if not start_state:	
@@ -38,57 +20,48 @@ def init_queue(line):
 			k += 1	
 	return queue
 
-def init_transition(Trans,fd):
-	''' create transition into dictionary '''
-	k = 1
-	line = fd.readline()
-	single_transition = []
-	string = ""
-	while(line):
-		for ch in line:
-			if ch in {' ','\t','\n'}:
-				single_transition.append(string)
-				string = ""
-			else:
-				string += ch	
-		if len(single_transition) != 3:
-			raise Exception('Invalid Transition :' + line)		
-		# if dict is empty because for skip empty keys()
-		if not Trans[single_transition[0]].keys(): 
-			Trans[single_transition[0]] = {single_transition[1] : [single_transition[2]]}
+def init_transition(Transitions):
+	''' create transition into 2lvl dictionary '''
+	Trans = {}
+
+	for single_tran in Transitions:
+		if len(single_tran) != 3:
+			raise Exception('Invalid Transition :' + str(single_tran))		
+
+		#exist source state?
+		if not single_tran[0] in Trans: 
+			Trans[single_tran[0]] = {single_tran[1] : [single_tran[2]]}
 		else:
-			#insert one trasnitin into dictionery of transitions
-			for i in Trans[single_transition[0]].keys():
-				if i == single_transition[1]:
-					Trans[single_transition[0]][single_transition[1]].append(single_transition[2])
-					break
+			#exist transition yet?
+			if not single_tran[1] in Trans[single_tran[0]]:
+				Trans[single_tran[0]][single_tran[1]] = [single_tran[2]]
 			else:
-				Trans[single_transition[0]].update({single_transition[1] : [single_transition[2]]})	
+				Trans[single_tran[0]][single_tran[1]].append(single_tran[2])
+		#check if destination is in Trans, bcouse need evidence of exist 
+		#-> in function find_all_state(Trans)		
+		if not single_tran[2] in Trans:
+			Trans[single_tran[2]] = {}
+	return Trans
 
-		single_transition.clear()
-		line = fd.readline()
-		k += 1
-	return Trans,fd
+def scan_parser(fd):
+	'''scan parser function for init queue and trans file'''
+	parsed = parsevtf(fd)
+	
+	if 'Initial' in parsed.dict:
+		Queue = init_queue(parsed.dict['Initial'])
+	else:
+		raise Exception('Missing Initial state')	
 
-def scan_input(fd):
-	'''Scan input file'''
-	line = fd.readline()
-	while (line): #read until EOF
-		if (re.match("^%States",line) is not None):
-			line = line[8:]
-			Trans = init_state(line)
+	if parsed.body:
+		Trans = init_transition(parsed.body)
+	else:
+		raise Exception('Missing Trasnsitions')
 
-		elif(re.match("^%Initial",line) is not None):	
-			line = line[9:]
-			Queue = init_queue(line)			
-
-		elif(re.match("^$",line) is not None):
-			Trans,fd = init_transition(Trans, fd)
-		line = fd.readline()	
 	return Trans,Queue
 
 def merge_list(first_list, second_list):
-	''' '''
+	''' do combination of two input lists, combinations are tuples in list
+	'''
 	merge = []
 	for i in first_list:
 		for j in second_list:
@@ -96,35 +69,38 @@ def merge_list(first_list, second_list):
 	return merge
 
 def relations_intersection(Trans, Queue):
-	''' '''
+	''' looking for states which can by active in the same time'''
 	relations = Queue[:]
 	while Queue:
 		vertex = Queue.pop(0)
 
-		new_vertex = []
-		for i in Trans[vertex[0]].keys():
-			for j in Trans[vertex[1]].keys():
-				if i == j:
-					new_vertex.extend(merge_list(Trans[vertex[0]][i],Trans[vertex[1]][j]))	
+		# becouse in Trans may not to be all informations (e.g. state haven't got any transition) 
+		try:
+			new_vertex = []
+			for i in Trans[vertex[0]].keys():
+				for j in Trans[vertex[1]].keys():
+					if i == j:
+						new_vertex.extend(merge_list(Trans[vertex[0]][i],Trans[vertex[1]][j]))	
 		
-		for i in new_vertex:
-			if ((i not in relations) and (i[::-1] not in relations)):
-				relations.append(i)
-				Queue.append(i)
+			for i in new_vertex:
+				if ((i not in relations) and (i[::-1] not in relations)):
+					relations.append(i)
+					Queue.append(i)
+		except:
+			continue
 
 	return relations
 
 def find_all_state(Trans):
-	''' '''
+	''' finding all state in Automaton'''
 	All = []
 	for i in Trans.keys():
 		All.append(i)
-
 	return All
 
 
 def complement_relarion_intersection(Rel,States):
-	''' '''
+	''' creat complement relation to given relation(Rel) above abecede(State)'''
 	Com_rel = []
 	#insert all posibilites
 	for i in States:
@@ -155,12 +131,13 @@ if __name__ == '__main__':
 		sys.exit(1)
 
 	fd = open(sys.argv[1], "r")
-	Trans,Queue = scan_input(fd)
+	
+	Trans,Queue = scan_parser(fd)
+
 	fd.close()
 
 	Rel = relations_intersection(Trans, Queue)
-
 	Com_rel = complement_relarion_intersection(Rel,find_all_state(Trans))
 
 	print("relace: " + str(Rel))
-	print("complement of relation : " + str(Com_rel) + "<<<<")
+	print("complement of relation : " + str(Com_rel))
