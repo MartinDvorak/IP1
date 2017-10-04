@@ -54,6 +54,11 @@ def scan_parser(fd):
 
 	if parsed.body:
 		Trans = init_transition(parsed.body)
+		#include Initial state without transition
+		for initial in parsed.dict['Initial']:
+			if not initial in Trans:
+				Trans[initial] = {}
+
 	else:
 		raise Exception('Missing Trasnsitions')
 
@@ -81,19 +86,19 @@ def relations_intersection(Trans, Queue):
 	''' looking for states which can by active in the same time'''
 	relations = Queue[:]
 	epsilon_state = epsilon_transition(Trans)
-	
 	while Queue:
 		vertex = Queue.pop(0)
 		
 		new_vertex = []			
 		# be aware of epsilon transition 
+		#TODO
 		if epsilon_state:
 			if vertex[0] in epsilon_state and vertex[1] in epsilon_state:
 				new_vertex.extend(merge_list(epsilon_state[vertex[0]],epsilon_state[vertex[1]]))
 			elif vertex[0] in epsilon_state:
-				new_vertex.extend(merge_list(epsilon_state[vertex[0]],list(vertex[1])))
+				new_vertex.extend(merge_list(epsilon_state[vertex[0]],[vertex[1]]))
 			elif vertex[1] in epsilon_state:
-				new_vertex.extend(merge_list(list(vertex[0]),epsilon_state[vertex[1]]))
+				new_vertex.extend(merge_list([vertex[0]],epsilon_state[vertex[1]]))
 			
 		# becouse in Trans may not to be all informations (e.g. state haven't got any transition) 	
 		try:
@@ -103,12 +108,13 @@ def relations_intersection(Trans, Queue):
 						new_vertex.extend(merge_list(Trans[vertex[0]][i],Trans[vertex[1]][j]))	
 		
 			for i in new_vertex:
-				if ((i not in relations) and (i[::-1] not in relations)):
+				invert_i = (i[1],i[0])
+				if ((i not in relations) and (invert_i not in relations)):
 					relations.append(i)
 					Queue.append(i)
 		except:
 			continue
-
+	
 	return relations
 
 def find_all_state(Trans):
@@ -116,6 +122,7 @@ def find_all_state(Trans):
 	All = []
 	for i in Trans.keys():
 		All.append(i)
+
 	return All
 
 
@@ -131,13 +138,15 @@ def complement_relarion_intersection(Rel,States):
 	for vertex in Rel:
 		try:
 			Com_rel.remove(vertex)
-			Com_rel.remove(vertex[::-1])		
+			vertex = (vertex[1],vertex[0])
+			Com_rel.remove(vertex)		
 		except:
 			continue
 
 	#remove duplicates => inversion order
-	for vertex in Com_rel:
-		Com_rel.remove(vertex[::-1])
+	#for vertex in Com_rel:
+	#	vertex = (vertex[1],vertex[0])
+#		Com_rel.remove(vertex)
 
 	return Com_rel
 
@@ -159,5 +168,7 @@ if __name__ == '__main__':
 	Rel = relations_intersection(Trans, Queue)
 	Com_rel = complement_relarion_intersection(Rel,find_all_state(Trans))
 
+
 	print("relace: " + str(Rel))
+	print()
 	print("complement of relation : " + str(Com_rel))
