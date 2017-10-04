@@ -144,9 +144,9 @@ def complement_relarion_intersection(Rel,States):
 			continue
 
 	#remove duplicates => inversion order
-	#for vertex in Com_rel:
-	#	vertex = (vertex[1],vertex[0])
-#		Com_rel.remove(vertex)
+	for vertex in Com_rel:
+		vertex = (vertex[1],vertex[0])
+		Com_rel.remove(vertex)
 
 	return Com_rel
 
