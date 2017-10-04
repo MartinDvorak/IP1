@@ -91,15 +91,14 @@ def relations_intersection(Trans, Queue):
 		
 		new_vertex = []			
 		# be aware of epsilon transition 
-		#TODO
 		if epsilon_state:
 			if vertex[0] in epsilon_state and vertex[1] in epsilon_state:
 				new_vertex.extend(merge_list(epsilon_state[vertex[0]],epsilon_state[vertex[1]]))
-			elif vertex[0] in epsilon_state:
+			if vertex[0] in epsilon_state:
 				new_vertex.extend(merge_list(epsilon_state[vertex[0]],[vertex[1]]))
-			elif vertex[1] in epsilon_state:
+			if vertex[1] in epsilon_state:
 				new_vertex.extend(merge_list([vertex[0]],epsilon_state[vertex[1]]))
-			
+		
 		# becouse in Trans may not to be all informations (e.g. state haven't got any transition) 	
 		try:
 			for i in Trans[vertex[0]].keys():
