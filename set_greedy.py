@@ -97,14 +97,16 @@ if __name__ == '__main__':
 	sets = Set
 #########################
 #	first way to run 
-#	fd_in = open(sys.argv[1],"r")
-#	State,Com_rel = call_intersection(fd_in)
-
 	fd_in = open(sys.argv[1],"r")
-	sets = inicialize(fd_in)
+	State,Com_rel = call_intersection(fd_in)
 
-#	sets.state = State
-#	sets.trans = Com_rel
+##	fd_in = open(sys.argv[1],"r")
+##	sets = inicialize(fd_in)
+
+	sets.state = State
+	sets.trans = Com_rel
+
+	
 	print("state;")
 	print(sets.state)
 	print("com_rel:")
