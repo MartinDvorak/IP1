@@ -5,6 +5,13 @@ import re
 #import from https://github.com/ondrik/automata-benchmarks/blob/master/vtf/util/VTFParser.py
 from VTFParser import parsevtf
 
+def usage():
+    print (argv[0] + " -h | -i <file> -o <file> [-d <file>] [-S <style>] [-s]")
+    print ("Parameters:")
+    print ("-h | --help                   - show this help")
+    print ("-i <file> | --input <file>    - file with set of PCRE expressions one per line")
+    print ("-o <file> | --output <file>   - file for resulting automaton encoded in Timbuk format")
+
 def init_queue(vertexes):
 	''' insetr start states to queue'''
 	start_state = vertexes
@@ -149,20 +156,44 @@ def complement_relarion_intersection(Rel,States):
 
 	return Com_rel
 
+def call_intersection(fd):
+	
+	Trans,Queue = scan_parser(fd)
+
+	Rel = relations_intersection(Trans, Queue)
+	Com_rel = complement_relarion_intersection(Rel,find_all_state(Trans))
+	State = find_all_state(Trans)
+	return State, Com_rel
+
 ############################
 #MAIN
 if __name__ == '__main__':
 	argc = len(sys.argv)
 
-	if argc != 2:
-		print("Invalid number of arguments") 
+	if argc != 3:
+		print("Invalid number of arguments")
+		print("Required 2 arg <input_file> <output_file>")
+		print("Input file in format *.vtf")
+		print("Output file in plaintext") 
 		sys.exit(1)
 
-	fd = open(sys.argv[1], "r")
+    
+    #for o, a in opts:
+    #    if o in ("-h", "--help"):
+    #        usage()
+    #        sys.exit()
+    #    elif o in ("-o", "--output"):
+    #        fd_out = a
+    #    elif o in ("-i", "--input"):
+    #        fd_in = a
+    #    else:
+    #        assert False, "unhandled option " + o
 	
-	Trans,Queue = scan_parser(fd)
+	fd_in = open(sys.argv[1], "r")
+	
+	Trans,Queue = scan_parser(fd_in)
 
-	fd.close()
+	fd_in.close()
 
 	Rel = relations_intersection(Trans, Queue)
 	Com_rel = complement_relarion_intersection(Rel,find_all_state(Trans))
@@ -171,3 +202,8 @@ if __name__ == '__main__':
 	print("relace: " + str(Rel))
 	print()
 	print("complement of relation : " + str(Com_rel))
+
+	fd_out = open(sys.argv[2], "w")
+	fd_out.write(str(find_all_state(Trans))+'\n')
+	fd_out.write(str(Com_rel)+'\n')
+	fd_out.close()
