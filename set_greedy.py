@@ -1,15 +1,17 @@
 #!/usr/bin/env python3
 import sys
 import re
+import copy
 
 from intersection_NDA import call_intersection
 
-class Set:
-	''' '''
-	def __init__(self):
-		self.state = []
-		self.trans = []
 
+def usage():
+    print (argv[0] + " <file>")
+    print ("Parameters:")
+    print ("-h | --help                   - show this help")
+    print ("<file> - source file in format .vtf")
+    print ("output to stdout")
 
 def gettuple(line):
 	l = []
@@ -85,7 +87,49 @@ def inicialize(fd):
 	res.state = res2.state
 	return res	
 
+def remove_diagonal(trans):
+	for vertex in trans[:]:
+		if(vertex[0] == vertex[1]):
+			trans.remove(vertex)
+	return trans
+######################################################################################
+#FIRST ALG.
+######################################################################################
 
+def remove_state(click,states):
+
+	for state in click:
+		states.remove(state)
+	return states	
+
+def click_append(state, click, trans):
+	if not click:
+		click.append(state)
+		return click
+	for item in click:
+		if((((state,item)) in trans) or ((item,state) in trans)):
+			return click
+
+	click.append(state)
+	return click
+
+#alg1. do click if posible
+# sets.state  = all state in automata
+# sets.trans = all transition in realtion R = {(q1,q2)| exists word that can be reach from 
+# any starting state while read word W }
+def click_from_first(states, trans):
+	arr_click = []
+
+	
+	while states:
+		click = []
+		for state in states:
+			click = click_append(state,click,trans)
+
+		arr_click.append(click)
+		states = remove_state(click,states)
+
+	return arr_click
 ############################
 #MAIN
 if __name__ == '__main__':
@@ -94,23 +138,35 @@ if __name__ == '__main__':
 	if argc != 2:
 		sys.exit(1)
 
-	sets = Set
+
 #########################
 #	first way to run 
 	fd_in = open(sys.argv[1],"r")
-	State,Com_rel = call_intersection(fd_in)
+	State,Com_rel,Rel = call_intersection(fd_in)
 
-##	fd_in = open(sys.argv[1],"r")
-##	sets = inicialize(fd_in)
-
-	sets.state = State
-	sets.trans = Com_rel
-
+#	fd_in = open(sys.argv[1],"r")
+#	sets = inicialize(fd_in)
 	
-	print("state;")
-	print(sets.state)
-	print("com_rel:")
-	print(sets.trans)
+	Rel = remove_diagonal(Rel)
+	
 
+	#copy
+	states1 = State[:]
 
+	click_alg1 = click_from_first(states1,Rel)
+	print("state;" + str(len(State)))
+	print(State)
 
+	print("Rel: states that can be reach by the same word")
+	print("count of this relation >"+str(len(Rel)))
+	#print(Rel)
+	print("Rel: states that can NOT be reach by the same word>"+str(len(Com_rel)))
+	#print(sets.trans)
+	#print("Count ALL without symetric posibilities>"+str( (len(State)*(len(State)-1))/2 ))
+	print("click from First alg")
+	print(click_alg1)
+	print("size of clicks:")
+	i = 0
+	for l in click_alg1:
+		i += 1
+		print(str(i) + ". size_of_click: " + str(len(l)))

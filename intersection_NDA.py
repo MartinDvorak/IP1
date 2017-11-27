@@ -6,11 +6,11 @@ import re
 from VTFParser import parsevtf
 
 def usage():
-    print (argv[0] + " -h | -i <file> -o <file> [-d <file>] [-S <style>] [-s]")
+    print (argv[0] + " <file>")
     print ("Parameters:")
     print ("-h | --help                   - show this help")
-    print ("-i <file> | --input <file>    - file with set of PCRE expressions one per line")
-    print ("-o <file> | --output <file>   - file for resulting automaton encoded in Timbuk format")
+    print ("<file> - source file in format .vtf")
+    print ("output to stdout")
 
 def init_queue(vertexes):
 	''' insetr start states to queue'''
@@ -136,10 +136,10 @@ def complement_relarion_intersection(Rel,States):
 	''' creat complement relation to given relation(Rel) above abecede(State)'''
 	Com_rel = []
 	#insert all posibilites
-	for i in States:
+	for i in range(0,len(States)):
 		for j in States:
-			Com_rel.append((i,j))		
-
+			Com_rel.append((States[i],j))		
+	print("DONE")
 	#remove the same vertex and their duplicates
 	for vertex in Rel:
 		try:
@@ -148,12 +148,12 @@ def complement_relarion_intersection(Rel,States):
 			Com_rel.remove(vertex)		
 		except:
 			continue
-
+	print("DONE")
 	#remove duplicates => inversion order
-	for vertex in Com_rel:
-		vertex = (vertex[1],vertex[0])
-		Com_rel.remove(vertex)
-
+	#for vertex in Com_rel:
+	#	vertex = (vertex[1],vertex[0])
+	#	Com_rel.remove(vertex)
+	print("DONE")
 	return Com_rel
 
 def call_intersection(fd):
@@ -161,9 +161,11 @@ def call_intersection(fd):
 	Trans,Queue = scan_parser(fd)
 
 	Rel = relations_intersection(Trans, Queue)
-	Com_rel = complement_relarion_intersection(Rel,find_all_state(Trans))
+	print("DONE")
+	#Com_rel = complement_relarion_intersection(Rel,find_all_state(Trans))
+	Com_rel = []
 	State = find_all_state(Trans)
-	return State, Com_rel
+	return State, Com_rel, Rel
 
 ############################
 #MAIN
