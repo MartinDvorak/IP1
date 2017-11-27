@@ -1,8 +1,8 @@
+DONE
 state;1358
-
 Rel: states that can be reach by the same word
 count of this relation >1656
-
+Rel: states that can NOT be reach by the same word>0
 click from First alg
 size of clicks:
 1. size_of_click: 1234
