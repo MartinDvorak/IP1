@@ -53,7 +53,6 @@ def init_transition(Transitions):
 def scan_parser(fd):
 	'''scan parser function for init queue and trans file'''
 	parsed = parsevtf(fd)
-	
 	if 'Initial' in parsed.dict:
 		Queue = init_queue(parsed.dict['Initial'])
 	else:
@@ -69,7 +68,10 @@ def scan_parser(fd):
 	else:
 		raise Exception('Missing Trasnsitions')
 
-	return Trans,Queue
+	final = parsed.dict['Final']
+	initial = parsed.dict['Initial']
+	
+	return Trans,Queue, final, initial
 
 def epsilon_transition(Trans):
 	''' Find all epsilon transition '''
@@ -139,7 +141,6 @@ def complement_relarion_intersection(Rel,States):
 	for i in range(0,len(States)):
 		for j in States:
 			Com_rel.append((States[i],j))		
-	print("DONE")
 	#remove the same vertex and their duplicates
 	for vertex in Rel:
 		try:
@@ -148,24 +149,22 @@ def complement_relarion_intersection(Rel,States):
 			Com_rel.remove(vertex)		
 		except:
 			continue
-	print("DONE")
 	#remove duplicates => inversion order
 	#for vertex in Com_rel:
 	#	vertex = (vertex[1],vertex[0])
 	#	Com_rel.remove(vertex)
-	print("DONE")
+
 	return Com_rel
 
 def call_intersection(fd):
 	
-	Trans,Queue = scan_parser(fd)
+	Trans,Queue,final,initial = scan_parser(fd)
 
 	Rel = relations_intersection(Trans, Queue)
-	print("DONE")
 	#Com_rel = complement_relarion_intersection(Rel,find_all_state(Trans))
 	Com_rel = []
 	State = find_all_state(Trans)
-	return State, Com_rel, Rel
+	return State, Com_rel, Rel, Trans,final,initial
 
 ############################
 #MAIN

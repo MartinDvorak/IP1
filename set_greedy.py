@@ -1,7 +1,6 @@
 #!/usr/bin/env python3
 import sys
 import re
-import copy
 
 from intersection_NDA import call_intersection
 
@@ -87,14 +86,15 @@ def inicialize(fd):
 	res.state = res2.state
 	return res	
 
+######################################################################################
+#FIRST ALG.
+######################################################################################
+
 def remove_diagonal(trans):
 	for vertex in trans[:]:
 		if(vertex[0] == vertex[1]):
 			trans.remove(vertex)
 	return trans
-######################################################################################
-#FIRST ALG.
-######################################################################################
 
 def remove_state(click,states):
 
@@ -117,6 +117,7 @@ def click_append(state, click, trans):
 # sets.state  = all state in automata
 # sets.trans = all transition in realtion R = {(q1,q2)| exists word that can be reach from 
 # any starting state while read word W }
+# output : complete sub-graphs of graf R 
 def click_from_first(states, trans):
 	arr_click = []
 
@@ -125,6 +126,7 @@ def click_from_first(states, trans):
 		click = []
 		for state in states:
 			click = click_append(state,click,trans)
+
 
 		arr_click.append(click)
 		states = remove_state(click,states)
@@ -142,7 +144,7 @@ if __name__ == '__main__':
 #########################
 #	first way to run 
 	fd_in = open(sys.argv[1],"r")
-	State,Com_rel,Rel = call_intersection(fd_in)
+	State,Com_rel,Rel,Trans = call_intersection(fd_in)
 
 #	fd_in = open(sys.argv[1],"r")
 #	sets = inicialize(fd_in)
@@ -154,6 +156,10 @@ if __name__ == '__main__':
 	states1 = State[:]
 
 	click_alg1 = click_from_first(states1,Rel)
+	
+	print("click from First alg")
+	print(click_alg1)
+
 	print("state;" + str(len(State)))
 	print(State)
 
