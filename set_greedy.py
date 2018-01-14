@@ -103,6 +103,7 @@ def remove_state(click,states):
 	return states	
 
 def click_append(state, click, trans):
+	
 	if not click:
 		click.append(state)
 		return click
@@ -144,13 +145,13 @@ if __name__ == '__main__':
 #########################
 #	first way to run 
 	fd_in = open(sys.argv[1],"r")
-	State,Com_rel,Rel,Trans = call_intersection(fd_in)
+	State,Com_rel,Rel,Trans,final,initial = call_intersection(fd_in)
 
 #	fd_in = open(sys.argv[1],"r")
 #	sets = inicialize(fd_in)
 	
 	Rel = remove_diagonal(Rel)
-	
+	print(Rel)
 
 	#copy
 	states1 = State[:]
