@@ -1,5 +1,28 @@
 -- pattern_match.vhd: a simple pattern matching unit with some optimizations
+ -- #-- The architecture represents the following FA A: (Q, \delta, I, F) over ASCII
+ --#-- alphabet:
+ -- alphabet = ['a','b','c']
+ -- #--
+ -- #-- Q = {0, 1, 2, 3}
+-- 
+--  !!!!
+--  predpokládejme, že stavy 1,3 chceme sloučit do jednoho 2bitového registru 
+--  !!!!
+--  
+ -- #-- I = {0}
+ -- #-- F = {1, 2}
 
+ -- #-- \delta = {
+ -- #--   0 --'a'--> 1
+ -- #--   0 --'a'--> 2
+ -- #--   1 --'b'--> 2
+ -- #--   1 --'b'--> 3   
+ --       2 --'c'--> 2
+ -- #--   2 --'b'--> 0
+ -- #--   3 --'c'--> 2
+ -- #--   
+ -- #-- }
+ -- ############################################################################
 library ieee;
 use ieee.std_logic_1164.all;
 
@@ -42,7 +65,6 @@ architecture arch of pattern_match is
 		
 
   -- state 1
-  signal reg_1        : std_logic;
   signal reg_1_in     : std_logic;
   signal reg_1_init   : std_logic;
 		
@@ -51,6 +73,16 @@ architecture arch of pattern_match is
   signal reg_2        : std_logic;
   signal reg_2_in     : std_logic;
   signal reg_2_init   : std_logic;
+
+  -- state 3
+  signal reg_3_in     : std_logic;
+  signal reg_3_init   : std_logic;
+
+  -- reg state 1 & 3
+  signal reg_13       : std_logic_vector(1 downto 0);
+  signal reg_13_in    : std_logic_vector(1 downto 0);
+  signal reg_13_init  : std_logic_vector(1 downto 0);
+  signal reg_13_sel   : std_logic_vector(3 downto 0);    
 		
 
   -- symbol decoder
@@ -87,28 +119,74 @@ architecture arch of pattern_match is
 		symb_decoder(16#63#) <= '1' when (INPUT = X"63") else
                           '0';
 
-
-reg_1_in <= (reg_0 AND symb_decoder(16#61#));
-reg_1_init <= '0' ;
-	p_reg_1: process (CLK)
-	begin
+reg_0_in <= (reg_2 AND symb_decoder(16#62#));
+reg_0_init <= '1' ;
+  p_reg_0: process (CLK)
+  begin
     if (rising_edge(CLK)) then
       if (RESET = '1') then
-        reg_1 <= reg_1_init;
+        reg_0 <= reg_0_init;
       elsif (INPUT_EN = '1') then
         if (initialize = '1')
-          reg_1 <= reg_1_init;
+          reg_0 <= reg_0_init;
         else
-          reg_1 <= reg_1_in;
+          reg_0 <= reg_0_in;
         end if;
       end if;
     end if;
   end process;
 
+-- ???
+reg_1_in <= (reg_0 AND symb_decoder(16#61#));
+reg_1_init <= '0' ;
+
+reg_3_in   <= (reg_1 AND symb_decoder(16#62#));
+reg_3_init <= '0' ;
+
+reg_13_init <= reg_1_init & reg_3_init;
+
+
+reg_13_sel <= "00" & reg_3_in & reg_1_in;
+-- ???
+-- Pokud nebude spravne 136-145 radek, tohle by slo:
+-- dosazeni rovnou hodnot bez pomocneho signalu (neni tak citelne)
+-- 
+-- reg_13_init <= '0' & '0';
+-- reg_13_sel <= "00" & (reg_1 AND symb_decoder(16#62#)) & (reg_0 AND symb_decoder(16#61#))
+
+-- coder
+with reg_13_sel select
+reg_13_in <= "01" when "0001"
+     "10" when "0010"
+     "00" when others;
+-- end coder
+
+-- reg pro stavy 1 & 3
+	p_reg_13: process (CLK)
+	begin
+    if (rising_edge(CLK)) then
+      if (RESET = '1') then
+        reg_13 <= reg_13_init;
+      elsif (INPUT_EN = '1') then
+        if (initialize = '1')
+          reg_13 <= reg_13_init;
+        else
+          reg_13 <= reg_13_in;
+        end if;
+      end if;
+    end if;
+  end process;
+
+-- decoder 
+reg_1 <= '1' when reg_13 = "01" else '0';
+reg_3 <= '1' when reg_13 = "10" else '0';
+-- end decoder
+
 	
 reg_2_in <= (reg_0 AND symb_decoder(16#61#)) OR
  					(reg_1 AND symb_decoder(16#62#)) OR
- 					(reg_2 AND symb_decoder(16#63#));
+ 					(reg_2 AND symb_decoder(16#63#)) OR
+          (reg_3 AND symb_decoder(16#63#));
 reg_2_init <= '0' ;
 	p_reg_2: process (CLK)
 	begin
@@ -126,23 +204,6 @@ reg_2_init <= '0' ;
   end process;
 
 	
-reg_0_in <= (reg_2 AND symb_decoder(16#62#));
-reg_0_init <= '1' ;
-	p_reg_0: process (CLK)
-	begin
-    if (rising_edge(CLK)) then
-      if (RESET = '1') then
-        reg_0 <= reg_0_init;
-      elsif (INPUT_EN = '1') then
-        if (initialize = '1')
-          reg_0 <= reg_0_init;
-        else
-          reg_0 <= reg_0_in;
-        end if;
-      end if;
-    end if;
-  end process;
-
 	FINAL <= reg_1 OR reg_2;
 
 	end architecture;
