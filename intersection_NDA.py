@@ -171,40 +171,24 @@ def call_intersection(fd):
 if __name__ == '__main__':
 	argc = len(sys.argv)
 
-	if argc != 3:
+	if argc != 2:
 		print("Invalid number of arguments")
 		print("Required 2 arg <input_file> <output_file>")
 		print("Input file in format *.vtf")
 		print("Output file in plaintext") 
 		sys.exit(1)
 
-    
-    #for o, a in opts:
-    #    if o in ("-h", "--help"):
-    #        usage()
-    #        sys.exit()
-    #    elif o in ("-o", "--output"):
-    #        fd_out = a
-    #    elif o in ("-i", "--input"):
-    #        fd_in = a
-    #    else:
-    #        assert False, "unhandled option " + o
 	
 	fd_in = open(sys.argv[1], "r")
 	
-	Trans,Queue = scan_parser(fd_in)
+	Trans,Queue,final,initial = scan_parser(fd_in)
 
 	fd_in.close()
 
 	Rel = relations_intersection(Trans, Queue)
 	Com_rel = complement_relarion_intersection(Rel,find_all_state(Trans))
 
-
+	print(Trans)
 	print("relace: " + str(Rel))
 	print()
 	print("complement of relation : " + str(Com_rel))
-
-	fd_out = open(sys.argv[2], "w")
-	fd_out.write(str(find_all_state(Trans))+'\n')
-	fd_out.write(str(Com_rel)+'\n')
-	fd_out.close()

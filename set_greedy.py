@@ -128,12 +128,23 @@ def click_from_first(states, trans):
 		for state in states:
 			click = click_append(state,click,trans)
 
-
 		arr_click.append(click)
 		states = remove_state(click,states)
 
 	return arr_click
 ############################
+
+
+def greedy_fullgraph(fd_in):
+	State,Com_rel,Rel,Trans,final,initial = call_intersection(fd_in)
+	
+	Rel = remove_diagonal(Rel)
+	states1 = State[:]
+
+	click_alg1 = click_from_first(states1,Rel)
+
+	return click_alg1,Trans,final,initial
+
 #MAIN
 if __name__ == '__main__':
 	argc = len(sys.argv)
@@ -151,7 +162,6 @@ if __name__ == '__main__':
 #	sets = inicialize(fd_in)
 	
 	Rel = remove_diagonal(Rel)
-	print(Rel)
 
 	#copy
 	states1 = State[:]
@@ -174,6 +184,7 @@ if __name__ == '__main__':
 	print(click_alg1)
 	print("size of clicks:")
 	i = 0
+	print(len(click_alg1))
 	for l in click_alg1:
 		i += 1
 		print(str(i) + ". size_of_click: " + str(len(l)))
