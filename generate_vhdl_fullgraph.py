@@ -3,6 +3,7 @@ import sys
 import re
 
 from intersection_NDA import call_intersection
+from set_greedy import greedy_fullgraph
 
 def usage():
     print (argv[0] + " <in_file> <out_file>")
@@ -50,9 +51,8 @@ end entity;
 
 """
 	return head
-
-def signals(registers):
-	head_signals = """
+def head_signals():
+	head = """
 
   -- symbol decoder
   signal symb_decoder : std_logic_vector(2**DATA_WIDTH - 1 downto 0);
@@ -78,16 +78,50 @@ def signals(registers):
   ------------------ KILLL END
 
 	"""
-	signals = ""
-	for register in registers:
-		signals = signals + """
+	return head
 
-  -- state """ +str(register) + """
-  signal reg_"""+str(register)+"""        : std_logic;
-  signal reg_"""+str(register)+"""_in     : std_logic;
-  signal reg_"""+str(register)+"""_init   : std_logic;
+def count_size_click(click):
+
+	size = len(click)+1
+	num_of_bits = 1
+	two_power = 2
+
+	while True:
+		if size <= two_power:
+			break
+		two_power = two_power *2
+		num_of_bits = num_of_bits + 1	
+
+	return num_of_bits
+
+def signals(click,i):
+	if len(click) == 1:
+		signals = """
+
+  -- state """ +str(click[0]) + """
+  signal reg_"""+str(click[0])+"""        : std_logic;
+  signal reg_"""+str(click[0])+"""_in     : std_logic;
+  signal reg_"""+str(click[0])+"""_init   : std_logic;
 		"""	
-	return signals + head_signals
+	else:
+		signals = "\n--#################################################\n-- start section fullgraph: "+str(i)
+		for state in click:
+			signals = signals + """
+
+  -- state """ +str(state) + """
+  signal reg_"""+str(state)+"""        : std_logic;
+  signal reg_"""+str(state)+"""_in     : std_logic;
+  		"""	
+		bits = count_size_click(click)
+		signals = signals + """
+  signal reg_fullgraph"""+str(i)+"""       : std_logic_vector("""+str(bits-1)+""" downto 0);
+  signal reg_fullgraph"""+str(i)+"""_in    : std_logic_vector("""+str(bits-1)+""" downto 0);
+  signal reg_fullgraph"""+str(i)+"""_init  : std_logic_vector("""+str(bits-1)+""" downto 0);
+  signal reg_fullgraph"""+str(i)+"""_sel   : std_logic_vector("""+str(2**bits -1)+""" downto 0); 	
+  -- end section fullgraph"""+str(i)+"""
+  --#################################################			
+		"""
+	return signals
 
 def decoder(alphabet):
 	decoder = ""
@@ -126,21 +160,22 @@ def reg(name):
 
 	"""
 	return reg
+def init(name,start_state):
+	if(start_state):
+		start = "\nreg_"+str(name)+"_init <= '1' ;"
+	else:
+		start = "\nreg_"+str(name)+"_init <= '0' ;"
+	return start	
 
-def set_logic(name,reverse_trans,start_state):
+def set_logic(name,reverse_trans):
 	logic = "\nreg_"+str(name)+"_in <= "
 	
 	for item in reverse_trans:
 		logic = logic + "(reg_"+str(item[1])+" AND symb_decoder(16#"+str(item[0])[2::]+"#)) OR\n 					"
 	
 	logic = logic[:-10:] + ";" #remove last OR
-	
-	if(start_state):
-		start = "\nreg_"+str(name)+"_init <= '1' ;"
-	else:
-		start = "\nreg_"+str(name)+"_init <= '0' ;"
 		
-	return logic+start
+	return logic
 
 def reverse_trans(trans):
 	reverse = {}
@@ -153,18 +188,105 @@ def reverse_trans(trans):
 					reverse[item] = [[key2,key]]	
 	return reverse
 
-def register(transitions,start_state):
+def align(bits,value):
+	aligned = bin(value)[2::]
+
+	while True:
+		if len(aligned) == bits:
+			break
+		else:
+			aligned = "0" + aligned 	
+
+	return aligned
+
+def click_init(click,start_state,count,bits):
+	init = "\nreg_fullgraph"+str(count)+"_init <= "
+	i = 1
+	ok = False
+	for state in click:
+		if state in start_state:
+			init = init + "\"" +align(bits,i)+"\""
+			ok = True
+			break
+		i = i + 1
+	if(not ok):
+		init = init + "\"" +align(bits,0)+"\""
+	return init + ";\n"
+
+def sel_align(bits, act_value):
+
+	num_of_nuls = 2**bits -act_value
+
+	nuls = ""
+	for i in range(0,num_of_nuls):
+		nuls = nuls +"0"
+	return nuls
+
+def select_sig(click,count,bits):
+	select_val = ""
+
+	for state in click:
+		select_val = "reg_"+str(state)+"_in & "+ select_val 
+
+	select_val = select_val[:-3:]	
 	
+	select_val = "\"" + sel_align(bits,len(click))+"\" & "+ select_val
+
+	return "\nreg_fullgraph"+str(count)+"_sel <= " + select_val+ ";\n"
+
+def coder(click, count, bits):
+	coder = """
+	--coder fullgraph"""+str(count)+"""
+with reg_fullgraph"""+str(count)+"""_sel select
+reg_fullgraph"""+str(count)+"""_in <=
+"""
+
+	vector = sel_align(bits,1) + "1"
+
+	for i in range(1,len(click)+1):
+		coder = coder + "	\""+align(bits,i)+ "\" when \""+vector+"\",\n"
+		vector = vector[1::]+"0"
+
+	coder = coder + "	\""+align(bits,0)+"\" when others;\n --end coder\n"
+	return coder
+
+def decoder_reg(click,count,bits):
+	decode = "-- docoder fullgraph"+str(count)+"\n"
+	
+	i = 1
+	for state in click:
+		decode = decode + """
+		reg_"""+str(state)+""" <= '1' when reg_fullgraph"""+str(count)+""" = \""""+str(align(bits,i))+"""\" else '0'; """ 
+		i = i + 1
+	
+	return decode + "\n--end decoder \n"
+
+def register(transitions,start_state,click,i):
 	register = ""
-	reverse = reverse_trans(transitions)
-	for state in reverse.keys():
-		register = register + set_logic(state,reverse[state],bool(state in start_state))
-		register = register + reg(state)
+
+	if len(click) == 1:
+		if click[0] in transitions:
+			register = register + set_logic(click[0],transitions[click[0]])
+		register = register + init(click[0],bool(click[0] in start_state))	
+		register = register + reg(click[0])
+		
+	else:	
+		register = "--######################################################\n--fullgraph"+str(i)+"\n"
+		for state in click:
+			if state in transitions:
+				register = register + set_logic(state,transitions[state])
+		
+		bits = count_size_click(click)
+		register = register + click_init(click,start_state,i,bits)
+		register = register + select_sig(click,i,bits)
+		register = register + coder(click,i,bits)
+		register = register + reg("fullgraph"+str(i))
+		register = register + decoder_reg(click,i,bits)
 		
 	return register
 
 def final(registers):
-	final = "FINAL <= "
+	final = "\nFINAL <= "
 	for register in registers:
 		final = final + "reg_" +str(register)+ " OR "
 	final = final[:-4:] + ";" #delete last OR
@@ -195,6 +317,18 @@ def get_alphabet(trans):
 	
 	return alphabet
 
+def generate(alphabet,end_state,start,transitions,clicks):
+	signal = ""
+	reverse = reverse_trans(transitions)
+	registers = ""
+	count = 0
+	for click in clicks:
+		signal = signal + signals(click,count)
+		registers = registers + register(reverse,start,click,count)
+		count = count +1
+
+	return head() + architecture() + signal +head_signals()+ inicalize() + decoder(alphabet) + registers + final(end_state)
+
 ############################
 #MAIN
 if __name__ == '__main__':
@@ -202,18 +336,12 @@ if __name__ == '__main__':
 
 	if argc != 3:
 		print("Invalid number of arguments")
-	#	print("Required1 arg <output_file>")
 		print("Required 2 arg <input_file> <output_file>")
 		print("Input file in format *.vtf")
 		print("Output file in format *.vhdl") 
 		sys.exit(1)
 
-	fd_in = open(sys.argv[1],"r")
-	state, com_rel, rel, Trans,end_state,initial = call_intersection(fd_in) 
-	#print(state)
-	alphabet = get_alphabet(Trans)
-	fd_out = open(sys.argv[2],"w")
-
+	
 	###########################################################################
 	#							static TEST DATA
 	###########################################################################
@@ -222,11 +350,13 @@ if __name__ == '__main__':
 	#alphabet = ['61','62','63']
 	#--
 	#-- Q = {0, 1, 2}
-	#state = ['0','1','2']
+	#state = ['0','1','2','3']
+	#clicks = [['0'],['2'],['1','3']]
 	#-- I = {0}
-	#initial = ['0']
+	#initial = ['1']
 	#-- F = {1, 2}
-	#end_state = ['1','2']
+	#end_state = ['0','2']
+	#Trans = {'0':{'s061':['1','2']}, '1':{'s062':['2','3']}, '2':{'s063':['2'],'s062':['0']}, '3':{'s063':['2']}}
 	#-- \delta = {
 	#--   0 --'a'--> 1
 	#--   0 --'a'--> 2
@@ -234,9 +364,15 @@ if __name__ == '__main__':
 	#--   2 --'c'--> 2
 	#--   2 --'b'--> 0
 	#-- }
-	#Trans = {'0':{'s0a':['1','2']}, '1':{'s0b':['2']}, '2':{'s0c':['2'],'s0b':['0']} }
+	#
+	fd_in = open(sys.argv[1],"r")
+	clicks,Trans,end_state,initial = greedy_fullgraph(fd_in)
+	alphabet = get_alphabet(Trans)
 	############################################################################
+	#fd_out = open(sys.argv[1],"w")
+	fd_out = open(sys.argv[2],"w")
 	
-	fd_out.write(head() + architecture() + signals(state) + inicalize() + decoder(alphabet) +register(Trans,initial)+ final(end_state))
+	fd_out.write(generate(alphabet,end_state,initial,Trans,clicks))
+	#fd_out.write(head() + architecture() + signals(state) + inicalize() + decoder(alphabet) +register(Trans,initial)+ final(end_state))
 	fd_out.close()
 
