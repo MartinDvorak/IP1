@@ -65,6 +65,7 @@ architecture arch of pattern_match is
 		
 
   -- state 1
+  signal reg_1        : std_logic;
   signal reg_1_in     : std_logic;
   signal reg_1_init   : std_logic;
 		
@@ -75,6 +76,7 @@ architecture arch of pattern_match is
   signal reg_2_init   : std_logic;
 
   -- state 3
+  signal reg_3        : std_logic;
   signal reg_3_in     : std_logic;
   signal reg_3_init   : std_logic;
 
@@ -143,8 +145,9 @@ reg_1_init <= '0' ;
 reg_3_in   <= (reg_1 AND symb_decoder(16#62#));
 reg_3_init <= '0' ;
 
-reg_13_init <= reg_1_init & reg_3_init;
 
+-- udelat naprimo zadny srani s tim, rovnou zakodovat
+reg_13_init <= reg_3_init & reg_1_init;
 
 reg_13_sel <= "00" & reg_3_in & reg_1_in;
 -- ???
@@ -156,8 +159,8 @@ reg_13_sel <= "00" & reg_3_in & reg_1_in;
 
 -- coder
 with reg_13_sel select
-reg_13_in <= "01" when "0001"
-     "10" when "0010"
+reg_13_in <= "01" when "0001",
+     "10" when "0010",
      "00" when others;
 -- end coder
 
