@@ -154,6 +154,7 @@ def reg(name):
 
 	"""
 	return reg
+
 def init(name,start_state):
 	if(start_state):
 		start = "\nreg_"+str(name)+"_init <= '1' ;"
@@ -168,7 +169,9 @@ def set_logic(name,reverse_trans):
 		logic = logic + "(reg_"+str(item[1])+" AND symb_decoder(16#"+str(item[0])[2::]+"#)) OR\n 					"
 	
 	logic = logic[:-10:] + ";" #remove last OR
-		
+	if not reverse_trans:
+		logic = "\nreg_"+str(name)+"_in <= '0';"
+
 	return logic
 
 def reverse_trans(trans):
@@ -269,7 +272,9 @@ def register(transitions,start_state,click,i):
 		for state in click:
 			if state in transitions:
 				register = register + set_logic(state,transitions[state])
-		
+			else:
+				register = register + set_logic(state,[])
+				
 		bits = count_size_click(click)
 		register = register + click_init(click,start_state,i,bits)
 		register = register + select_sig(click,i,bits)
