@@ -147,12 +147,19 @@ def reverse_trans(trans):
 					reverse[item] = [[key2,key]]	
 	return reverse
 
-def register(transitions,start_state):
+def register(transitions,start_state,states):
 	
 	register = ""
 	reverse = reverse_trans(transitions)
-	for state in reverse.keys():
-		register = register + set_logic(state,reverse[state],bool(state in start_state))
+	for state in states:
+		if state in reverse.keys():
+			register = register + set_logic(state,reverse[state],bool(state in start_state))
+		else:
+			if state in start_state:
+				register = register + "\nreg_"+str(state)+"_init <= '1' ;"
+			else:
+				register = register + "\nreg_"+str(state)+"_init <= '0' ;"
+		
 		register = register + reg(state)
 		
 	return register
@@ -194,7 +201,7 @@ def get_alphabet(trans):
 if __name__ == '__main__':
 	argc = len(sys.argv)
 
-	if argc != 2:
+	if argc != 3:
 		print("Invalid number of arguments")
 	#	print("Required1 arg <output_file>")
 		print("Required 2 arg <input_file> <output_file>")
@@ -202,25 +209,25 @@ if __name__ == '__main__':
 		print("Output file in format *.vhdl") 
 		sys.exit(1)
 
-	#fd_in = open(sys.argv[1],"r")
-	#state, com_rel, rel, Trans,end_state,initial = call_intersection(fd_in) 
+	fd_in = open(sys.argv[1],"r")
+	state, com_rel, rel, Trans,end_state,initial = call_intersection(fd_in) 
 	#print(state)
-	#alphabet = get_alphabet(Trans)
-	fd_out = open(sys.argv[1],"w")
+	alphabet = get_alphabet(Trans)
+	fd_out = open(sys.argv[2],"w")
 
 	###########################################################################
 	#							static TEST DATA
 	###########################################################################
 	#-- The architecture represents the following FA A: (Q, \delta, I, F) over ASCII
 	#-- alphabet:
-	alphabet = ['61','62','63']
+	#alphabet = ['61','62','63']
 	#--
 	#-- Q = {0, 1, 2}
-	state = ['0','1','2']
+	#state = ['0','1','2']
 	#-- I = {0}
-	initial = ['0']
+	#initial = ['0']
 	#-- F = {1, 2}
-	end_state = ['1','2']
+	#end_state = ['1','2']
 	#-- \delta = {
 	#--   0 --'a'--> 1
 	#--   0 --'a'--> 2
@@ -228,9 +235,9 @@ if __name__ == '__main__':
 	#--   2 --'c'--> 2
 	#--   2 --'b'--> 0
 	#-- }
-	Trans = {'0':{'s0a':['1','2']}, '1':{'s0b':['2']}, '2':{'s0c':['2'],'s0b':['0']} }
+	#Trans = {'0':{'s0a':['1','2']}, '1':{'s0b':['2']}, '2':{'s0c':['2'],'s0b':['0']} }
 	############################################################################
 	
-	fd_out.write(head() + architecture() + signals(state) + inicalize() + decoder(alphabet) +register(Trans,initial)+ final(end_state))
+	fd_out.write(head() + architecture() + signals(state) + inicalize() + decoder(alphabet) +register(Trans,initial,state)+ final(end_state))
 	fd_out.close()
 
