@@ -1,0 +1,62 @@
+
+####################
+    http-attacks
+####################
+
+WNS(ns) = 3.195
+TNS Total Endpoints = 142
+
+CLB LUTs* = 158
+CLB Registers = 142
+
+---------------------------
+    minimalization
+---------------------------
+
+WNS(ns) = 2.536
+TNS Total Endpoints = 42
+
+CLB LUTs* = 376
+CLB Registers = 42
+
+
+####################
+    http-malicious
+####################
+
+WNS(ns) = 3.591
+TNS Total Endpoints = 223
+
+CLB LUTs* = 224
+CLB Registers = 224
+
+---------------------------
+    minimalization
+---------------------------
+
+WNS(ns) = 1.862
+TNS Total Endpoints = 50
+
+CLB LUTs* = 1510
+CLB Registers = 50
+
+####################
+    http-backdoor
+####################
+
+WNS(ns) = 3.555
+TNS Total Endpoints = 1347
+
+CLB LUTs* = 1040
+CLB Registers = 1348
+
+---------------------------
+    minimalization
+---------------------------
+
+WNS(ns) = -0.946
+TNS Total Endpoints = 171
+
+CLB LUTs* = 4534
+CLB Registers = 172
+
