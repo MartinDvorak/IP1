@@ -172,7 +172,7 @@ if __name__ == '__main__':
 	print(click_alg1)
 
 	print("state;" + str(len(State)))
-	print(State)
+	#print(State)
 
 	print("Rel: states that can be reach by the same word")
 	print("count of this relation >"+str(len(Rel)))
@@ -181,7 +181,7 @@ if __name__ == '__main__':
 	#print(sets.trans)
 	#print("Count ALL without symetric posibilities>"+str( (len(State)*(len(State)-1))/2 ))
 	print("click from First alg")
-	print(click_alg1)
+	#print(click_alg1)
 	print("size of clicks:")
 	i = 0
 	print(len(click_alg1))

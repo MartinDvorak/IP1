@@ -321,7 +321,8 @@ def generate(alphabet,end_state,start,transitions,clicks,name):
 		registers = registers + register(reverse,start,click,count)
 		count = count +1
 
-	return entity(name[:-4:]) + architecture() + signal +head_signals()+ inicalize() + decoder(alphabet) + registers + final(end_state)
+	return entity(name[:-4:])+ signal +head_signals()+ inicalize() + decoder(alphabet) + registers + final(end_state)
+	#return entity(name[:-4:]) + architecture() + signal +head_signals()+ inicalize() + decoder(alphabet) + registers + final(end_state)
 
 ############################
 #MAIN

@@ -51,6 +51,16 @@ end entity;
 """
 	return head
 
+def entity(name):
+
+	entity = """
+	library ieee;
+use ieee.std_logic_1164.all;
+
+architecture """+str(name)+""" of pattern_match is
+"""
+	return entity
+
 def signals(registers):
 	head_signals = """
 
@@ -60,22 +70,6 @@ def signals(registers):
   -- intialization signal
   signal initialize   : std_logic;
 
-  
-  ------------------ KILLL START
-  -- The data stored in the register
-  signal reg_data : std_logic_vector(DATA_WIDTH - 1 downto 0) :=
-                      (others => '0');
-  -- The input data of the register
-  signal data_in : std_logic_vector(DATA_WIDTH - 1 downto 0);
-
-  -- The state of the register
-  signal reg_state : std_logic := (others => '0');
-  -- The input data of the state
-  signal state_in : std_logic;
-
-  -- The write signal for the data and state registers
-  signal write : std_logic;
-  ------------------ KILLL END
 
 	"""
 	signals = ""
