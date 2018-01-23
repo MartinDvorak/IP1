@@ -2,7 +2,7 @@
 	library ieee;
 use ieee.std_logic_1164.all;
 
-architecture http-attacks of pattern_match is
+architecture http_attacks of pattern_match is
 --#################################################
 -- start section fullgraph: 0
 
