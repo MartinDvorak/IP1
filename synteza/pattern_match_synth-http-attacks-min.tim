@@ -1,0 +1,1917 @@
+Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version      : Vivado v.2017.4 (lin64) Build 2086221 Fri Dec 15 20:54:30 MST 2017
+| Date              : Tue Jan 23 21:02:29 2018
+| Host              : preklad9.liberouter.org running 64-bit CentOS Linux release 7.3.1611 (Core)
+| Command           : report_timing_summary -delay_type min_max -report_unconstrained -check_timing_verbose -max_paths 10 -input_pins -name timing_1 -file pattern_match_synth.tim
+| Design            : pattern_match
+| Device            : xcvu7p-flvb2104
+| Speed File        : -2  PRODUCTION 1.17 11-09-2017
+| Temperature Grade : I
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Timing Summary Report
+
+------------------------------------------------------------------------------------------------
+| Timer Settings
+| --------------
+------------------------------------------------------------------------------------------------
+
+  Enable Multi Corner Analysis               :  Yes
+  Enable Pessimism Removal                   :  Yes
+  Pessimism Removal Resolution               :  Nearest Common Node
+  Enable Input Delay Default Clock           :  No
+  Enable Preset / Clear Arcs                 :  No
+  Disable Flight Delays                      :  No
+  Ignore I/O Paths                           :  No
+  Timing Early Launch at Borrowing Latches   :  false
+
+  Corner  Analyze    Analyze    
+  Name    Max Paths  Min Paths  
+  ------  ---------  ---------  
+  Slow    Yes        Yes        
+  Fast    Yes        Yes        
+
+
+
+check_timing report
+
+Table of Contents
+-----------------
+1. checking no_clock
+2. checking constant_clock
+3. checking pulse_width_clock
+4. checking unconstrained_internal_endpoints
+5. checking no_input_delay
+6. checking no_output_delay
+7. checking multiple_clock
+8. checking generated_clocks
+9. checking loops
+10. checking partial_input_delay
+11. checking partial_output_delay
+12. checking latch_loops
+
+1. checking no_clock
+--------------------
+ There are 0 register/latch pins with no clock.
+
+
+2. checking constant_clock
+--------------------------
+ There are 0 register/latch pins with constant_clock.
+
+
+3. checking pulse_width_clock
+-----------------------------
+ There are 0 register/latch pins which need pulse_width check
+
+
+4. checking unconstrained_internal_endpoints
+--------------------------------------------
+ There are 0 pins that are not constrained for maximum delay.
+
+ There are 0 pins that are not constrained for maximum delay due to constant clock.
+
+
+5. checking no_input_delay
+--------------------------
+ There are 12 input ports with no input delay specified. (HIGH)
+
+INIT
+INPUT[0]
+INPUT[1]
+INPUT[2]
+INPUT[3]
+INPUT[4]
+INPUT[5]
+INPUT[6]
+INPUT[7]
+INPUT_EN
+INPUT_EOF
+RESET
+
+ There are 0 input ports with no input delay but user has a false path constraint.
+
+
+6. checking no_output_delay
+---------------------------
+ There is 1 port with no output delay specified. (HIGH)
+
+FINAL
+
+ There are 0 ports with no output delay but user has a false path constraint
+
+ There are 0 ports with no output delay but with a timing clock defined on it or propagating through it
+
+
+7. checking multiple_clock
+--------------------------
+ There are 0 register/latch pins with multiple clocks.
+
+
+8. checking generated_clocks
+----------------------------
+ There are 0 generated clocks that are not connected to a clock source.
+
+
+9. checking loops
+-----------------
+ There are 0 combinational loops in the design.
+
+
+10. checking partial_input_delay
+--------------------------------
+ There are 0 input ports with partial input delay specified.
+
+
+11. checking partial_output_delay
+---------------------------------
+ There are 0 ports with partial output delay specified.
+
+
+12. checking latch_loops
+------------------------
+ There are 0 combinational latch loops in the design through latch input
+
+
+
+------------------------------------------------------------------------------------------------
+| Design Timing Summary
+| ---------------------
+------------------------------------------------------------------------------------------------
+
+    WNS(ns)      TNS(ns)  TNS Failing Endpoints  TNS Total Endpoints      WHS(ns)      THS(ns)  THS Failing Endpoints  THS Total Endpoints     WPWS(ns)     TPWS(ns)  TPWS Failing Endpoints  TPWS Total Endpoints  
+    -------      -------  ---------------------  -------------------      -------      -------  ---------------------  -------------------     --------     --------  ----------------------  --------------------  
+      2.536        0.000                      0                   42        0.072        0.000                      0                   42        1.725        0.000                       0                    42  
+
+
+All user specified timing constraints are met.
+
+
+------------------------------------------------------------------------------------------------
+| Clock Summary
+| -------------
+------------------------------------------------------------------------------------------------
+
+Clock  Waveform(ns)         Period(ns)      Frequency(MHz)
+-----  ------------         ----------      --------------
+CLK    {0.000 2.000}        4.000           250.000         
+
+
+------------------------------------------------------------------------------------------------
+| Intra Clock Table
+| -----------------
+------------------------------------------------------------------------------------------------
+
+Clock             WNS(ns)      TNS(ns)  TNS Failing Endpoints  TNS Total Endpoints      WHS(ns)      THS(ns)  THS Failing Endpoints  THS Total Endpoints     WPWS(ns)     TPWS(ns)  TPWS Failing Endpoints  TPWS Total Endpoints  
+-----             -------      -------  ---------------------  -------------------      -------      -------  ---------------------  -------------------     --------     --------  ----------------------  --------------------  
+CLK                 2.536        0.000                      0                   42        0.072        0.000                      0                   42        1.725        0.000                       0                    42  
+
+
+------------------------------------------------------------------------------------------------
+| Inter Clock Table
+| -----------------
+------------------------------------------------------------------------------------------------
+
+From Clock    To Clock          WNS(ns)      TNS(ns)  TNS Failing Endpoints  TNS Total Endpoints      WHS(ns)      THS(ns)  THS Failing Endpoints  THS Total Endpoints  
+----------    --------          -------      -------  ---------------------  -------------------      -------      -------  ---------------------  -------------------  
+
+
+------------------------------------------------------------------------------------------------
+| Other Path Groups Table
+| -----------------------
+------------------------------------------------------------------------------------------------
+
+Path Group    From Clock    To Clock          WNS(ns)      TNS(ns)  TNS Failing Endpoints  TNS Total Endpoints      WHS(ns)      THS(ns)  THS Failing Endpoints  THS Total Endpoints  
+----------    ----------    --------          -------      -------  ---------------------  -------------------      -------      -------  ---------------------  -------------------  
+
+
+------------------------------------------------------------------------------------------------
+| User Ignored Path Table
+| -----------------------
+------------------------------------------------------------------------------------------------
+
+Path Group    From Clock    To Clock    
+----------    ----------    --------    
+
+
+------------------------------------------------------------------------------------------------
+| Unconstrained Path Table
+| ------------------------
+------------------------------------------------------------------------------------------------
+
+Path Group    From Clock    To Clock    
+----------    ----------    --------    
+(none)        CLK                         
+(none)                      CLK           
+
+
+------------------------------------------------------------------------------------------------
+| Timing Details
+| --------------
+------------------------------------------------------------------------------------------------
+
+
+---------------------------------------------------------------------------------------------------
+From Clock:  CLK
+  To Clock:  CLK
+
+Setup :            0  Failing Endpoints,  Worst Slack        2.536ns,  Total Violation        0.000ns
+Hold  :            0  Failing Endpoints,  Worst Slack        0.072ns,  Total Violation        0.000ns
+PW    :            0  Failing Endpoints,  Worst Slack        1.725ns,  Total Violation        0.000ns
+---------------------------------------------------------------------------------------------------
+
+
+Max Delay Paths
+--------------------------------------------------------------------------------------
+Slack (MET) :             2.536ns  (required time - arrival time)
+  Source:                 reg_fullgraph0_reg[4]/C
+                            (rising edge-triggered cell FDRE clocked by CLK  {rise@0.000ns fall@2.000ns period=4.000ns})
+  Destination:            reg_fullgraph23_reg[0]/D
+                            (rising edge-triggered cell FDRE clocked by CLK  {rise@0.000ns fall@2.000ns period=4.000ns})
+  Path Group:             CLK
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            4.000ns  (CLK rise@4.000ns - CLK rise@0.000ns)
+  Data Path Delay:        1.454ns  (logic 0.299ns (20.564%)  route 1.155ns (79.436%))
+  Logic Levels:           5  (LUT2=1 LUT3=1 LUT6=3)
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock CLK rise edge)        0.000     0.000 r  
+                                                      0.000     0.000 r  CLK (IN)
+                         net (fo=41, unset)           0.000     0.000    CLK
+                         FDRE                                         r  reg_fullgraph0_reg[4]/C
+  -------------------------------------------------------------------    -------------------
+                         FDRE (Prop_FDRE_C_Q)         0.077     0.077 f  reg_fullgraph0_reg[4]/Q
+                         net (fo=68, unplaced)        0.226     0.303    reg_fullgraph0[4]
+                                                                      f  FINAL_INST_0_i_4/I1
+                         LUT2 (Prop_LUT2_I1_O)        0.038     0.341 f  FINAL_INST_0_i_4/O
+                         net (fo=20, unplaced)        0.246     0.587    FINAL_INST_0_i_4_n_0
+                                                                      f  reg_q242_i_2/I5
+                         LUT6 (Prop_LUT6_I5_O)        0.038     0.625 r  reg_q242_i_2/O
+                         net (fo=16, unplaced)        0.241     0.866    reg_q242_i_2_n_0
+                                                                      r  reg_fullgraph23[0]_i_5/I0
+                         LUT3 (Prop_LUT3_I0_O)        0.070     0.936 r  reg_fullgraph23[0]_i_5/O
+                         net (fo=1, unplaced)         0.197     1.133    reg_fullgraph23[0]_i_5_n_0
+                                                                      r  reg_fullgraph23[0]_i_2/I5
+                         LUT6 (Prop_LUT6_I5_O)        0.038     1.171 r  reg_fullgraph23[0]_i_2/O
+                         net (fo=1, unplaced)         0.197     1.368    reg_fullgraph23[0]_i_2_n_0
+                                                                      r  reg_fullgraph23[0]_i_1/I0
+                         LUT6 (Prop_LUT6_I0_O)        0.038     1.406 r  reg_fullgraph23[0]_i_1/O
+                         net (fo=1, unplaced)         0.048     1.454    reg_fullgraph23[0]_i_1_n_0
+                         FDRE                                         r  reg_fullgraph23_reg[0]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock CLK rise edge)        4.000     4.000 r  
+                                                      0.000     4.000 r  CLK (IN)
+                         net (fo=41, unset)           0.000     4.000    CLK
+                         FDRE                                         r  reg_fullgraph23_reg[0]/C
+                         clock pessimism              0.000     4.000    
+                         clock uncertainty           -0.035     3.965    
+                         FDRE (Setup_FDRE_C_D)        0.025     3.990    reg_fullgraph23_reg[0]
+  -------------------------------------------------------------------
+                         required time                          3.990    
+                         arrival time                          -1.454    
+  -------------------------------------------------------------------
+                         slack                                  2.536    
+
+Slack (MET) :             2.547ns  (required time - arrival time)
+  Source:                 reg_fullgraph0_reg[1]/C
+                            (rising edge-triggered cell FDRE clocked by CLK  {rise@0.000ns fall@2.000ns period=4.000ns})
+  Destination:            reg_fullgraph0_reg[2]/D
+                            (rising edge-triggered cell FDSE clocked by CLK  {rise@0.000ns fall@2.000ns period=4.000ns})
+  Path Group:             CLK
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            4.000ns  (CLK rise@4.000ns - CLK rise@0.000ns)
+  Data Path Delay:        1.443ns  (logic 0.411ns (28.482%)  route 1.032ns (71.518%))
+  Logic Levels:           5  (LUT3=1 LUT6=4)
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock CLK rise edge)        0.000     0.000 r  
+                                                      0.000     0.000 r  CLK (IN)
+                         net (fo=41, unset)           0.000     0.000    CLK
+                         FDRE                                         r  reg_fullgraph0_reg[1]/C
+  -------------------------------------------------------------------    -------------------
+                         FDRE (Prop_FDRE_C_Q)         0.077     0.077 r  reg_fullgraph0_reg[1]/Q
+                         net (fo=96, unplaced)        0.234     0.311    reg_fullgraph0[1]
+                                                                      r  reg_q286_i_2/I2
+                         LUT3 (Prop_LUT3_I2_O)        0.070     0.381 f  reg_q286_i_2/O
+                         net (fo=10, unplaced)        0.230     0.611    reg_q286_i_2_n_0
+                                                                      f  reg_fullgraph0[4]_i_16/I0
+                         LUT6 (Prop_LUT6_I0_O)        0.038     0.649 f  reg_fullgraph0[4]_i_16/O
+                         net (fo=3, unplaced)         0.203     0.852    reg_fullgraph0[4]_i_16_n_0
+                                                                      f  reg_fullgraph0[2]_i_9/I5
+                         LUT6 (Prop_LUT6_I5_O)        0.038     0.890 r  reg_fullgraph0[2]_i_9/O
+                         net (fo=1, unplaced)         0.197     1.087    reg_fullgraph0[2]_i_9_n_0
+                                                                      r  reg_fullgraph0[2]_i_2/I5
+                         LUT6 (Prop_LUT6_I5_O)        0.038     1.125 r  reg_fullgraph0[2]_i_2/O
+                         net (fo=2, unplaced)         0.120     1.245    reg_fullgraph0[2]_i_2_n_0
+                                                                      r  reg_fullgraph0[2]_i_1/I0
+                         LUT6 (Prop_LUT6_I0_O)        0.150     1.395 r  reg_fullgraph0[2]_i_1/O
+                         net (fo=1, unplaced)         0.048     1.443    reg_fullgraph0[2]_i_1_n_0
+                         FDSE                                         r  reg_fullgraph0_reg[2]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock CLK rise edge)        4.000     4.000 r  
+                                                      0.000     4.000 r  CLK (IN)
+                         net (fo=41, unset)           0.000     4.000    CLK
+                         FDSE                                         r  reg_fullgraph0_reg[2]/C
+                         clock pessimism              0.000     4.000    
+                         clock uncertainty           -0.035     3.965    
+                         FDSE (Setup_FDSE_C_D)        0.025     3.990    reg_fullgraph0_reg[2]
+  -------------------------------------------------------------------
+                         required time                          3.990    
+                         arrival time                          -1.443    
+  -------------------------------------------------------------------
+                         slack                                  2.547    
+
+Slack (MET) :             2.568ns  (required time - arrival time)
+  Source:                 reg_fullgraph0_reg[5]/C
+                            (rising edge-triggered cell FDRE clocked by CLK  {rise@0.000ns fall@2.000ns period=4.000ns})
+  Destination:            reg_fullgraph0_reg[1]/D
+                            (rising edge-triggered cell FDRE clocked by CLK  {rise@0.000ns fall@2.000ns period=4.000ns})
+  Path Group:             CLK
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            4.000ns  (CLK rise@4.000ns - CLK rise@0.000ns)
+  Data Path Delay:        1.422ns  (logic 0.379ns (26.653%)  route 1.043ns (73.347%))
+  Logic Levels:           5  (LUT6=5)
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock CLK rise edge)        0.000     0.000 r  
+                                                      0.000     0.000 r  CLK (IN)
+                         net (fo=41, unset)           0.000     0.000    CLK
+                         FDRE                                         r  reg_fullgraph0_reg[5]/C
+  -------------------------------------------------------------------    -------------------
+                         FDRE (Prop_FDRE_C_Q)         0.077     0.077 f  reg_fullgraph0_reg[5]/Q
+                         net (fo=66, unplaced)        0.194     0.271    reg_fullgraph0[5]
+                                                                      f  reg_fullgraph0[6]_i_67/I0
+                         LUT6 (Prop_LUT6_I0_O)        0.150     0.421 f  reg_fullgraph0[6]_i_67/O
+                         net (fo=4, unplaced)         0.210     0.631    reg_fullgraph0[6]_i_67_n_0
+                                                                      f  reg_fullgraph0[1]_i_33/I5
+                         LUT6 (Prop_LUT6_I5_O)        0.038     0.669 r  reg_fullgraph0[1]_i_33/O
+                         net (fo=1, unplaced)         0.197     0.866    reg_fullgraph0[1]_i_33_n_0
+                                                                      r  reg_fullgraph0[1]_i_18/I5
+                         LUT6 (Prop_LUT6_I5_O)        0.038     0.904 r  reg_fullgraph0[1]_i_18/O
+                         net (fo=1, unplaced)         0.197     1.101    reg_fullgraph0[1]_i_18_n_0
+                                                                      r  reg_fullgraph0[1]_i_7/I5
+                         LUT6 (Prop_LUT6_I5_O)        0.038     1.139 r  reg_fullgraph0[1]_i_7/O
+                         net (fo=1, unplaced)         0.197     1.336    reg_fullgraph0[1]_i_7_n_0
+                                                                      r  reg_fullgraph0[1]_i_1/I5
+                         LUT6 (Prop_LUT6_I5_O)        0.038     1.374 r  reg_fullgraph0[1]_i_1/O
+                         net (fo=1, unplaced)         0.048     1.422    reg_fullgraph0[1]_i_1_n_0
+                         FDRE                                         r  reg_fullgraph0_reg[1]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock CLK rise edge)        4.000     4.000 r  
+                                                      0.000     4.000 r  CLK (IN)
+                         net (fo=41, unset)           0.000     4.000    CLK
+                         FDRE                                         r  reg_fullgraph0_reg[1]/C
+                         clock pessimism              0.000     4.000    
+                         clock uncertainty           -0.035     3.965    
+                         FDRE (Setup_FDRE_C_D)        0.025     3.990    reg_fullgraph0_reg[1]
+  -------------------------------------------------------------------
+                         required time                          3.990    
+                         arrival time                          -1.422    
+  -------------------------------------------------------------------
+                         slack                                  2.568    
+
+Slack (MET) :             2.568ns  (required time - arrival time)
+  Source:                 reg_fullgraph0_reg[4]/C
+                            (rising edge-triggered cell FDRE clocked by CLK  {rise@0.000ns fall@2.000ns period=4.000ns})
+  Destination:            reg_fullgraph3_reg[0]/D
+                            (rising edge-triggered cell FDRE clocked by CLK  {rise@0.000ns fall@2.000ns period=4.000ns})
+  Path Group:             CLK
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            4.000ns  (CLK rise@4.000ns - CLK rise@0.000ns)
+  Data Path Delay:        1.422ns  (logic 0.267ns (18.776%)  route 1.155ns (81.224%))
+  Logic Levels:           5  (LUT2=2 LUT6=3)
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock CLK rise edge)        0.000     0.000 r  
+                                                      0.000     0.000 r  CLK (IN)
+                         net (fo=41, unset)           0.000     0.000    CLK
+                         FDRE                                         r  reg_fullgraph0_reg[4]/C
+  -------------------------------------------------------------------    -------------------
+                         FDRE (Prop_FDRE_C_Q)         0.077     0.077 f  reg_fullgraph0_reg[4]/Q
+                         net (fo=68, unplaced)        0.226     0.303    reg_fullgraph0[4]
+                                                                      f  FINAL_INST_0_i_4/I1
+                         LUT2 (Prop_LUT2_I1_O)        0.038     0.341 f  FINAL_INST_0_i_4/O
+                         net (fo=20, unplaced)        0.246     0.587    FINAL_INST_0_i_4_n_0
+                                                                      f  reg_q242_i_2/I5
+                         LUT6 (Prop_LUT6_I5_O)        0.038     0.625 r  reg_q242_i_2/O
+                         net (fo=16, unplaced)        0.241     0.866    reg_q242_i_2_n_0
+                                                                      r  reg_q216_i_1/I1
+                         LUT2 (Prop_LUT2_I1_O)        0.038     0.904 r  reg_q216_i_1/O
+                         net (fo=2, unplaced)         0.197     1.101    reg_q216_in
+                                                                      r  reg_fullgraph3[3]_i_2/I0
+                         LUT6 (Prop_LUT6_I0_O)        0.038     1.139 r  reg_fullgraph3[3]_i_2/O
+                         net (fo=2, unplaced)         0.197     1.336    reg_fullgraph3[3]_i_2_n_0
+                                                                      r  reg_fullgraph3[0]_i_1/I4
+                         LUT6 (Prop_LUT6_I4_O)        0.038     1.374 r  reg_fullgraph3[0]_i_1/O
+                         net (fo=1, unplaced)         0.048     1.422    reg_fullgraph3[0]_i_1_n_0
+                         FDRE                                         r  reg_fullgraph3_reg[0]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock CLK rise edge)        4.000     4.000 r  
+                                                      0.000     4.000 r  CLK (IN)
+                         net (fo=41, unset)           0.000     4.000    CLK
+                         FDRE                                         r  reg_fullgraph3_reg[0]/C
+                         clock pessimism              0.000     4.000    
+                         clock uncertainty           -0.035     3.965    
+                         FDRE (Setup_FDRE_C_D)        0.025     3.990    reg_fullgraph3_reg[0]
+  -------------------------------------------------------------------
+                         required time                          3.990    
+                         arrival time                          -1.422    
+  -------------------------------------------------------------------
+                         slack                                  2.568    
+
+Slack (MET) :             2.568ns  (required time - arrival time)
+  Source:                 reg_fullgraph0_reg[4]/C
+                            (rising edge-triggered cell FDRE clocked by CLK  {rise@0.000ns fall@2.000ns period=4.000ns})
+  Destination:            reg_fullgraph3_reg[3]/D
+                            (rising edge-triggered cell FDRE clocked by CLK  {rise@0.000ns fall@2.000ns period=4.000ns})
+  Path Group:             CLK
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            4.000ns  (CLK rise@4.000ns - CLK rise@0.000ns)
+  Data Path Delay:        1.422ns  (logic 0.267ns (18.776%)  route 1.155ns (81.224%))
+  Logic Levels:           5  (LUT2=2 LUT5=1 LUT6=2)
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock CLK rise edge)        0.000     0.000 r  
+                                                      0.000     0.000 r  CLK (IN)
+                         net (fo=41, unset)           0.000     0.000    CLK
+                         FDRE                                         r  reg_fullgraph0_reg[4]/C
+  -------------------------------------------------------------------    -------------------
+                         FDRE (Prop_FDRE_C_Q)         0.077     0.077 f  reg_fullgraph0_reg[4]/Q
+                         net (fo=68, unplaced)        0.226     0.303    reg_fullgraph0[4]
+                                                                      f  FINAL_INST_0_i_4/I1
+                         LUT2 (Prop_LUT2_I1_O)        0.038     0.341 f  FINAL_INST_0_i_4/O
+                         net (fo=20, unplaced)        0.246     0.587    FINAL_INST_0_i_4_n_0
+                                                                      f  reg_q242_i_2/I5
+                         LUT6 (Prop_LUT6_I5_O)        0.038     0.625 r  reg_q242_i_2/O
+                         net (fo=16, unplaced)        0.241     0.866    reg_q242_i_2_n_0
+                                                                      r  reg_q216_i_1/I1
+                         LUT2 (Prop_LUT2_I1_O)        0.038     0.904 r  reg_q216_i_1/O
+                         net (fo=2, unplaced)         0.197     1.101    reg_q216_in
+                                                                      r  reg_fullgraph3[3]_i_2/I0
+                         LUT6 (Prop_LUT6_I0_O)        0.038     1.139 r  reg_fullgraph3[3]_i_2/O
+                         net (fo=2, unplaced)         0.197     1.336    reg_fullgraph3[3]_i_2_n_0
+                                                                      r  reg_fullgraph3[3]_i_1/I0
+                         LUT5 (Prop_LUT5_I0_O)        0.038     1.374 r  reg_fullgraph3[3]_i_1/O
+                         net (fo=1, unplaced)         0.048     1.422    reg_fullgraph3[3]_i_1_n_0
+                         FDRE                                         r  reg_fullgraph3_reg[3]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock CLK rise edge)        4.000     4.000 r  
+                                                      0.000     4.000 r  CLK (IN)
+                         net (fo=41, unset)           0.000     4.000    CLK
+                         FDRE                                         r  reg_fullgraph3_reg[3]/C
+                         clock pessimism              0.000     4.000    
+                         clock uncertainty           -0.035     3.965    
+                         FDRE (Setup_FDRE_C_D)        0.025     3.990    reg_fullgraph3_reg[3]
+  -------------------------------------------------------------------
+                         required time                          3.990    
+                         arrival time                          -1.422    
+  -------------------------------------------------------------------
+                         slack                                  2.568    
+
+Slack (MET) :             2.576ns  (required time - arrival time)
+  Source:                 reg_fullgraph0_reg[4]/C
+                            (rising edge-triggered cell FDRE clocked by CLK  {rise@0.000ns fall@2.000ns period=4.000ns})
+  Destination:            reg_fullgraph0_reg[0]/D
+                            (rising edge-triggered cell FDRE clocked by CLK  {rise@0.000ns fall@2.000ns period=4.000ns})
+  Path Group:             CLK
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            4.000ns  (CLK rise@4.000ns - CLK rise@0.000ns)
+  Data Path Delay:        1.414ns  (logic 0.454ns (32.107%)  route 0.960ns (67.893%))
+  Logic Levels:           5  (LUT5=2 LUT6=3)
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock CLK rise edge)        0.000     0.000 r  
+                                                      0.000     0.000 r  CLK (IN)
+                         net (fo=41, unset)           0.000     0.000    CLK
+                         FDRE                                         r  reg_fullgraph0_reg[4]/C
+  -------------------------------------------------------------------    -------------------
+                         FDRE (Prop_FDRE_C_Q)         0.077     0.077 f  reg_fullgraph0_reg[4]/Q
+                         net (fo=68, unplaced)        0.185     0.262    reg_fullgraph0[4]
+                                                                      f  reg_fullgraph0[4]_i_27/I0
+                         LUT5 (Prop_LUT5_I0_O)        0.163     0.425 r  reg_fullgraph0[4]_i_27/O
+                         net (fo=1, unplaced)         0.197     0.622    reg_fullgraph0[4]_i_27_n_0
+                                                                      r  reg_fullgraph0[4]_i_13/I2
+                         LUT6 (Prop_LUT6_I2_O)        0.038     0.660 f  reg_fullgraph0[4]_i_13/O
+                         net (fo=6, unplaced)         0.219     0.879    reg_fullgraph0[4]_i_13_n_0
+                                                                      f  reg_fullgraph0[4]_i_3/I0
+                         LUT5 (Prop_LUT5_I0_O)        0.038     0.917 r  reg_fullgraph0[4]_i_3/O
+                         net (fo=2, unplaced)         0.155     1.072    reg_fullgraph0[4]_i_3_n_0
+                                                                      r  reg_fullgraph0[0]_i_4/I2
+                         LUT6 (Prop_LUT6_I2_O)        0.038     1.110 r  reg_fullgraph0[0]_i_4/O
+                         net (fo=1, unplaced)         0.156     1.266    reg_fullgraph0[0]_i_4_n_0
+                                                                      r  reg_fullgraph0[0]_i_1/I2
+                         LUT6 (Prop_LUT6_I2_O)        0.100     1.366 r  reg_fullgraph0[0]_i_1/O
+                         net (fo=1, unplaced)         0.048     1.414    reg_fullgraph0[0]_i_1_n_0
+                         FDRE                                         r  reg_fullgraph0_reg[0]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock CLK rise edge)        4.000     4.000 r  
+                                                      0.000     4.000 r  CLK (IN)
+                         net (fo=41, unset)           0.000     4.000    CLK
+                         FDRE                                         r  reg_fullgraph0_reg[0]/C
+                         clock pessimism              0.000     4.000    
+                         clock uncertainty           -0.035     3.965    
+                         FDRE (Setup_FDRE_C_D)        0.025     3.990    reg_fullgraph0_reg[0]
+  -------------------------------------------------------------------
+                         required time                          3.990    
+                         arrival time                          -1.414    
+  -------------------------------------------------------------------
+                         slack                                  2.576    
+
+Slack (MET) :             2.580ns  (required time - arrival time)
+  Source:                 reg_fullgraph0_reg[0]/C
+                            (rising edge-triggered cell FDRE clocked by CLK  {rise@0.000ns fall@2.000ns period=4.000ns})
+  Destination:            reg_fullgraph0_reg[5]/D
+                            (rising edge-triggered cell FDRE clocked by CLK  {rise@0.000ns fall@2.000ns period=4.000ns})
+  Path Group:             CLK
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            4.000ns  (CLK rise@4.000ns - CLK rise@0.000ns)
+  Data Path Delay:        1.410ns  (logic 0.299ns (21.206%)  route 1.111ns (78.794%))
+  Logic Levels:           5  (LUT2=1 LUT5=1 LUT6=3)
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock CLK rise edge)        0.000     0.000 r  
+                                                      0.000     0.000 r  CLK (IN)
+                         net (fo=41, unset)           0.000     0.000    CLK
+                         FDRE                                         r  reg_fullgraph0_reg[0]/C
+  -------------------------------------------------------------------    -------------------
+                         FDRE (Prop_FDRE_C_Q)         0.077     0.077 r  reg_fullgraph0_reg[0]/Q
+                         net (fo=74, unplaced)        0.228     0.305    reg_fullgraph0[0]
+                                                                      r  reg_q83_i_2/I1
+                         LUT2 (Prop_LUT2_I1_O)        0.070     0.375 f  reg_q83_i_2/O
+                         net (fo=14, unplaced)        0.238     0.613    reg_q83_i_2_n_0
+                                                                      f  reg_fullgraph0[5]_i_40/I2
+                         LUT6 (Prop_LUT6_I2_O)        0.038     0.651 f  reg_fullgraph0[5]_i_40/O
+                         net (fo=3, unplaced)         0.203     0.854    reg_fullgraph0[5]_i_40_n_0
+                                                                      f  reg_fullgraph0[5]_i_20/I5
+                         LUT6 (Prop_LUT6_I5_O)        0.038     0.892 r  reg_fullgraph0[5]_i_20/O
+                         net (fo=1, unplaced)         0.197     1.089    reg_fullgraph0[5]_i_20_n_0
+                                                                      r  reg_fullgraph0[5]_i_4/I3
+                         LUT5 (Prop_LUT5_I3_O)        0.038     1.127 r  reg_fullgraph0[5]_i_4/O
+                         net (fo=1, unplaced)         0.197     1.324    reg_fullgraph0[5]_i_4_n_0
+                                                                      r  reg_fullgraph0[5]_i_1/I2
+                         LUT6 (Prop_LUT6_I2_O)        0.038     1.362 r  reg_fullgraph0[5]_i_1/O
+                         net (fo=1, unplaced)         0.048     1.410    reg_fullgraph0[5]_i_1_n_0
+                         FDRE                                         r  reg_fullgraph0_reg[5]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock CLK rise edge)        4.000     4.000 r  
+                                                      0.000     4.000 r  CLK (IN)
+                         net (fo=41, unset)           0.000     4.000    CLK
+                         FDRE                                         r  reg_fullgraph0_reg[5]/C
+                         clock pessimism              0.000     4.000    
+                         clock uncertainty           -0.035     3.965    
+                         FDRE (Setup_FDRE_C_D)        0.025     3.990    reg_fullgraph0_reg[5]
+  -------------------------------------------------------------------
+                         required time                          3.990    
+                         arrival time                          -1.410    
+  -------------------------------------------------------------------
+                         slack                                  2.580    
+
+Slack (MET) :             2.586ns  (required time - arrival time)
+  Source:                 reg_fullgraph0_reg[0]/C
+                            (rising edge-triggered cell FDRE clocked by CLK  {rise@0.000ns fall@2.000ns period=4.000ns})
+  Destination:            reg_fullgraph0_reg[3]/D
+                            (rising edge-triggered cell FDRE clocked by CLK  {rise@0.000ns fall@2.000ns period=4.000ns})
+  Path Group:             CLK
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            4.000ns  (CLK rise@4.000ns - CLK rise@0.000ns)
+  Data Path Delay:        1.404ns  (logic 0.299ns (21.296%)  route 1.105ns (78.704%))
+  Logic Levels:           5  (LUT2=1 LUT5=1 LUT6=3)
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock CLK rise edge)        0.000     0.000 r  
+                                                      0.000     0.000 r  CLK (IN)
+                         net (fo=41, unset)           0.000     0.000    CLK
+                         FDRE                                         r  reg_fullgraph0_reg[0]/C
+  -------------------------------------------------------------------    -------------------
+                         FDRE (Prop_FDRE_C_Q)         0.077     0.077 r  reg_fullgraph0_reg[0]/Q
+                         net (fo=74, unplaced)        0.228     0.305    reg_fullgraph0[0]
+                                                                      r  reg_q83_i_2/I1
+                         LUT2 (Prop_LUT2_I1_O)        0.070     0.375 f  reg_q83_i_2/O
+                         net (fo=14, unplaced)        0.238     0.613    reg_q83_i_2_n_0
+                                                                      f  reg_fullgraph0[4]_i_30/I5
+                         LUT6 (Prop_LUT6_I5_O)        0.038     0.651 r  reg_fullgraph0[4]_i_30/O
+                         net (fo=2, unplaced)         0.197     0.848    reg_fullgraph0[4]_i_30_n_0
+                                                                      r  reg_fullgraph0[4]_i_15/I5
+                         LUT6 (Prop_LUT6_I5_O)        0.038     0.886 r  reg_fullgraph0[4]_i_15/O
+                         net (fo=2, unplaced)         0.197     1.083    reg_fullgraph0[4]_i_15_n_0
+                                                                      r  reg_fullgraph0[3]_i_7/I4
+                         LUT5 (Prop_LUT5_I4_O)        0.038     1.121 r  reg_fullgraph0[3]_i_7/O
+                         net (fo=1, unplaced)         0.197     1.318    reg_fullgraph0[3]_i_7_n_0
+                                                                      r  reg_fullgraph0[3]_i_1/I5
+                         LUT6 (Prop_LUT6_I5_O)        0.038     1.356 r  reg_fullgraph0[3]_i_1/O
+                         net (fo=1, unplaced)         0.048     1.404    reg_fullgraph0[3]_i_1_n_0
+                         FDRE                                         r  reg_fullgraph0_reg[3]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock CLK rise edge)        4.000     4.000 r  
+                                                      0.000     4.000 r  CLK (IN)
+                         net (fo=41, unset)           0.000     4.000    CLK
+                         FDRE                                         r  reg_fullgraph0_reg[3]/C
+                         clock pessimism              0.000     4.000    
+                         clock uncertainty           -0.035     3.965    
+                         FDRE (Setup_FDRE_C_D)        0.025     3.990    reg_fullgraph0_reg[3]
+  -------------------------------------------------------------------
+                         required time                          3.990    
+                         arrival time                          -1.404    
+  -------------------------------------------------------------------
+                         slack                                  2.586    
+
+Slack (MET) :             2.588ns  (required time - arrival time)
+  Source:                 reg_fullgraph0_reg[3]/C
+                            (rising edge-triggered cell FDRE clocked by CLK  {rise@0.000ns fall@2.000ns period=4.000ns})
+  Destination:            reg_fullgraph0_reg[6]/D
+                            (rising edge-triggered cell FDRE clocked by CLK  {rise@0.000ns fall@2.000ns period=4.000ns})
+  Path Group:             CLK
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            4.000ns  (CLK rise@4.000ns - CLK rise@0.000ns)
+  Data Path Delay:        1.402ns  (logic 0.354ns (25.250%)  route 1.048ns (74.750%))
+  Logic Levels:           5  (LUT5=2 LUT6=3)
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock CLK rise edge)        0.000     0.000 r  
+                                                      0.000     0.000 r  CLK (IN)
+                         net (fo=41, unset)           0.000     0.000    CLK
+                         FDRE                                         r  reg_fullgraph0_reg[3]/C
+  -------------------------------------------------------------------    -------------------
+                         FDRE (Prop_FDRE_C_Q)         0.077     0.077 f  reg_fullgraph0_reg[3]/Q
+                         net (fo=99, unplaced)        0.193     0.270    reg_fullgraph0[3]
+                                                                      f  reg_fullgraph0[1]_i_27/I0
+                         LUT5 (Prop_LUT5_I0_O)        0.125     0.395 f  reg_fullgraph0[1]_i_27/O
+                         net (fo=4, unplaced)         0.210     0.605    reg_fullgraph0[1]_i_27_n_0
+                                                                      f  reg_fullgraph0[6]_i_66/I4
+                         LUT5 (Prop_LUT5_I4_O)        0.038     0.643 r  reg_fullgraph0[6]_i_66/O
+                         net (fo=3, unplaced)         0.203     0.846    reg_fullgraph0[6]_i_66_n_0
+                                                                      r  reg_fullgraph0[6]_i_32/I0
+                         LUT6 (Prop_LUT6_I0_O)        0.038     0.884 r  reg_fullgraph0[6]_i_32/O
+                         net (fo=1, unplaced)         0.197     1.081    reg_fullgraph0[6]_i_32_n_0
+                                                                      r  reg_fullgraph0[6]_i_6/I4
+                         LUT6 (Prop_LUT6_I4_O)        0.038     1.119 r  reg_fullgraph0[6]_i_6/O
+                         net (fo=1, unplaced)         0.197     1.316    reg_fullgraph0[6]_i_6_n_0
+                                                                      r  reg_fullgraph0[6]_i_1/I4
+                         LUT6 (Prop_LUT6_I4_O)        0.038     1.354 r  reg_fullgraph0[6]_i_1/O
+                         net (fo=1, unplaced)         0.048     1.402    reg_fullgraph0[6]_i_1_n_0
+                         FDRE                                         r  reg_fullgraph0_reg[6]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock CLK rise edge)        4.000     4.000 r  
+                                                      0.000     4.000 r  CLK (IN)
+                         net (fo=41, unset)           0.000     4.000    CLK
+                         FDRE                                         r  reg_fullgraph0_reg[6]/C
+                         clock pessimism              0.000     4.000    
+                         clock uncertainty           -0.035     3.965    
+                         FDRE (Setup_FDRE_C_D)        0.025     3.990    reg_fullgraph0_reg[6]
+  -------------------------------------------------------------------
+                         required time                          3.990    
+                         arrival time                          -1.402    
+  -------------------------------------------------------------------
+                         slack                                  2.588    
+
+Slack (MET) :             2.601ns  (required time - arrival time)
+  Source:                 reg_fullgraph23_reg[0]/C
+                            (rising edge-triggered cell FDRE clocked by CLK  {rise@0.000ns fall@2.000ns period=4.000ns})
+  Destination:            reg_fullgraph0_reg[4]/D
+                            (rising edge-triggered cell FDRE clocked by CLK  {rise@0.000ns fall@2.000ns period=4.000ns})
+  Path Group:             CLK
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            4.000ns  (CLK rise@4.000ns - CLK rise@0.000ns)
+  Data Path Delay:        1.389ns  (logic 0.368ns (26.494%)  route 1.021ns (73.506%))
+  Logic Levels:           5  (LUT4=1 LUT6=4)
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock CLK rise edge)        0.000     0.000 r  
+                                                      0.000     0.000 r  CLK (IN)
+                         net (fo=41, unset)           0.000     0.000    CLK
+                         FDRE                                         r  reg_fullgraph23_reg[0]/C
+  -------------------------------------------------------------------    -------------------
+                         FDRE (Prop_FDRE_C_Q)         0.077     0.077 r  reg_fullgraph23_reg[0]/Q
+                         net (fo=34, unplaced)        0.163     0.240    reg_fullgraph23[0]
+                                                                      r  reg_fullgraph0[6]_i_57/I0
+                         LUT4 (Prop_LUT4_I0_O)        0.139     0.379 r  reg_fullgraph0[6]_i_57/O
+                         net (fo=6, unplaced)         0.219     0.598    reg_fullgraph0[6]_i_57_n_0
+                                                                      r  reg_fullgraph0[4]_i_37/I3
+                         LUT6 (Prop_LUT6_I3_O)        0.038     0.636 r  reg_fullgraph0[4]_i_37/O
+                         net (fo=2, unplaced)         0.197     0.833    reg_fullgraph0[4]_i_37_n_0
+                                                                      r  reg_fullgraph0[4]_i_26/I5
+                         LUT6 (Prop_LUT6_I5_O)        0.038     0.871 r  reg_fullgraph0[4]_i_26/O
+                         net (fo=2, unplaced)         0.197     1.068    reg_fullgraph0[4]_i_26_n_0
+                                                                      r  reg_fullgraph0[4]_i_7/I0
+                         LUT6 (Prop_LUT6_I0_O)        0.038     1.106 r  reg_fullgraph0[4]_i_7/O
+                         net (fo=2, unplaced)         0.197     1.303    reg_fullgraph0[4]_i_7_n_0
+                                                                      r  reg_fullgraph0[4]_i_1/I5
+                         LUT6 (Prop_LUT6_I5_O)        0.038     1.341 r  reg_fullgraph0[4]_i_1/O
+                         net (fo=1, unplaced)         0.048     1.389    reg_fullgraph0[4]_i_1_n_0
+                         FDRE                                         r  reg_fullgraph0_reg[4]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock CLK rise edge)        4.000     4.000 r  
+                                                      0.000     4.000 r  CLK (IN)
+                         net (fo=41, unset)           0.000     4.000    CLK
+                         FDRE                                         r  reg_fullgraph0_reg[4]/C
+                         clock pessimism              0.000     4.000    
+                         clock uncertainty           -0.035     3.965    
+                         FDRE (Setup_FDRE_C_D)        0.025     3.990    reg_fullgraph0_reg[4]
+  -------------------------------------------------------------------
+                         required time                          3.990    
+                         arrival time                          -1.389    
+  -------------------------------------------------------------------
+                         slack                                  2.601    
+
+
+
+
+
+Min Delay Paths
+--------------------------------------------------------------------------------------
+Slack (MET) :             0.072ns  (arrival time - required time)
+  Source:                 reg_q240_reg/C
+                            (rising edge-triggered cell FDRE clocked by CLK  {rise@0.000ns fall@2.000ns period=4.000ns})
+  Destination:            reg_q240_reg/D
+                            (rising edge-triggered cell FDRE clocked by CLK  {rise@0.000ns fall@2.000ns period=4.000ns})
+  Path Group:             CLK
+  Path Type:              Hold (Min at Fast Process Corner)
+  Requirement:            0.000ns  (CLK rise@0.000ns - CLK rise@0.000ns)
+  Data Path Delay:        0.118ns  (logic 0.052ns (44.036%)  route 0.066ns (55.964%))
+  Logic Levels:           1  (LUT6=1)
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock CLK rise edge)        0.000     0.000 r  
+                                                      0.000     0.000 r  CLK (IN)
+                         net (fo=41, unset)           0.000     0.000    CLK
+                         FDRE                                         r  reg_q240_reg/C
+  -------------------------------------------------------------------    -------------------
+                         FDRE (Prop_FDRE_C_Q)         0.038     0.038 r  reg_q240_reg/Q
+                         net (fo=2, unplaced)         0.050     0.088    reg_q240
+                                                                      r  reg_q240_i_1/I5
+                         LUT6 (Prop_LUT6_I5_O)        0.014     0.102 r  reg_q240_i_1/O
+                         net (fo=1, unplaced)         0.016     0.118    reg_q240_in
+                         FDRE                                         r  reg_q240_reg/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock CLK rise edge)        0.000     0.000 r  
+                                                      0.000     0.000 r  CLK (IN)
+                         net (fo=41, unset)           0.000     0.000    CLK
+                         FDRE                                         r  reg_q240_reg/C
+                         clock pessimism              0.000     0.000    
+                         FDRE (Hold_FDRE_C_D)         0.046     0.046    reg_q240_reg
+  -------------------------------------------------------------------
+                         required time                         -0.046    
+                         arrival time                           0.118    
+  -------------------------------------------------------------------
+                         slack                                  0.072    
+
+Slack (MET) :             0.073ns  (arrival time - required time)
+  Source:                 reg_q292_reg/C
+                            (rising edge-triggered cell FDRE clocked by CLK  {rise@0.000ns fall@2.000ns period=4.000ns})
+  Destination:            reg_fullgraph24_reg[0]/D
+                            (rising edge-triggered cell FDRE clocked by CLK  {rise@0.000ns fall@2.000ns period=4.000ns})
+  Path Group:             CLK
+  Path Type:              Hold (Min at Fast Process Corner)
+  Requirement:            0.000ns  (CLK rise@0.000ns - CLK rise@0.000ns)
+  Data Path Delay:        0.119ns  (logic 0.052ns (43.851%)  route 0.067ns (56.149%))
+  Logic Levels:           1  (LUT4=1)
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock CLK rise edge)        0.000     0.000 r  
+                                                      0.000     0.000 r  CLK (IN)
+                         net (fo=41, unset)           0.000     0.000    CLK
+                         FDRE                                         r  reg_q292_reg/C
+  -------------------------------------------------------------------    -------------------
+                         FDRE (Prop_FDRE_C_Q)         0.038     0.038 r  reg_q292_reg/Q
+                         net (fo=2, unplaced)         0.051     0.089    reg_q292
+                                                                      r  reg_fullgraph24[0]_i_1/I1
+                         LUT4 (Prop_LUT4_I1_O)        0.014     0.103 r  reg_fullgraph24[0]_i_1/O
+                         net (fo=1, unplaced)         0.016     0.119    reg_fullgraph24[0]_i_1_n_0
+                         FDRE                                         r  reg_fullgraph24_reg[0]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock CLK rise edge)        0.000     0.000 r  
+                                                      0.000     0.000 r  CLK (IN)
+                         net (fo=41, unset)           0.000     0.000    CLK
+                         FDRE                                         r  reg_fullgraph24_reg[0]/C
+                         clock pessimism              0.000     0.000    
+                         FDRE (Hold_FDRE_C_D)         0.046     0.046    reg_fullgraph24_reg[0]
+  -------------------------------------------------------------------
+                         required time                         -0.046    
+                         arrival time                           0.119    
+  -------------------------------------------------------------------
+                         slack                                  0.073    
+
+Slack (MET) :             0.073ns  (arrival time - required time)
+  Source:                 reg_q189_reg/C
+                            (rising edge-triggered cell FDRE clocked by CLK  {rise@0.000ns fall@2.000ns period=4.000ns})
+  Destination:            reg_fullgraph24_reg[1]/D
+                            (rising edge-triggered cell FDRE clocked by CLK  {rise@0.000ns fall@2.000ns period=4.000ns})
+  Path Group:             CLK
+  Path Type:              Hold (Min at Fast Process Corner)
+  Requirement:            0.000ns  (CLK rise@0.000ns - CLK rise@0.000ns)
+  Data Path Delay:        0.119ns  (logic 0.052ns (43.851%)  route 0.067ns (56.149%))
+  Logic Levels:           1  (LUT4=1)
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock CLK rise edge)        0.000     0.000 r  
+                                                      0.000     0.000 r  CLK (IN)
+                         net (fo=41, unset)           0.000     0.000    CLK
+                         FDRE                                         r  reg_q189_reg/C
+  -------------------------------------------------------------------    -------------------
+                         FDRE (Prop_FDRE_C_Q)         0.038     0.038 r  reg_q189_reg/Q
+                         net (fo=2, unplaced)         0.051     0.089    reg_q189
+                                                                      r  reg_fullgraph24[1]_i_1/I0
+                         LUT4 (Prop_LUT4_I0_O)        0.014     0.103 r  reg_fullgraph24[1]_i_1/O
+                         net (fo=1, unplaced)         0.016     0.119    reg_fullgraph24[1]_i_1_n_0
+                         FDRE                                         r  reg_fullgraph24_reg[1]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock CLK rise edge)        0.000     0.000 r  
+                                                      0.000     0.000 r  CLK (IN)
+                         net (fo=41, unset)           0.000     0.000    CLK
+                         FDRE                                         r  reg_fullgraph24_reg[1]/C
+                         clock pessimism              0.000     0.000    
+                         FDRE (Hold_FDRE_C_D)         0.046     0.046    reg_fullgraph24_reg[1]
+  -------------------------------------------------------------------
+                         required time                         -0.046    
+                         arrival time                           0.119    
+  -------------------------------------------------------------------
+                         slack                                  0.073    
+
+Slack (MET) :             0.073ns  (arrival time - required time)
+  Source:                 reg_q75_reg/C
+                            (rising edge-triggered cell FDRE clocked by CLK  {rise@0.000ns fall@2.000ns period=4.000ns})
+  Destination:            reg_q75_reg/D
+                            (rising edge-triggered cell FDRE clocked by CLK  {rise@0.000ns fall@2.000ns period=4.000ns})
+  Path Group:             CLK
+  Path Type:              Hold (Min at Fast Process Corner)
+  Requirement:            0.000ns  (CLK rise@0.000ns - CLK rise@0.000ns)
+  Data Path Delay:        0.119ns  (logic 0.052ns (43.851%)  route 0.067ns (56.149%))
+  Logic Levels:           1  (LUT6=1)
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock CLK rise edge)        0.000     0.000 r  
+                                                      0.000     0.000 r  CLK (IN)
+                         net (fo=41, unset)           0.000     0.000    CLK
+                         FDRE                                         r  reg_q75_reg/C
+  -------------------------------------------------------------------    -------------------
+                         FDRE (Prop_FDRE_C_Q)         0.038     0.038 r  reg_q75_reg/Q
+                         net (fo=2, unplaced)         0.051     0.089    reg_q75
+                                                                      r  reg_q75_i_1/I5
+                         LUT6 (Prop_LUT6_I5_O)        0.014     0.103 r  reg_q75_i_1/O
+                         net (fo=1, unplaced)         0.016     0.119    reg_q75_in
+                         FDRE                                         r  reg_q75_reg/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock CLK rise edge)        0.000     0.000 r  
+                                                      0.000     0.000 r  CLK (IN)
+                         net (fo=41, unset)           0.000     0.000    CLK
+                         FDRE                                         r  reg_q75_reg/C
+                         clock pessimism              0.000     0.000    
+                         FDRE (Hold_FDRE_C_D)         0.046     0.046    reg_q75_reg
+  -------------------------------------------------------------------
+                         required time                         -0.046    
+                         arrival time                           0.119    
+  -------------------------------------------------------------------
+                         slack                                  0.073    
+
+Slack (MET) :             0.076ns  (arrival time - required time)
+  Source:                 reg_q238_reg/C
+                            (rising edge-triggered cell FDRE clocked by CLK  {rise@0.000ns fall@2.000ns period=4.000ns})
+  Destination:            reg_q238_reg/D
+                            (rising edge-triggered cell FDRE clocked by CLK  {rise@0.000ns fall@2.000ns period=4.000ns})
+  Path Group:             CLK
+  Path Type:              Hold (Min at Fast Process Corner)
+  Requirement:            0.000ns  (CLK rise@0.000ns - CLK rise@0.000ns)
+  Data Path Delay:        0.122ns  (logic 0.052ns (42.778%)  route 0.070ns (57.222%))
+  Logic Levels:           1  (LUT5=1)
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock CLK rise edge)        0.000     0.000 r  
+                                                      0.000     0.000 r  CLK (IN)
+                         net (fo=41, unset)           0.000     0.000    CLK
+                         FDRE                                         r  reg_q238_reg/C
+  -------------------------------------------------------------------    -------------------
+                         FDRE (Prop_FDRE_C_Q)         0.038     0.038 r  reg_q238_reg/Q
+                         net (fo=2, unplaced)         0.054     0.092    reg_q238
+                                                                      r  reg_q238_i_1/I0
+                         LUT5 (Prop_LUT5_I0_O)        0.014     0.106 r  reg_q238_i_1/O
+                         net (fo=1, unplaced)         0.016     0.122    reg_q238_in
+                         FDRE                                         r  reg_q238_reg/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock CLK rise edge)        0.000     0.000 r  
+                                                      0.000     0.000 r  CLK (IN)
+                         net (fo=41, unset)           0.000     0.000    CLK
+                         FDRE                                         r  reg_q238_reg/C
+                         clock pessimism              0.000     0.000    
+                         FDRE (Hold_FDRE_C_D)         0.046     0.046    reg_q238_reg
+  -------------------------------------------------------------------
+                         required time                         -0.046    
+                         arrival time                           0.122    
+  -------------------------------------------------------------------
+                         slack                                  0.076    
+
+Slack (MET) :             0.081ns  (arrival time - required time)
+  Source:                 reg_q83_reg/C
+                            (rising edge-triggered cell FDRE clocked by CLK  {rise@0.000ns fall@2.000ns period=4.000ns})
+  Destination:            reg_fullgraph17_reg[1]/D
+                            (rising edge-triggered cell FDRE clocked by CLK  {rise@0.000ns fall@2.000ns period=4.000ns})
+  Path Group:             CLK
+  Path Type:              Hold (Min at Fast Process Corner)
+  Requirement:            0.000ns  (CLK rise@0.000ns - CLK rise@0.000ns)
+  Data Path Delay:        0.127ns  (logic 0.052ns (41.101%)  route 0.075ns (58.899%))
+  Logic Levels:           1  (LUT6=1)
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock CLK rise edge)        0.000     0.000 r  
+                                                      0.000     0.000 r  CLK (IN)
+                         net (fo=41, unset)           0.000     0.000    CLK
+                         FDRE                                         r  reg_q83_reg/C
+  -------------------------------------------------------------------    -------------------
+                         FDRE (Prop_FDRE_C_Q)         0.038     0.038 r  reg_q83_reg/Q
+                         net (fo=2, unplaced)         0.059     0.097    reg_q83
+                                                                      r  reg_fullgraph17[1]_i_1/I1
+                         LUT6 (Prop_LUT6_I1_O)        0.014     0.111 r  reg_fullgraph17[1]_i_1/O
+                         net (fo=1, unplaced)         0.016     0.127    reg_fullgraph17[1]_i_1_n_0
+                         FDRE                                         r  reg_fullgraph17_reg[1]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock CLK rise edge)        0.000     0.000 r  
+                                                      0.000     0.000 r  CLK (IN)
+                         net (fo=41, unset)           0.000     0.000    CLK
+                         FDRE                                         r  reg_fullgraph17_reg[1]/C
+                         clock pessimism              0.000     0.000    
+                         FDRE (Hold_FDRE_C_D)         0.046     0.046    reg_fullgraph17_reg[1]
+  -------------------------------------------------------------------
+                         required time                         -0.046    
+                         arrival time                           0.127    
+  -------------------------------------------------------------------
+                         slack                                  0.081    
+
+Slack (MET) :             0.081ns  (arrival time - required time)
+  Source:                 reg_q137_reg/C
+                            (rising edge-triggered cell FDRE clocked by CLK  {rise@0.000ns fall@2.000ns period=4.000ns})
+  Destination:            reg_fullgraph23_reg[2]/D
+                            (rising edge-triggered cell FDRE clocked by CLK  {rise@0.000ns fall@2.000ns period=4.000ns})
+  Path Group:             CLK
+  Path Type:              Hold (Min at Fast Process Corner)
+  Requirement:            0.000ns  (CLK rise@0.000ns - CLK rise@0.000ns)
+  Data Path Delay:        0.127ns  (logic 0.052ns (41.101%)  route 0.075ns (58.899%))
+  Logic Levels:           1  (LUT6=1)
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock CLK rise edge)        0.000     0.000 r  
+                                                      0.000     0.000 r  CLK (IN)
+                         net (fo=41, unset)           0.000     0.000    CLK
+                         FDRE                                         r  reg_q137_reg/C
+  -------------------------------------------------------------------    -------------------
+                         FDRE (Prop_FDRE_C_Q)         0.038     0.038 r  reg_q137_reg/Q
+                         net (fo=2, unplaced)         0.059     0.097    reg_q137
+                                                                      r  reg_fullgraph23[2]_i_1/I2
+                         LUT6 (Prop_LUT6_I2_O)        0.014     0.111 r  reg_fullgraph23[2]_i_1/O
+                         net (fo=1, unplaced)         0.016     0.127    reg_fullgraph23[2]_i_1_n_0
+                         FDRE                                         r  reg_fullgraph23_reg[2]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock CLK rise edge)        0.000     0.000 r  
+                                                      0.000     0.000 r  CLK (IN)
+                         net (fo=41, unset)           0.000     0.000    CLK
+                         FDRE                                         r  reg_fullgraph23_reg[2]/C
+                         clock pessimism              0.000     0.000    
+                         FDRE (Hold_FDRE_C_D)         0.046     0.046    reg_fullgraph23_reg[2]
+  -------------------------------------------------------------------
+                         required time                         -0.046    
+                         arrival time                           0.127    
+  -------------------------------------------------------------------
+                         slack                                  0.081    
+
+Slack (MET) :             0.081ns  (arrival time - required time)
+  Source:                 reg_q211_reg/C
+                            (rising edge-triggered cell FDRE clocked by CLK  {rise@0.000ns fall@2.000ns period=4.000ns})
+  Destination:            reg_q211_reg/D
+                            (rising edge-triggered cell FDRE clocked by CLK  {rise@0.000ns fall@2.000ns period=4.000ns})
+  Path Group:             CLK
+  Path Type:              Hold (Min at Fast Process Corner)
+  Requirement:            0.000ns  (CLK rise@0.000ns - CLK rise@0.000ns)
+  Data Path Delay:        0.127ns  (logic 0.052ns (41.101%)  route 0.075ns (58.899%))
+  Logic Levels:           1  (LUT6=1)
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock CLK rise edge)        0.000     0.000 r  
+                                                      0.000     0.000 r  CLK (IN)
+                         net (fo=41, unset)           0.000     0.000    CLK
+                         FDRE                                         r  reg_q211_reg/C
+  -------------------------------------------------------------------    -------------------
+                         FDRE (Prop_FDRE_C_Q)         0.038     0.038 r  reg_q211_reg/Q
+                         net (fo=2, unplaced)         0.059     0.097    reg_q211
+                                                                      r  reg_q211_i_1/I0
+                         LUT6 (Prop_LUT6_I0_O)        0.014     0.111 r  reg_q211_i_1/O
+                         net (fo=1, unplaced)         0.016     0.127    reg_q211_in
+                         FDRE                                         r  reg_q211_reg/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock CLK rise edge)        0.000     0.000 r  
+                                                      0.000     0.000 r  CLK (IN)
+                         net (fo=41, unset)           0.000     0.000    CLK
+                         FDRE                                         r  reg_q211_reg/C
+                         clock pessimism              0.000     0.000    
+                         FDRE (Hold_FDRE_C_D)         0.046     0.046    reg_q211_reg
+  -------------------------------------------------------------------
+                         required time                         -0.046    
+                         arrival time                           0.127    
+  -------------------------------------------------------------------
+                         slack                                  0.081    
+
+Slack (MET) :             0.081ns  (arrival time - required time)
+  Source:                 reg_q286_reg/C
+                            (rising edge-triggered cell FDRE clocked by CLK  {rise@0.000ns fall@2.000ns period=4.000ns})
+  Destination:            reg_q286_reg/D
+                            (rising edge-triggered cell FDRE clocked by CLK  {rise@0.000ns fall@2.000ns period=4.000ns})
+  Path Group:             CLK
+  Path Type:              Hold (Min at Fast Process Corner)
+  Requirement:            0.000ns  (CLK rise@0.000ns - CLK rise@0.000ns)
+  Data Path Delay:        0.127ns  (logic 0.052ns (41.101%)  route 0.075ns (58.899%))
+  Logic Levels:           1  (LUT6=1)
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock CLK rise edge)        0.000     0.000 r  
+                                                      0.000     0.000 r  CLK (IN)
+                         net (fo=41, unset)           0.000     0.000    CLK
+                         FDRE                                         r  reg_q286_reg/C
+  -------------------------------------------------------------------    -------------------
+                         FDRE (Prop_FDRE_C_Q)         0.038     0.038 r  reg_q286_reg/Q
+                         net (fo=2, unplaced)         0.059     0.097    reg_q286
+                                                                      r  reg_q286_i_1/I0
+                         LUT6 (Prop_LUT6_I0_O)        0.014     0.111 r  reg_q286_i_1/O
+                         net (fo=1, unplaced)         0.016     0.127    reg_q286_in
+                         FDRE                                         r  reg_q286_reg/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock CLK rise edge)        0.000     0.000 r  
+                                                      0.000     0.000 r  CLK (IN)
+                         net (fo=41, unset)           0.000     0.000    CLK
+                         FDRE                                         r  reg_q286_reg/C
+                         clock pessimism              0.000     0.000    
+                         FDRE (Hold_FDRE_C_D)         0.046     0.046    reg_q286_reg
+  -------------------------------------------------------------------
+                         required time                         -0.046    
+                         arrival time                           0.127    
+  -------------------------------------------------------------------
+                         slack                                  0.081    
+
+Slack (MET) :             0.081ns  (arrival time - required time)
+  Source:                 reg_q28_reg/C
+                            (rising edge-triggered cell FDRE clocked by CLK  {rise@0.000ns fall@2.000ns period=4.000ns})
+  Destination:            reg_q28_reg/D
+                            (rising edge-triggered cell FDRE clocked by CLK  {rise@0.000ns fall@2.000ns period=4.000ns})
+  Path Group:             CLK
+  Path Type:              Hold (Min at Fast Process Corner)
+  Requirement:            0.000ns  (CLK rise@0.000ns - CLK rise@0.000ns)
+  Data Path Delay:        0.127ns  (logic 0.052ns (41.101%)  route 0.075ns (58.899%))
+  Logic Levels:           1  (LUT6=1)
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock CLK rise edge)        0.000     0.000 r  
+                                                      0.000     0.000 r  CLK (IN)
+                         net (fo=41, unset)           0.000     0.000    CLK
+                         FDRE                                         r  reg_q28_reg/C
+  -------------------------------------------------------------------    -------------------
+                         FDRE (Prop_FDRE_C_Q)         0.038     0.038 r  reg_q28_reg/Q
+                         net (fo=2, unplaced)         0.059     0.097    reg_q28
+                                                                      r  reg_q28_i_1/I0
+                         LUT6 (Prop_LUT6_I0_O)        0.014     0.111 r  reg_q28_i_1/O
+                         net (fo=1, unplaced)         0.016     0.127    reg_q28_in
+                         FDRE                                         r  reg_q28_reg/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock CLK rise edge)        0.000     0.000 r  
+                                                      0.000     0.000 r  CLK (IN)
+                         net (fo=41, unset)           0.000     0.000    CLK
+                         FDRE                                         r  reg_q28_reg/C
+                         clock pessimism              0.000     0.000    
+                         FDRE (Hold_FDRE_C_D)         0.046     0.046    reg_q28_reg
+  -------------------------------------------------------------------
+                         required time                         -0.046    
+                         arrival time                           0.127    
+  -------------------------------------------------------------------
+                         slack                                  0.081    
+
+
+
+
+
+Pulse Width Checks
+--------------------------------------------------------------------------------------
+Clock Name:         CLK
+Waveform(ns):       { 0.000 2.000 }
+Period(ns):         4.000
+Sources:            { CLK }
+
+Check Type        Corner  Lib Pin  Reference Pin  Required(ns)  Actual(ns)  Slack(ns)  Location  Pin
+Min Period        n/a     FDRE/C   n/a            0.550         4.000       3.450                reg_fullgraph0_reg[0]/C
+Min Period        n/a     FDRE/C   n/a            0.550         4.000       3.450                reg_fullgraph0_reg[1]/C
+Min Period        n/a     FDSE/C   n/a            0.550         4.000       3.450                reg_fullgraph0_reg[2]/C
+Min Period        n/a     FDRE/C   n/a            0.550         4.000       3.450                reg_fullgraph0_reg[3]/C
+Min Period        n/a     FDRE/C   n/a            0.550         4.000       3.450                reg_fullgraph0_reg[4]/C
+Min Period        n/a     FDRE/C   n/a            0.550         4.000       3.450                reg_fullgraph0_reg[5]/C
+Min Period        n/a     FDRE/C   n/a            0.550         4.000       3.450                reg_fullgraph0_reg[6]/C
+Min Period        n/a     FDRE/C   n/a            0.550         4.000       3.450                reg_fullgraph1_reg[0]/C
+Min Period        n/a     FDRE/C   n/a            0.550         4.000       3.450                reg_fullgraph1_reg[1]/C
+Min Period        n/a     FDRE/C   n/a            0.550         4.000       3.450                reg_fullgraph23_reg[0]/C
+Low Pulse Width   Slow    FDRE/C   n/a            0.275         2.000       1.725                reg_fullgraph0_reg[0]/C
+Low Pulse Width   Fast    FDRE/C   n/a            0.275         2.000       1.725                reg_fullgraph0_reg[0]/C
+Low Pulse Width   Slow    FDRE/C   n/a            0.275         2.000       1.725                reg_fullgraph0_reg[1]/C
+Low Pulse Width   Fast    FDRE/C   n/a            0.275         2.000       1.725                reg_fullgraph0_reg[1]/C
+Low Pulse Width   Slow    FDSE/C   n/a            0.275         2.000       1.725                reg_fullgraph0_reg[2]/C
+Low Pulse Width   Fast    FDSE/C   n/a            0.275         2.000       1.725                reg_fullgraph0_reg[2]/C
+Low Pulse Width   Slow    FDRE/C   n/a            0.275         2.000       1.725                reg_fullgraph0_reg[3]/C
+Low Pulse Width   Fast    FDRE/C   n/a            0.275         2.000       1.725                reg_fullgraph0_reg[3]/C
+Low Pulse Width   Slow    FDRE/C   n/a            0.275         2.000       1.725                reg_fullgraph0_reg[4]/C
+Low Pulse Width   Fast    FDRE/C   n/a            0.275         2.000       1.725                reg_fullgraph0_reg[4]/C
+High Pulse Width  Slow    FDRE/C   n/a            0.275         2.000       1.725                reg_fullgraph0_reg[0]/C
+High Pulse Width  Fast    FDRE/C   n/a            0.275         2.000       1.725                reg_fullgraph0_reg[0]/C
+High Pulse Width  Slow    FDRE/C   n/a            0.275         2.000       1.725                reg_fullgraph0_reg[1]/C
+High Pulse Width  Fast    FDRE/C   n/a            0.275         2.000       1.725                reg_fullgraph0_reg[1]/C
+High Pulse Width  Slow    FDSE/C   n/a            0.275         2.000       1.725                reg_fullgraph0_reg[2]/C
+High Pulse Width  Fast    FDSE/C   n/a            0.275         2.000       1.725                reg_fullgraph0_reg[2]/C
+High Pulse Width  Slow    FDRE/C   n/a            0.275         2.000       1.725                reg_fullgraph0_reg[3]/C
+High Pulse Width  Fast    FDRE/C   n/a            0.275         2.000       1.725                reg_fullgraph0_reg[3]/C
+High Pulse Width  Slow    FDRE/C   n/a            0.275         2.000       1.725                reg_fullgraph0_reg[4]/C
+High Pulse Width  Fast    FDRE/C   n/a            0.275         2.000       1.725                reg_fullgraph0_reg[4]/C
+
+
+
+--------------------------------------------------------------------------------------
+Path Group:  (none)
+From Clock:  CLK
+  To Clock:  
+
+Max Delay             1 Endpoint
+Min Delay             1 Endpoint
+--------------------------------------------------------------------------------------
+
+
+Max Delay Paths
+--------------------------------------------------------------------------------------
+Slack:                    inf
+  Source:                 reg_fullgraph0_reg[3]/C
+                            (rising edge-triggered cell FDRE clocked by CLK  {rise@0.000ns fall@2.000ns period=4.000ns})
+  Destination:            FINAL
+                            (output port)
+  Path Group:             (none)
+  Path Type:              Max at Slow Process Corner
+  Data Path Delay:        0.812ns  (logic 0.243ns (29.926%)  route 0.569ns (70.074%))
+  Logic Levels:           3  (LUT3=1 LUT6=2)
+  Clock Uncertainty:      0.025ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.050ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock CLK rise edge)        0.000     0.000 r  
+                                                      0.000     0.000 r  CLK (IN)
+                         net (fo=41, unset)           0.000     0.000    CLK
+                         FDRE                                         r  reg_fullgraph0_reg[3]/C
+  -------------------------------------------------------------------    -------------------
+                         FDRE (Prop_FDRE_C_Q)         0.077     0.077 f  reg_fullgraph0_reg[3]/Q
+                         net (fo=99, unplaced)        0.186     0.263    reg_fullgraph0[3]
+                                                                      f  FINAL_INST_0_i_6/I0
+                         LUT3 (Prop_LUT3_I0_O)        0.090     0.353 f  FINAL_INST_0_i_6/O
+                         net (fo=9, unplaced)         0.186     0.539    FINAL_INST_0_i_6_n_0
+                                                                      f  FINAL_INST_0_i_3/I0
+                         LUT6 (Prop_LUT6_I0_O)        0.038     0.577 r  FINAL_INST_0_i_3/O
+                         net (fo=1, unplaced)         0.197     0.774    FINAL_INST_0_i_3_n_0
+                                                                      r  FINAL_INST_0/I2
+                         LUT6 (Prop_LUT6_I2_O)        0.038     0.812 r  FINAL_INST_0/O
+                         net (fo=0)                   0.000     0.812    FINAL
+                                                                      r  FINAL (OUT)
+  -------------------------------------------------------------------    -------------------
+
+
+
+
+
+Min Delay Paths
+--------------------------------------------------------------------------------------
+Slack:                    inf
+  Source:                 reg_fullgraph0_reg[2]/C
+                            (rising edge-triggered cell FDSE clocked by CLK  {rise@0.000ns fall@2.000ns period=4.000ns})
+  Destination:            FINAL
+                            (output port)
+  Path Group:             (none)
+  Path Type:              Min at Fast Process Corner
+  Data Path Delay:        0.151ns  (logic 0.052ns (34.509%)  route 0.099ns (65.491%))
+  Logic Levels:           1  (LUT6=1)
+  Clock Uncertainty:      0.025ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.050ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock CLK rise edge)        0.000     0.000 r  
+                                                      0.000     0.000 r  CLK (IN)
+                         net (fo=41, unset)           0.000     0.000    CLK
+                         FDSE                                         r  reg_fullgraph0_reg[2]/C
+  -------------------------------------------------------------------    -------------------
+                         FDSE (Prop_FDSE_C_Q)         0.038     0.038 f  reg_fullgraph0_reg[2]/Q
+                         net (fo=82, unplaced)        0.099     0.137    reg_fullgraph0[2]
+                                                                      f  FINAL_INST_0/I4
+                         LUT6 (Prop_LUT6_I4_O)        0.014     0.151 r  FINAL_INST_0/O
+                         net (fo=0)                   0.000     0.151    FINAL
+                                                                      r  FINAL (OUT)
+  -------------------------------------------------------------------    -------------------
+
+
+
+
+
+--------------------------------------------------------------------------------------
+Path Group:  (none)
+From Clock:  
+  To Clock:  CLK
+
+Max Delay           109 Endpoints
+Min Delay           109 Endpoints
+--------------------------------------------------------------------------------------
+
+
+Max Delay Paths
+--------------------------------------------------------------------------------------
+Slack:                    inf
+  Source:                 INPUT[0]
+                            (input port)
+  Destination:            reg_fullgraph0_reg[2]/D
+                            (rising edge-triggered cell FDSE clocked by CLK  {rise@0.000ns fall@2.000ns period=4.000ns})
+  Path Group:             (none)
+  Path Type:              Setup (Max at Slow Process Corner)
+  Data Path Delay:        1.220ns  (logic 0.552ns (45.246%)  route 0.668ns (54.754%))
+  Logic Levels:           5  (LUT4=1 LUT6=4)
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                                                      0.000     0.000 r  INPUT[0] (IN)
+                         net (fo=72, unset)           0.000     0.000    INPUT[0]
+                                                                      r  reg_q296_i_2/I0
+                         LUT4 (Prop_LUT4_I0_O)        0.139     0.139 f  reg_q296_i_2/O
+                         net (fo=8, unplaced)         0.148     0.287    reg_q296_i_2_n_0
+                                                                      f  reg_fullgraph0[5]_i_24/I0
+                         LUT6 (Prop_LUT6_I0_O)        0.150     0.437 r  reg_fullgraph0[5]_i_24/O
+                         net (fo=3, unplaced)         0.162     0.599    reg_fullgraph0[5]_i_24_n_0
+                                                                      r  reg_fullgraph0[3]_i_25/I2
+                         LUT6 (Prop_LUT6_I2_O)        0.100     0.699 r  reg_fullgraph0[3]_i_25/O
+                         net (fo=2, unplaced)         0.197     0.896    reg_fullgraph0[3]_i_25_n_0
+                                                                      r  reg_fullgraph0[2]_i_3/I5
+                         LUT6 (Prop_LUT6_I5_O)        0.038     0.934 r  reg_fullgraph0[2]_i_3/O
+                         net (fo=1, unplaced)         0.113     1.047    reg_fullgraph0[2]_i_3_n_0
+                                                                      r  reg_fullgraph0[2]_i_1/I1
+                         LUT6 (Prop_LUT6_I1_O)        0.125     1.172 r  reg_fullgraph0[2]_i_1/O
+                         net (fo=1, unplaced)         0.048     1.220    reg_fullgraph0[2]_i_1_n_0
+                         FDSE                                         r  reg_fullgraph0_reg[2]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock CLK rise edge)        0.000     0.000 r  
+                                                      0.000     0.000 r  CLK (IN)
+                         net (fo=41, unset)           0.000     0.000    CLK
+                         FDSE                                         r  reg_fullgraph0_reg[2]/C
+
+Slack:                    inf
+  Source:                 INPUT[0]
+                            (input port)
+  Destination:            reg_fullgraph0_reg[3]/D
+                            (rising edge-triggered cell FDRE clocked by CLK  {rise@0.000ns fall@2.000ns period=4.000ns})
+  Path Group:             (none)
+  Path Type:              Setup (Max at Slow Process Corner)
+  Data Path Delay:        1.172ns  (logic 0.465ns (39.676%)  route 0.707ns (60.324%))
+  Logic Levels:           5  (LUT4=1 LUT5=1 LUT6=3)
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                                                      0.000     0.000 r  INPUT[0] (IN)
+                         net (fo=72, unset)           0.000     0.000    INPUT[0]
+                                                                      r  reg_q296_i_2/I0
+                         LUT4 (Prop_LUT4_I0_O)        0.139     0.139 f  reg_q296_i_2/O
+                         net (fo=8, unplaced)         0.148     0.287    reg_q296_i_2_n_0
+                                                                      f  reg_fullgraph0[5]_i_24/I0
+                         LUT6 (Prop_LUT6_I0_O)        0.150     0.437 r  reg_fullgraph0[5]_i_24/O
+                         net (fo=3, unplaced)         0.162     0.599    reg_fullgraph0[5]_i_24_n_0
+                                                                      r  reg_fullgraph0[3]_i_25/I2
+                         LUT6 (Prop_LUT6_I2_O)        0.100     0.699 r  reg_fullgraph0[3]_i_25/O
+                         net (fo=2, unplaced)         0.152     0.851    reg_fullgraph0[3]_i_25_n_0
+                                                                      r  reg_fullgraph0[3]_i_7/I3
+                         LUT5 (Prop_LUT5_I3_O)        0.038     0.889 r  reg_fullgraph0[3]_i_7/O
+                         net (fo=1, unplaced)         0.197     1.086    reg_fullgraph0[3]_i_7_n_0
+                                                                      r  reg_fullgraph0[3]_i_1/I5
+                         LUT6 (Prop_LUT6_I5_O)        0.038     1.124 r  reg_fullgraph0[3]_i_1/O
+                         net (fo=1, unplaced)         0.048     1.172    reg_fullgraph0[3]_i_1_n_0
+                         FDRE                                         r  reg_fullgraph0_reg[3]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock CLK rise edge)        0.000     0.000 r  
+                                                      0.000     0.000 r  CLK (IN)
+                         net (fo=41, unset)           0.000     0.000    CLK
+                         FDRE                                         r  reg_fullgraph0_reg[3]/C
+
+Slack:                    inf
+  Source:                 INPUT[3]
+                            (input port)
+  Destination:            reg_fullgraph0_reg[6]/D
+                            (rising edge-triggered cell FDRE clocked by CLK  {rise@0.000ns fall@2.000ns period=4.000ns})
+  Path Group:             (none)
+  Path Type:              Setup (Max at Slow Process Corner)
+  Data Path Delay:        1.156ns  (logic 0.294ns (25.433%)  route 0.862ns (74.567%))
+  Logic Levels:           5  (LUT3=1 LUT5=1 LUT6=3)
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                                                      0.000     0.000 f  INPUT[3] (IN)
+                         net (fo=57, unset)           0.000     0.000    INPUT[3]
+                                                                      f  reg_fullgraph24[0]_i_3/I0
+                         LUT3 (Prop_LUT3_I0_O)        0.090     0.090 f  reg_fullgraph24[0]_i_3/O
+                         net (fo=35, unplaced)        0.217     0.307    reg_fullgraph24[0]_i_3_n_0
+                                                                      f  reg_fullgraph0[6]_i_66/I2
+                         LUT5 (Prop_LUT5_I2_O)        0.090     0.397 r  reg_fullgraph0[6]_i_66/O
+                         net (fo=3, unplaced)         0.203     0.600    reg_fullgraph0[6]_i_66_n_0
+                                                                      r  reg_fullgraph0[6]_i_32/I0
+                         LUT6 (Prop_LUT6_I0_O)        0.038     0.638 r  reg_fullgraph0[6]_i_32/O
+                         net (fo=1, unplaced)         0.197     0.835    reg_fullgraph0[6]_i_32_n_0
+                                                                      r  reg_fullgraph0[6]_i_6/I4
+                         LUT6 (Prop_LUT6_I4_O)        0.038     0.873 r  reg_fullgraph0[6]_i_6/O
+                         net (fo=1, unplaced)         0.197     1.070    reg_fullgraph0[6]_i_6_n_0
+                                                                      r  reg_fullgraph0[6]_i_1/I4
+                         LUT6 (Prop_LUT6_I4_O)        0.038     1.108 r  reg_fullgraph0[6]_i_1/O
+                         net (fo=1, unplaced)         0.048     1.156    reg_fullgraph0[6]_i_1_n_0
+                         FDRE                                         r  reg_fullgraph0_reg[6]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock CLK rise edge)        0.000     0.000 r  
+                                                      0.000     0.000 r  CLK (IN)
+                         net (fo=41, unset)           0.000     0.000    CLK
+                         FDRE                                         r  reg_fullgraph0_reg[6]/C
+
+Slack:                    inf
+  Source:                 INPUT[6]
+                            (input port)
+  Destination:            reg_fullgraph0_reg[0]/D
+                            (rising edge-triggered cell FDRE clocked by CLK  {rise@0.000ns fall@2.000ns period=4.000ns})
+  Path Group:             (none)
+  Path Type:              Setup (Max at Slow Process Corner)
+  Data Path Delay:        1.154ns  (logic 0.389ns (33.709%)  route 0.765ns (66.291%))
+  Logic Levels:           5  (LUT6=5)
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                                                      0.000     0.000 r  INPUT[6] (IN)
+                         net (fo=49, unset)           0.000     0.000    INPUT[6]
+                                                                      r  reg_fullgraph0[3]_i_70/I0
+                         LUT6 (Prop_LUT6_I0_O)        0.150     0.150 r  reg_fullgraph0[3]_i_70/O
+                         net (fo=1, unplaced)         0.197     0.347    reg_fullgraph0[3]_i_70_n_0
+                                                                      r  reg_fullgraph0[3]_i_39/I5
+                         LUT6 (Prop_LUT6_I5_O)        0.038     0.385 r  reg_fullgraph0[3]_i_39/O
+                         net (fo=1, unplaced)         0.197     0.582    reg_fullgraph0[3]_i_39_n_0
+                                                                      r  reg_fullgraph0[3]_i_12/I0
+                         LUT6 (Prop_LUT6_I0_O)        0.038     0.620 r  reg_fullgraph0[3]_i_12/O
+                         net (fo=4, unplaced)         0.210     0.830    reg_fullgraph0[3]_i_12_n_0
+                                                                      r  reg_fullgraph0[0]_i_3/I4
+                         LUT6 (Prop_LUT6_I4_O)        0.038     0.868 r  reg_fullgraph0[0]_i_3/O
+                         net (fo=1, unplaced)         0.113     0.981    reg_fullgraph0[0]_i_3_n_0
+                                                                      r  reg_fullgraph0[0]_i_1/I1
+                         LUT6 (Prop_LUT6_I1_O)        0.125     1.106 r  reg_fullgraph0[0]_i_1/O
+                         net (fo=1, unplaced)         0.048     1.154    reg_fullgraph0[0]_i_1_n_0
+                         FDRE                                         r  reg_fullgraph0_reg[0]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock CLK rise edge)        0.000     0.000 r  
+                                                      0.000     0.000 r  CLK (IN)
+                         net (fo=41, unset)           0.000     0.000    CLK
+                         FDRE                                         r  reg_fullgraph0_reg[0]/C
+
+Slack:                    inf
+  Source:                 INPUT[0]
+                            (input port)
+  Destination:            reg_fullgraph0_reg[1]/D
+                            (rising edge-triggered cell FDRE clocked by CLK  {rise@0.000ns fall@2.000ns period=4.000ns})
+  Path Group:             (none)
+  Path Type:              Setup (Max at Slow Process Corner)
+  Data Path Delay:        1.145ns  (logic 0.403ns (35.196%)  route 0.742ns (64.803%))
+  Logic Levels:           5  (LUT4=1 LUT6=4)
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                                                      0.000     0.000 r  INPUT[0] (IN)
+                         net (fo=72, unset)           0.000     0.000    INPUT[0]
+                                                                      r  reg_q296_i_2/I0
+                         LUT4 (Prop_LUT4_I0_O)        0.139     0.139 f  reg_q296_i_2/O
+                         net (fo=8, unplaced)         0.148     0.287    reg_q296_i_2_n_0
+                                                                      f  reg_fullgraph0[5]_i_21/I0
+                         LUT6 (Prop_LUT6_I0_O)        0.150     0.437 r  reg_fullgraph0[5]_i_21/O
+                         net (fo=2, unplaced)         0.197     0.634    reg_fullgraph0[5]_i_21_n_0
+                                                                      r  reg_fullgraph0[4]_i_25/I5
+                         LUT6 (Prop_LUT6_I5_O)        0.038     0.672 r  reg_fullgraph0[4]_i_25/O
+                         net (fo=2, unplaced)         0.197     0.869    reg_fullgraph0[4]_i_25_n_0
+                                                                      r  reg_fullgraph0[1]_i_6/I5
+                         LUT6 (Prop_LUT6_I5_O)        0.038     0.907 r  reg_fullgraph0[1]_i_6/O
+                         net (fo=1, unplaced)         0.152     1.059    reg_fullgraph0[1]_i_6_n_0
+                                                                      r  reg_fullgraph0[1]_i_1/I4
+                         LUT6 (Prop_LUT6_I4_O)        0.038     1.097 r  reg_fullgraph0[1]_i_1/O
+                         net (fo=1, unplaced)         0.048     1.145    reg_fullgraph0[1]_i_1_n_0
+                         FDRE                                         r  reg_fullgraph0_reg[1]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock CLK rise edge)        0.000     0.000 r  
+                                                      0.000     0.000 r  CLK (IN)
+                         net (fo=41, unset)           0.000     0.000    CLK
+                         FDRE                                         r  reg_fullgraph0_reg[1]/C
+
+Slack:                    inf
+  Source:                 INPUT[0]
+                            (input port)
+  Destination:            reg_fullgraph0_reg[4]/D
+                            (rising edge-triggered cell FDRE clocked by CLK  {rise@0.000ns fall@2.000ns period=4.000ns})
+  Path Group:             (none)
+  Path Type:              Setup (Max at Slow Process Corner)
+  Data Path Delay:        1.145ns  (logic 0.403ns (35.196%)  route 0.742ns (64.803%))
+  Logic Levels:           5  (LUT4=1 LUT6=4)
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                                                      0.000     0.000 r  INPUT[0] (IN)
+                         net (fo=72, unset)           0.000     0.000    INPUT[0]
+                                                                      r  reg_q296_i_2/I0
+                         LUT4 (Prop_LUT4_I0_O)        0.139     0.139 f  reg_q296_i_2/O
+                         net (fo=8, unplaced)         0.148     0.287    reg_q296_i_2_n_0
+                                                                      f  reg_fullgraph0[5]_i_21/I0
+                         LUT6 (Prop_LUT6_I0_O)        0.150     0.437 r  reg_fullgraph0[5]_i_21/O
+                         net (fo=2, unplaced)         0.197     0.634    reg_fullgraph0[5]_i_21_n_0
+                                                                      r  reg_fullgraph0[4]_i_25/I5
+                         LUT6 (Prop_LUT6_I5_O)        0.038     0.672 r  reg_fullgraph0[4]_i_25/O
+                         net (fo=2, unplaced)         0.197     0.869    reg_fullgraph0[4]_i_25_n_0
+                                                                      r  reg_fullgraph0[4]_i_6/I5
+                         LUT6 (Prop_LUT6_I5_O)        0.038     0.907 r  reg_fullgraph0[4]_i_6/O
+                         net (fo=1, unplaced)         0.152     1.059    reg_fullgraph0[4]_i_6_n_0
+                                                                      r  reg_fullgraph0[4]_i_1/I4
+                         LUT6 (Prop_LUT6_I4_O)        0.038     1.097 r  reg_fullgraph0[4]_i_1/O
+                         net (fo=1, unplaced)         0.048     1.145    reg_fullgraph0[4]_i_1_n_0
+                         FDRE                                         r  reg_fullgraph0_reg[4]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock CLK rise edge)        0.000     0.000 r  
+                                                      0.000     0.000 r  CLK (IN)
+                         net (fo=41, unset)           0.000     0.000    CLK
+                         FDRE                                         r  reg_fullgraph0_reg[4]/C
+
+Slack:                    inf
+  Source:                 INPUT[0]
+                            (input port)
+  Destination:            reg_fullgraph0_reg[5]/D
+                            (rising edge-triggered cell FDRE clocked by CLK  {rise@0.000ns fall@2.000ns period=4.000ns})
+  Path Group:             (none)
+  Path Type:              Setup (Max at Slow Process Corner)
+  Data Path Delay:        1.106ns  (logic 0.403ns (36.438%)  route 0.703ns (63.562%))
+  Logic Levels:           5  (LUT4=1 LUT5=1 LUT6=3)
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                                                      0.000     0.000 r  INPUT[0] (IN)
+                         net (fo=72, unset)           0.000     0.000    INPUT[0]
+                                                                      r  reg_q296_i_2/I0
+                         LUT4 (Prop_LUT4_I0_O)        0.139     0.139 f  reg_q296_i_2/O
+                         net (fo=8, unplaced)         0.148     0.287    reg_q296_i_2_n_0
+                                                                      f  reg_fullgraph0[5]_i_38/I0
+                         LUT6 (Prop_LUT6_I0_O)        0.150     0.437 f  reg_fullgraph0[5]_i_38/O
+                         net (fo=3, unplaced)         0.158     0.595    reg_fullgraph0[5]_i_38_n_0
+                                                                      f  reg_fullgraph0[5]_i_17/I2
+                         LUT6 (Prop_LUT6_I2_O)        0.038     0.633 r  reg_fullgraph0[5]_i_17/O
+                         net (fo=1, unplaced)         0.152     0.785    reg_fullgraph0[5]_i_17_n_0
+                                                                      r  reg_fullgraph0[5]_i_4/I0
+                         LUT5 (Prop_LUT5_I0_O)        0.038     0.823 r  reg_fullgraph0[5]_i_4/O
+                         net (fo=1, unplaced)         0.197     1.020    reg_fullgraph0[5]_i_4_n_0
+                                                                      r  reg_fullgraph0[5]_i_1/I2
+                         LUT6 (Prop_LUT6_I2_O)        0.038     1.058 r  reg_fullgraph0[5]_i_1/O
+                         net (fo=1, unplaced)         0.048     1.106    reg_fullgraph0[5]_i_1_n_0
+                         FDRE                                         r  reg_fullgraph0_reg[5]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock CLK rise edge)        0.000     0.000 r  
+                                                      0.000     0.000 r  CLK (IN)
+                         net (fo=41, unset)           0.000     0.000    CLK
+                         FDRE                                         r  reg_fullgraph0_reg[5]/C
+
+Slack:                    inf
+  Source:                 INPUT[4]
+                            (input port)
+  Destination:            reg_fullgraph23_reg[0]/D
+                            (rising edge-triggered cell FDRE clocked by CLK  {rise@0.000ns fall@2.000ns period=4.000ns})
+  Path Group:             (none)
+  Path Type:              Setup (Max at Slow Process Corner)
+  Data Path Delay:        1.098ns  (logic 0.282ns (25.683%)  route 0.816ns (74.317%))
+  Logic Levels:           5  (LUT2=1 LUT3=1 LUT6=3)
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                                                      0.000     0.000 f  INPUT[4] (IN)
+                         net (fo=64, unset)           0.000     0.000    INPUT[4]
+                                                                      f  reg_fullgraph17[1]_i_6/I0
+                         LUT2 (Prop_LUT2_I0_O)        0.053     0.053 f  reg_fullgraph17[1]_i_6/O
+                         net (fo=19, unplaced)        0.200     0.253    reg_fullgraph17[1]_i_6_n_0
+                                                                      f  reg_fullgraph0[5]_i_25/I4
+                         LUT6 (Prop_LUT6_I4_O)        0.053     0.306 f  reg_fullgraph0[5]_i_25/O
+                         net (fo=6, unplaced)         0.174     0.480    reg_fullgraph0[5]_i_25_n_0
+                                                                      f  reg_fullgraph23[0]_i_5/I2
+                         LUT3 (Prop_LUT3_I2_O)        0.100     0.580 r  reg_fullgraph23[0]_i_5/O
+                         net (fo=1, unplaced)         0.197     0.777    reg_fullgraph23[0]_i_5_n_0
+                                                                      r  reg_fullgraph23[0]_i_2/I5
+                         LUT6 (Prop_LUT6_I5_O)        0.038     0.815 r  reg_fullgraph23[0]_i_2/O
+                         net (fo=1, unplaced)         0.197     1.012    reg_fullgraph23[0]_i_2_n_0
+                                                                      r  reg_fullgraph23[0]_i_1/I0
+                         LUT6 (Prop_LUT6_I0_O)        0.038     1.050 r  reg_fullgraph23[0]_i_1/O
+                         net (fo=1, unplaced)         0.048     1.098    reg_fullgraph23[0]_i_1_n_0
+                         FDRE                                         r  reg_fullgraph23_reg[0]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock CLK rise edge)        0.000     0.000 r  
+                                                      0.000     0.000 r  CLK (IN)
+                         net (fo=41, unset)           0.000     0.000    CLK
+                         FDRE                                         r  reg_fullgraph23_reg[0]/C
+
+Slack:                    inf
+  Source:                 INPUT[2]
+                            (input port)
+  Destination:            reg_fullgraph3_reg[0]/D
+                            (rising edge-triggered cell FDRE clocked by CLK  {rise@0.000ns fall@2.000ns period=4.000ns})
+  Path Group:             (none)
+  Path Type:              Setup (Max at Slow Process Corner)
+  Data Path Delay:        1.092ns  (logic 0.414ns (37.912%)  route 0.678ns (62.088%))
+  Logic Levels:           5  (LUT2=1 LUT6=4)
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                                                      0.000     0.000 r  INPUT[2] (IN)
+                         net (fo=61, unset)           0.000     0.000    INPUT[2]
+                                                                      r  reg_fullgraph3[2]_i_4/I0
+                         LUT6 (Prop_LUT6_I0_O)        0.150     0.150 r  reg_fullgraph3[2]_i_4/O
+                         net (fo=1, unplaced)         0.120     0.270    reg_fullgraph3[2]_i_4_n_0
+                                                                      r  reg_fullgraph3[2]_i_2/I0
+                         LUT6 (Prop_LUT6_I0_O)        0.150     0.420 r  reg_fullgraph3[2]_i_2/O
+                         net (fo=3, unplaced)         0.158     0.578    reg_fullgraph3[2]_i_2_n_0
+                                                                      r  reg_fullgraph3[1]_i_2/I0
+                         LUT6 (Prop_LUT6_I0_O)        0.038     0.616 r  reg_fullgraph3[1]_i_2/O
+                         net (fo=2, unplaced)         0.197     0.813    reg_fullgraph3[1]_i_2_n_0
+                                                                      r  reg_fullgraph3[3]_i_3/I0
+                         LUT2 (Prop_LUT2_I0_O)        0.038     0.851 r  reg_fullgraph3[3]_i_3/O
+                         net (fo=2, unplaced)         0.155     1.006    reg_fullgraph3[3]_i_3_n_0
+                                                                      r  reg_fullgraph3[0]_i_1/I2
+                         LUT6 (Prop_LUT6_I2_O)        0.038     1.044 r  reg_fullgraph3[0]_i_1/O
+                         net (fo=1, unplaced)         0.048     1.092    reg_fullgraph3[0]_i_1_n_0
+                         FDRE                                         r  reg_fullgraph3_reg[0]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock CLK rise edge)        0.000     0.000 r  
+                                                      0.000     0.000 r  CLK (IN)
+                         net (fo=41, unset)           0.000     0.000    CLK
+                         FDRE                                         r  reg_fullgraph3_reg[0]/C
+
+Slack:                    inf
+  Source:                 INPUT[2]
+                            (input port)
+  Destination:            reg_fullgraph3_reg[3]/D
+                            (rising edge-triggered cell FDRE clocked by CLK  {rise@0.000ns fall@2.000ns period=4.000ns})
+  Path Group:             (none)
+  Path Type:              Setup (Max at Slow Process Corner)
+  Data Path Delay:        1.089ns  (logic 0.414ns (38.017%)  route 0.675ns (61.983%))
+  Logic Levels:           5  (LUT2=1 LUT5=1 LUT6=3)
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                                                      0.000     0.000 r  INPUT[2] (IN)
+                         net (fo=61, unset)           0.000     0.000    INPUT[2]
+                                                                      r  reg_fullgraph3[2]_i_4/I0
+                         LUT6 (Prop_LUT6_I0_O)        0.150     0.150 r  reg_fullgraph3[2]_i_4/O
+                         net (fo=1, unplaced)         0.120     0.270    reg_fullgraph3[2]_i_4_n_0
+                                                                      r  reg_fullgraph3[2]_i_2/I0
+                         LUT6 (Prop_LUT6_I0_O)        0.150     0.420 r  reg_fullgraph3[2]_i_2/O
+                         net (fo=3, unplaced)         0.158     0.578    reg_fullgraph3[2]_i_2_n_0
+                                                                      r  reg_fullgraph3[1]_i_2/I0
+                         LUT6 (Prop_LUT6_I0_O)        0.038     0.616 r  reg_fullgraph3[1]_i_2/O
+                         net (fo=2, unplaced)         0.197     0.813    reg_fullgraph3[1]_i_2_n_0
+                                                                      r  reg_fullgraph3[3]_i_3/I0
+                         LUT2 (Prop_LUT2_I0_O)        0.038     0.851 r  reg_fullgraph3[3]_i_3/O
+                         net (fo=2, unplaced)         0.152     1.003    reg_fullgraph3[3]_i_3_n_0
+                                                                      r  reg_fullgraph3[3]_i_1/I2
+                         LUT5 (Prop_LUT5_I2_O)        0.038     1.041 r  reg_fullgraph3[3]_i_1/O
+                         net (fo=1, unplaced)         0.048     1.089    reg_fullgraph3[3]_i_1_n_0
+                         FDRE                                         r  reg_fullgraph3_reg[3]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock CLK rise edge)        0.000     0.000 r  
+                                                      0.000     0.000 r  CLK (IN)
+                         net (fo=41, unset)           0.000     0.000    CLK
+                         FDRE                                         r  reg_fullgraph3_reg[3]/C
+
+
+
+
+
+Min Delay Paths
+--------------------------------------------------------------------------------------
+Slack:                    inf
+  Source:                 INPUT_EN
+                            (input port)
+  Destination:            reg_fullgraph0_reg[0]/CE
+                            (rising edge-triggered cell FDRE clocked by CLK  {rise@0.000ns fall@2.000ns period=4.000ns})
+  Path Group:             (none)
+  Path Type:              Hold (Min at Slow Process Corner)
+  Data Path Delay:        0.000ns  (logic 0.000ns (0.000%)  route 0.000ns (0.000%))
+  Logic Levels:           0  
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                                                      0.000     0.000 r  INPUT_EN (IN)
+                         net (fo=42, unset)           0.000     0.000    INPUT_EN
+                         FDRE                                         r  reg_fullgraph0_reg[0]/CE
+  -------------------------------------------------------------------    -------------------
+
+                         (clock CLK rise edge)        0.000     0.000 r  
+                                                      0.000     0.000 r  CLK (IN)
+                         net (fo=41, unset)           0.000     0.000    CLK
+                         FDRE                                         r  reg_fullgraph0_reg[0]/C
+
+Slack:                    inf
+  Source:                 INPUT_EN
+                            (input port)
+  Destination:            reg_fullgraph0_reg[1]/CE
+                            (rising edge-triggered cell FDRE clocked by CLK  {rise@0.000ns fall@2.000ns period=4.000ns})
+  Path Group:             (none)
+  Path Type:              Hold (Min at Slow Process Corner)
+  Data Path Delay:        0.000ns  (logic 0.000ns (0.000%)  route 0.000ns (0.000%))
+  Logic Levels:           0  
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                                                      0.000     0.000 r  INPUT_EN (IN)
+                         net (fo=42, unset)           0.000     0.000    INPUT_EN
+                         FDRE                                         r  reg_fullgraph0_reg[1]/CE
+  -------------------------------------------------------------------    -------------------
+
+                         (clock CLK rise edge)        0.000     0.000 r  
+                                                      0.000     0.000 r  CLK (IN)
+                         net (fo=41, unset)           0.000     0.000    CLK
+                         FDRE                                         r  reg_fullgraph0_reg[1]/C
+
+Slack:                    inf
+  Source:                 INPUT_EN
+                            (input port)
+  Destination:            reg_fullgraph0_reg[2]/CE
+                            (rising edge-triggered cell FDSE clocked by CLK  {rise@0.000ns fall@2.000ns period=4.000ns})
+  Path Group:             (none)
+  Path Type:              Hold (Min at Slow Process Corner)
+  Data Path Delay:        0.000ns  (logic 0.000ns (0.000%)  route 0.000ns (0.000%))
+  Logic Levels:           0  
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                                                      0.000     0.000 r  INPUT_EN (IN)
+                         net (fo=42, unset)           0.000     0.000    INPUT_EN
+                         FDSE                                         r  reg_fullgraph0_reg[2]/CE
+  -------------------------------------------------------------------    -------------------
+
+                         (clock CLK rise edge)        0.000     0.000 r  
+                                                      0.000     0.000 r  CLK (IN)
+                         net (fo=41, unset)           0.000     0.000    CLK
+                         FDSE                                         r  reg_fullgraph0_reg[2]/C
+
+Slack:                    inf
+  Source:                 INPUT_EN
+                            (input port)
+  Destination:            reg_fullgraph0_reg[3]/CE
+                            (rising edge-triggered cell FDRE clocked by CLK  {rise@0.000ns fall@2.000ns period=4.000ns})
+  Path Group:             (none)
+  Path Type:              Hold (Min at Slow Process Corner)
+  Data Path Delay:        0.000ns  (logic 0.000ns (0.000%)  route 0.000ns (0.000%))
+  Logic Levels:           0  
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                                                      0.000     0.000 r  INPUT_EN (IN)
+                         net (fo=42, unset)           0.000     0.000    INPUT_EN
+                         FDRE                                         r  reg_fullgraph0_reg[3]/CE
+  -------------------------------------------------------------------    -------------------
+
+                         (clock CLK rise edge)        0.000     0.000 r  
+                                                      0.000     0.000 r  CLK (IN)
+                         net (fo=41, unset)           0.000     0.000    CLK
+                         FDRE                                         r  reg_fullgraph0_reg[3]/C
+
+Slack:                    inf
+  Source:                 INPUT_EN
+                            (input port)
+  Destination:            reg_fullgraph0_reg[4]/CE
+                            (rising edge-triggered cell FDRE clocked by CLK  {rise@0.000ns fall@2.000ns period=4.000ns})
+  Path Group:             (none)
+  Path Type:              Hold (Min at Slow Process Corner)
+  Data Path Delay:        0.000ns  (logic 0.000ns (0.000%)  route 0.000ns (0.000%))
+  Logic Levels:           0  
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                                                      0.000     0.000 r  INPUT_EN (IN)
+                         net (fo=42, unset)           0.000     0.000    INPUT_EN
+                         FDRE                                         r  reg_fullgraph0_reg[4]/CE
+  -------------------------------------------------------------------    -------------------
+
+                         (clock CLK rise edge)        0.000     0.000 r  
+                                                      0.000     0.000 r  CLK (IN)
+                         net (fo=41, unset)           0.000     0.000    CLK
+                         FDRE                                         r  reg_fullgraph0_reg[4]/C
+
+Slack:                    inf
+  Source:                 INPUT_EN
+                            (input port)
+  Destination:            reg_fullgraph0_reg[5]/CE
+                            (rising edge-triggered cell FDRE clocked by CLK  {rise@0.000ns fall@2.000ns period=4.000ns})
+  Path Group:             (none)
+  Path Type:              Hold (Min at Slow Process Corner)
+  Data Path Delay:        0.000ns  (logic 0.000ns (0.000%)  route 0.000ns (0.000%))
+  Logic Levels:           0  
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                                                      0.000     0.000 r  INPUT_EN (IN)
+                         net (fo=42, unset)           0.000     0.000    INPUT_EN
+                         FDRE                                         r  reg_fullgraph0_reg[5]/CE
+  -------------------------------------------------------------------    -------------------
+
+                         (clock CLK rise edge)        0.000     0.000 r  
+                                                      0.000     0.000 r  CLK (IN)
+                         net (fo=41, unset)           0.000     0.000    CLK
+                         FDRE                                         r  reg_fullgraph0_reg[5]/C
+
+Slack:                    inf
+  Source:                 INPUT_EN
+                            (input port)
+  Destination:            reg_fullgraph0_reg[6]/CE
+                            (rising edge-triggered cell FDRE clocked by CLK  {rise@0.000ns fall@2.000ns period=4.000ns})
+  Path Group:             (none)
+  Path Type:              Hold (Min at Slow Process Corner)
+  Data Path Delay:        0.000ns  (logic 0.000ns (0.000%)  route 0.000ns (0.000%))
+  Logic Levels:           0  
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                                                      0.000     0.000 r  INPUT_EN (IN)
+                         net (fo=42, unset)           0.000     0.000    INPUT_EN
+                         FDRE                                         r  reg_fullgraph0_reg[6]/CE
+  -------------------------------------------------------------------    -------------------
+
+                         (clock CLK rise edge)        0.000     0.000 r  
+                                                      0.000     0.000 r  CLK (IN)
+                         net (fo=41, unset)           0.000     0.000    CLK
+                         FDRE                                         r  reg_fullgraph0_reg[6]/C
+
+Slack:                    inf
+  Source:                 INPUT_EN
+                            (input port)
+  Destination:            reg_fullgraph17_reg[0]/CE
+                            (rising edge-triggered cell FDRE clocked by CLK  {rise@0.000ns fall@2.000ns period=4.000ns})
+  Path Group:             (none)
+  Path Type:              Hold (Min at Slow Process Corner)
+  Data Path Delay:        0.000ns  (logic 0.000ns (0.000%)  route 0.000ns (0.000%))
+  Logic Levels:           0  
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                                                      0.000     0.000 r  INPUT_EN (IN)
+                         net (fo=42, unset)           0.000     0.000    INPUT_EN
+                         FDRE                                         r  reg_fullgraph17_reg[0]/CE
+  -------------------------------------------------------------------    -------------------
+
+                         (clock CLK rise edge)        0.000     0.000 r  
+                                                      0.000     0.000 r  CLK (IN)
+                         net (fo=41, unset)           0.000     0.000    CLK
+                         FDRE                                         r  reg_fullgraph17_reg[0]/C
+
+Slack:                    inf
+  Source:                 INPUT_EN
+                            (input port)
+  Destination:            reg_fullgraph17_reg[1]/CE
+                            (rising edge-triggered cell FDRE clocked by CLK  {rise@0.000ns fall@2.000ns period=4.000ns})
+  Path Group:             (none)
+  Path Type:              Hold (Min at Slow Process Corner)
+  Data Path Delay:        0.000ns  (logic 0.000ns (0.000%)  route 0.000ns (0.000%))
+  Logic Levels:           0  
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                                                      0.000     0.000 r  INPUT_EN (IN)
+                         net (fo=42, unset)           0.000     0.000    INPUT_EN
+                         FDRE                                         r  reg_fullgraph17_reg[1]/CE
+  -------------------------------------------------------------------    -------------------
+
+                         (clock CLK rise edge)        0.000     0.000 r  
+                                                      0.000     0.000 r  CLK (IN)
+                         net (fo=41, unset)           0.000     0.000    CLK
+                         FDRE                                         r  reg_fullgraph17_reg[1]/C
+
+Slack:                    inf
+  Source:                 INPUT_EN
+                            (input port)
+  Destination:            reg_fullgraph17_reg[2]/CE
+                            (rising edge-triggered cell FDRE clocked by CLK  {rise@0.000ns fall@2.000ns period=4.000ns})
+  Path Group:             (none)
+  Path Type:              Hold (Min at Slow Process Corner)
+  Data Path Delay:        0.000ns  (logic 0.000ns (0.000%)  route 0.000ns (0.000%))
+  Logic Levels:           0  
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                                                      0.000     0.000 r  INPUT_EN (IN)
+                         net (fo=42, unset)           0.000     0.000    INPUT_EN
+                         FDRE                                         r  reg_fullgraph17_reg[2]/CE
+  -------------------------------------------------------------------    -------------------
+
+                         (clock CLK rise edge)        0.000     0.000 r  
+                                                      0.000     0.000 r  CLK (IN)
+                         net (fo=41, unset)           0.000     0.000    CLK
+                         FDRE                                         r  reg_fullgraph17_reg[2]/C
+
+
+
+
+

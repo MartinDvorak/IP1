@@ -1,0 +1,1704 @@
+Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version      : Vivado v.2017.4 (lin64) Build 2086221 Fri Dec 15 20:54:30 MST 2017
+| Date              : Tue Jan 23 21:44:54 2018
+| Host              : preklad9.liberouter.org running 64-bit CentOS Linux release 7.3.1611 (Core)
+| Command           : report_timing_summary -delay_type min_max -report_unconstrained -check_timing_verbose -max_paths 10 -input_pins -name timing_1 -file pattern_match_synth.tim
+| Design            : pattern_match
+| Device            : xcvu7p-flvb2104
+| Speed File        : -2  PRODUCTION 1.17 11-09-2017
+| Temperature Grade : I
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Timing Summary Report
+
+------------------------------------------------------------------------------------------------
+| Timer Settings
+| --------------
+------------------------------------------------------------------------------------------------
+
+  Enable Multi Corner Analysis               :  Yes
+  Enable Pessimism Removal                   :  Yes
+  Pessimism Removal Resolution               :  Nearest Common Node
+  Enable Input Delay Default Clock           :  No
+  Enable Preset / Clear Arcs                 :  No
+  Disable Flight Delays                      :  No
+  Ignore I/O Paths                           :  No
+  Timing Early Launch at Borrowing Latches   :  false
+
+  Corner  Analyze    Analyze    
+  Name    Max Paths  Min Paths  
+  ------  ---------  ---------  
+  Slow    Yes        Yes        
+  Fast    Yes        Yes        
+
+
+
+check_timing report
+
+Table of Contents
+-----------------
+1. checking no_clock
+2. checking constant_clock
+3. checking pulse_width_clock
+4. checking unconstrained_internal_endpoints
+5. checking no_input_delay
+6. checking no_output_delay
+7. checking multiple_clock
+8. checking generated_clocks
+9. checking loops
+10. checking partial_input_delay
+11. checking partial_output_delay
+12. checking latch_loops
+
+1. checking no_clock
+--------------------
+ There are 0 register/latch pins with no clock.
+
+
+2. checking constant_clock
+--------------------------
+ There are 0 register/latch pins with constant_clock.
+
+
+3. checking pulse_width_clock
+-----------------------------
+ There are 0 register/latch pins which need pulse_width check
+
+
+4. checking unconstrained_internal_endpoints
+--------------------------------------------
+ There are 0 pins that are not constrained for maximum delay.
+
+ There are 0 pins that are not constrained for maximum delay due to constant clock.
+
+
+5. checking no_input_delay
+--------------------------
+ There are 12 input ports with no input delay specified. (HIGH)
+
+INIT
+INPUT[0]
+INPUT[1]
+INPUT[2]
+INPUT[3]
+INPUT[4]
+INPUT[5]
+INPUT[6]
+INPUT[7]
+INPUT_EN
+INPUT_EOF
+RESET
+
+ There are 0 input ports with no input delay but user has a false path constraint.
+
+
+6. checking no_output_delay
+---------------------------
+ There is 1 port with no output delay specified. (HIGH)
+
+FINAL
+
+ There are 0 ports with no output delay but user has a false path constraint
+
+ There are 0 ports with no output delay but with a timing clock defined on it or propagating through it
+
+
+7. checking multiple_clock
+--------------------------
+ There are 0 register/latch pins with multiple clocks.
+
+
+8. checking generated_clocks
+----------------------------
+ There are 0 generated clocks that are not connected to a clock source.
+
+
+9. checking loops
+-----------------
+ There are 0 combinational loops in the design.
+
+
+10. checking partial_input_delay
+--------------------------------
+ There are 0 input ports with partial input delay specified.
+
+
+11. checking partial_output_delay
+---------------------------------
+ There are 0 ports with partial output delay specified.
+
+
+12. checking latch_loops
+------------------------
+ There are 0 combinational latch loops in the design through latch input
+
+
+
+------------------------------------------------------------------------------------------------
+| Design Timing Summary
+| ---------------------
+------------------------------------------------------------------------------------------------
+
+    WNS(ns)      TNS(ns)  TNS Failing Endpoints  TNS Total Endpoints      WHS(ns)      THS(ns)  THS Failing Endpoints  THS Total Endpoints     WPWS(ns)     TPWS(ns)  TPWS Failing Endpoints  TPWS Total Endpoints  
+    -------      -------  ---------------------  -------------------      -------      -------  ---------------------  -------------------     --------     --------  ----------------------  --------------------  
+      3.591        0.000                      0                  223        0.081        0.000                      0                  223        1.725        0.000                       0                   224  
+
+
+All user specified timing constraints are met.
+
+
+------------------------------------------------------------------------------------------------
+| Clock Summary
+| -------------
+------------------------------------------------------------------------------------------------
+
+Clock  Waveform(ns)         Period(ns)      Frequency(MHz)
+-----  ------------         ----------      --------------
+CLK    {0.000 2.000}        4.000           250.000         
+
+
+------------------------------------------------------------------------------------------------
+| Intra Clock Table
+| -----------------
+------------------------------------------------------------------------------------------------
+
+Clock             WNS(ns)      TNS(ns)  TNS Failing Endpoints  TNS Total Endpoints      WHS(ns)      THS(ns)  THS Failing Endpoints  THS Total Endpoints     WPWS(ns)     TPWS(ns)  TPWS Failing Endpoints  TPWS Total Endpoints  
+-----             -------      -------  ---------------------  -------------------      -------      -------  ---------------------  -------------------     --------     --------  ----------------------  --------------------  
+CLK                 3.591        0.000                      0                  223        0.081        0.000                      0                  223        1.725        0.000                       0                   224  
+
+
+------------------------------------------------------------------------------------------------
+| Inter Clock Table
+| -----------------
+------------------------------------------------------------------------------------------------
+
+From Clock    To Clock          WNS(ns)      TNS(ns)  TNS Failing Endpoints  TNS Total Endpoints      WHS(ns)      THS(ns)  THS Failing Endpoints  THS Total Endpoints  
+----------    --------          -------      -------  ---------------------  -------------------      -------      -------  ---------------------  -------------------  
+
+
+------------------------------------------------------------------------------------------------
+| Other Path Groups Table
+| -----------------------
+------------------------------------------------------------------------------------------------
+
+Path Group    From Clock    To Clock          WNS(ns)      TNS(ns)  TNS Failing Endpoints  TNS Total Endpoints      WHS(ns)      THS(ns)  THS Failing Endpoints  THS Total Endpoints  
+----------    ----------    --------          -------      -------  ---------------------  -------------------      -------      -------  ---------------------  -------------------  
+
+
+------------------------------------------------------------------------------------------------
+| User Ignored Path Table
+| -----------------------
+------------------------------------------------------------------------------------------------
+
+Path Group    From Clock    To Clock    
+----------    ----------    --------    
+
+
+------------------------------------------------------------------------------------------------
+| Unconstrained Path Table
+| ------------------------
+------------------------------------------------------------------------------------------------
+
+Path Group    From Clock    To Clock    
+----------    ----------    --------    
+(none)        CLK                         
+(none)                      CLK           
+
+
+------------------------------------------------------------------------------------------------
+| Timing Details
+| --------------
+------------------------------------------------------------------------------------------------
+
+
+---------------------------------------------------------------------------------------------------
+From Clock:  CLK
+  To Clock:  CLK
+
+Setup :            0  Failing Endpoints,  Worst Slack        3.591ns,  Total Violation        0.000ns
+Hold  :            0  Failing Endpoints,  Worst Slack        0.081ns,  Total Violation        0.000ns
+PW    :            0  Failing Endpoints,  Worst Slack        1.725ns,  Total Violation        0.000ns
+---------------------------------------------------------------------------------------------------
+
+
+Max Delay Paths
+--------------------------------------------------------------------------------------
+Slack (MET) :             3.591ns  (required time - arrival time)
+  Source:                 reg_q99_reg/C
+                            (rising edge-triggered cell FDRE clocked by CLK  {rise@0.000ns fall@2.000ns period=4.000ns})
+  Destination:            reg_q104_reg/D
+                            (rising edge-triggered cell FDRE clocked by CLK  {rise@0.000ns fall@2.000ns period=4.000ns})
+  Path Group:             CLK
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            4.000ns  (CLK rise@4.000ns - CLK rise@0.000ns)
+  Data Path Delay:        0.399ns  (logic 0.227ns (56.892%)  route 0.172ns (43.108%))
+  Logic Levels:           1  (LUT6=1)
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock CLK rise edge)        0.000     0.000 r  
+                                                      0.000     0.000 r  CLK (IN)
+                         net (fo=223, unset)          0.000     0.000    CLK
+                         FDRE                                         r  reg_q99_reg/C
+  -------------------------------------------------------------------    -------------------
+                         FDRE (Prop_FDRE_C_Q)         0.077     0.077 r  reg_q99_reg/Q
+                         net (fo=3, unplaced)         0.124     0.201    reg_q99
+                                                                      r  reg_q104_i_1/I0
+                         LUT6 (Prop_LUT6_I0_O)        0.150     0.351 r  reg_q104_i_1/O
+                         net (fo=1, unplaced)         0.048     0.399    reg_q104_in
+                         FDRE                                         r  reg_q104_reg/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock CLK rise edge)        4.000     4.000 r  
+                                                      0.000     4.000 r  CLK (IN)
+                         net (fo=223, unset)          0.000     4.000    CLK
+                         FDRE                                         r  reg_q104_reg/C
+                         clock pessimism              0.000     4.000    
+                         clock uncertainty           -0.035     3.965    
+                         FDRE (Setup_FDRE_C_D)        0.025     3.990    reg_q104_reg
+  -------------------------------------------------------------------
+                         required time                          3.990    
+                         arrival time                          -0.399    
+  -------------------------------------------------------------------
+                         slack                                  3.591    
+
+Slack (MET) :             3.591ns  (required time - arrival time)
+  Source:                 reg_q137_reg/C
+                            (rising edge-triggered cell FDRE clocked by CLK  {rise@0.000ns fall@2.000ns period=4.000ns})
+  Destination:            reg_q127_reg/D
+                            (rising edge-triggered cell FDRE clocked by CLK  {rise@0.000ns fall@2.000ns period=4.000ns})
+  Path Group:             CLK
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            4.000ns  (CLK rise@4.000ns - CLK rise@0.000ns)
+  Data Path Delay:        0.399ns  (logic 0.227ns (56.892%)  route 0.172ns (43.108%))
+  Logic Levels:           1  (LUT6=1)
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock CLK rise edge)        0.000     0.000 r  
+                                                      0.000     0.000 r  CLK (IN)
+                         net (fo=223, unset)          0.000     0.000    CLK
+                         FDRE                                         r  reg_q137_reg/C
+  -------------------------------------------------------------------    -------------------
+                         FDRE (Prop_FDRE_C_Q)         0.077     0.077 r  reg_q137_reg/Q
+                         net (fo=3, unplaced)         0.124     0.201    reg_q137
+                                                                      r  reg_q127_i_1/I0
+                         LUT6 (Prop_LUT6_I0_O)        0.150     0.351 r  reg_q127_i_1/O
+                         net (fo=1, unplaced)         0.048     0.399    reg_q127_in
+                         FDRE                                         r  reg_q127_reg/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock CLK rise edge)        4.000     4.000 r  
+                                                      0.000     4.000 r  CLK (IN)
+                         net (fo=223, unset)          0.000     4.000    CLK
+                         FDRE                                         r  reg_q127_reg/C
+                         clock pessimism              0.000     4.000    
+                         clock uncertainty           -0.035     3.965    
+                         FDRE (Setup_FDRE_C_D)        0.025     3.990    reg_q127_reg
+  -------------------------------------------------------------------
+                         required time                          3.990    
+                         arrival time                          -0.399    
+  -------------------------------------------------------------------
+                         slack                                  3.591    
+
+Slack (MET) :             3.594ns  (required time - arrival time)
+  Source:                 reg_q9_reg/C
+                            (rising edge-triggered cell FDRE clocked by CLK  {rise@0.000ns fall@2.000ns period=4.000ns})
+  Destination:            reg_q13_reg/D
+                            (rising edge-triggered cell FDRE clocked by CLK  {rise@0.000ns fall@2.000ns period=4.000ns})
+  Path Group:             CLK
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            4.000ns  (CLK rise@4.000ns - CLK rise@0.000ns)
+  Data Path Delay:        0.396ns  (logic 0.202ns (51.010%)  route 0.194ns (48.990%))
+  Logic Levels:           1  (LUT6=1)
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock CLK rise edge)        0.000     0.000 r  
+                                                      0.000     0.000 r  CLK (IN)
+                         net (fo=223, unset)          0.000     0.000    CLK
+                         FDRE                                         r  reg_q9_reg/C
+  -------------------------------------------------------------------    -------------------
+                         FDRE (Prop_FDRE_C_Q)         0.077     0.077 r  reg_q9_reg/Q
+                         net (fo=12, unplaced)        0.146     0.223    reg_q494
+                                                                      r  reg_q13_i_1/I1
+                         LUT6 (Prop_LUT6_I1_O)        0.125     0.348 r  reg_q13_i_1/O
+                         net (fo=1, unplaced)         0.048     0.396    reg_q13_in
+                         FDRE                                         r  reg_q13_reg/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock CLK rise edge)        4.000     4.000 r  
+                                                      0.000     4.000 r  CLK (IN)
+                         net (fo=223, unset)          0.000     4.000    CLK
+                         FDRE                                         r  reg_q13_reg/C
+                         clock pessimism              0.000     4.000    
+                         clock uncertainty           -0.035     3.965    
+                         FDRE (Setup_FDRE_C_D)        0.025     3.990    reg_q13_reg
+  -------------------------------------------------------------------
+                         required time                          3.990    
+                         arrival time                          -0.396    
+  -------------------------------------------------------------------
+                         slack                                  3.594    
+
+Slack (MET) :             3.594ns  (required time - arrival time)
+  Source:                 reg_q9_reg/C
+                            (rising edge-triggered cell FDRE clocked by CLK  {rise@0.000ns fall@2.000ns period=4.000ns})
+  Destination:            reg_q152_reg/D
+                            (rising edge-triggered cell FDRE clocked by CLK  {rise@0.000ns fall@2.000ns period=4.000ns})
+  Path Group:             CLK
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            4.000ns  (CLK rise@4.000ns - CLK rise@0.000ns)
+  Data Path Delay:        0.396ns  (logic 0.202ns (51.010%)  route 0.194ns (48.990%))
+  Logic Levels:           1  (LUT6=1)
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock CLK rise edge)        0.000     0.000 r  
+                                                      0.000     0.000 r  CLK (IN)
+                         net (fo=223, unset)          0.000     0.000    CLK
+                         FDRE                                         r  reg_q9_reg/C
+  -------------------------------------------------------------------    -------------------
+                         FDRE (Prop_FDRE_C_Q)         0.077     0.077 r  reg_q9_reg/Q
+                         net (fo=12, unplaced)        0.146     0.223    reg_q494
+                                                                      r  reg_q152_i_1/I1
+                         LUT6 (Prop_LUT6_I1_O)        0.125     0.348 r  reg_q152_i_1/O
+                         net (fo=1, unplaced)         0.048     0.396    reg_q152_in
+                         FDRE                                         r  reg_q152_reg/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock CLK rise edge)        4.000     4.000 r  
+                                                      0.000     4.000 r  CLK (IN)
+                         net (fo=223, unset)          0.000     4.000    CLK
+                         FDRE                                         r  reg_q152_reg/C
+                         clock pessimism              0.000     4.000    
+                         clock uncertainty           -0.035     3.965    
+                         FDRE (Setup_FDRE_C_D)        0.025     3.990    reg_q152_reg
+  -------------------------------------------------------------------
+                         required time                          3.990    
+                         arrival time                          -0.396    
+  -------------------------------------------------------------------
+                         slack                                  3.594    
+
+Slack (MET) :             3.594ns  (required time - arrival time)
+  Source:                 reg_q9_reg/C
+                            (rising edge-triggered cell FDRE clocked by CLK  {rise@0.000ns fall@2.000ns period=4.000ns})
+  Destination:            reg_q216_reg/D
+                            (rising edge-triggered cell FDRE clocked by CLK  {rise@0.000ns fall@2.000ns period=4.000ns})
+  Path Group:             CLK
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            4.000ns  (CLK rise@4.000ns - CLK rise@0.000ns)
+  Data Path Delay:        0.396ns  (logic 0.202ns (51.010%)  route 0.194ns (48.990%))
+  Logic Levels:           1  (LUT6=1)
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock CLK rise edge)        0.000     0.000 r  
+                                                      0.000     0.000 r  CLK (IN)
+                         net (fo=223, unset)          0.000     0.000    CLK
+                         FDRE                                         r  reg_q9_reg/C
+  -------------------------------------------------------------------    -------------------
+                         FDRE (Prop_FDRE_C_Q)         0.077     0.077 r  reg_q9_reg/Q
+                         net (fo=12, unplaced)        0.146     0.223    reg_q494
+                                                                      r  reg_q216_i_1/I1
+                         LUT6 (Prop_LUT6_I1_O)        0.125     0.348 r  reg_q216_i_1/O
+                         net (fo=1, unplaced)         0.048     0.396    reg_q216_in
+                         FDRE                                         r  reg_q216_reg/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock CLK rise edge)        4.000     4.000 r  
+                                                      0.000     4.000 r  CLK (IN)
+                         net (fo=223, unset)          0.000     4.000    CLK
+                         FDRE                                         r  reg_q216_reg/C
+                         clock pessimism              0.000     4.000    
+                         clock uncertainty           -0.035     3.965    
+                         FDRE (Setup_FDRE_C_D)        0.025     3.990    reg_q216_reg
+  -------------------------------------------------------------------
+                         required time                          3.990    
+                         arrival time                          -0.396    
+  -------------------------------------------------------------------
+                         slack                                  3.594    
+
+Slack (MET) :             3.594ns  (required time - arrival time)
+  Source:                 reg_q9_reg/C
+                            (rising edge-triggered cell FDRE clocked by CLK  {rise@0.000ns fall@2.000ns period=4.000ns})
+  Destination:            reg_q231_reg/D
+                            (rising edge-triggered cell FDRE clocked by CLK  {rise@0.000ns fall@2.000ns period=4.000ns})
+  Path Group:             CLK
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            4.000ns  (CLK rise@4.000ns - CLK rise@0.000ns)
+  Data Path Delay:        0.396ns  (logic 0.202ns (51.010%)  route 0.194ns (48.990%))
+  Logic Levels:           1  (LUT6=1)
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock CLK rise edge)        0.000     0.000 r  
+                                                      0.000     0.000 r  CLK (IN)
+                         net (fo=223, unset)          0.000     0.000    CLK
+                         FDRE                                         r  reg_q9_reg/C
+  -------------------------------------------------------------------    -------------------
+                         FDRE (Prop_FDRE_C_Q)         0.077     0.077 r  reg_q9_reg/Q
+                         net (fo=12, unplaced)        0.146     0.223    reg_q494
+                                                                      r  reg_q231_i_1/I1
+                         LUT6 (Prop_LUT6_I1_O)        0.125     0.348 r  reg_q231_i_1/O
+                         net (fo=1, unplaced)         0.048     0.396    reg_q231_in
+                         FDRE                                         r  reg_q231_reg/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock CLK rise edge)        4.000     4.000 r  
+                                                      0.000     4.000 r  CLK (IN)
+                         net (fo=223, unset)          0.000     4.000    CLK
+                         FDRE                                         r  reg_q231_reg/C
+                         clock pessimism              0.000     4.000    
+                         clock uncertainty           -0.035     3.965    
+                         FDRE (Setup_FDRE_C_D)        0.025     3.990    reg_q231_reg
+  -------------------------------------------------------------------
+                         required time                          3.990    
+                         arrival time                          -0.396    
+  -------------------------------------------------------------------
+                         slack                                  3.594    
+
+Slack (MET) :             3.594ns  (required time - arrival time)
+  Source:                 reg_q9_reg/C
+                            (rising edge-triggered cell FDRE clocked by CLK  {rise@0.000ns fall@2.000ns period=4.000ns})
+  Destination:            reg_q301_reg/D
+                            (rising edge-triggered cell FDRE clocked by CLK  {rise@0.000ns fall@2.000ns period=4.000ns})
+  Path Group:             CLK
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            4.000ns  (CLK rise@4.000ns - CLK rise@0.000ns)
+  Data Path Delay:        0.396ns  (logic 0.202ns (51.010%)  route 0.194ns (48.990%))
+  Logic Levels:           1  (LUT6=1)
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock CLK rise edge)        0.000     0.000 r  
+                                                      0.000     0.000 r  CLK (IN)
+                         net (fo=223, unset)          0.000     0.000    CLK
+                         FDRE                                         r  reg_q9_reg/C
+  -------------------------------------------------------------------    -------------------
+                         FDRE (Prop_FDRE_C_Q)         0.077     0.077 r  reg_q9_reg/Q
+                         net (fo=12, unplaced)        0.146     0.223    reg_q494
+                                                                      r  reg_q301_i_1/I1
+                         LUT6 (Prop_LUT6_I1_O)        0.125     0.348 r  reg_q301_i_1/O
+                         net (fo=1, unplaced)         0.048     0.396    reg_q301_in
+                         FDRE                                         r  reg_q301_reg/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock CLK rise edge)        4.000     4.000 r  
+                                                      0.000     4.000 r  CLK (IN)
+                         net (fo=223, unset)          0.000     4.000    CLK
+                         FDRE                                         r  reg_q301_reg/C
+                         clock pessimism              0.000     4.000    
+                         clock uncertainty           -0.035     3.965    
+                         FDRE (Setup_FDRE_C_D)        0.025     3.990    reg_q301_reg
+  -------------------------------------------------------------------
+                         required time                          3.990    
+                         arrival time                          -0.396    
+  -------------------------------------------------------------------
+                         slack                                  3.594    
+
+Slack (MET) :             3.594ns  (required time - arrival time)
+  Source:                 reg_q9_reg/C
+                            (rising edge-triggered cell FDRE clocked by CLK  {rise@0.000ns fall@2.000ns period=4.000ns})
+  Destination:            reg_q316_reg/D
+                            (rising edge-triggered cell FDRE clocked by CLK  {rise@0.000ns fall@2.000ns period=4.000ns})
+  Path Group:             CLK
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            4.000ns  (CLK rise@4.000ns - CLK rise@0.000ns)
+  Data Path Delay:        0.396ns  (logic 0.202ns (51.010%)  route 0.194ns (48.990%))
+  Logic Levels:           1  (LUT6=1)
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock CLK rise edge)        0.000     0.000 r  
+                                                      0.000     0.000 r  CLK (IN)
+                         net (fo=223, unset)          0.000     0.000    CLK
+                         FDRE                                         r  reg_q9_reg/C
+  -------------------------------------------------------------------    -------------------
+                         FDRE (Prop_FDRE_C_Q)         0.077     0.077 r  reg_q9_reg/Q
+                         net (fo=12, unplaced)        0.146     0.223    reg_q494
+                                                                      r  reg_q316_i_1/I1
+                         LUT6 (Prop_LUT6_I1_O)        0.125     0.348 r  reg_q316_i_1/O
+                         net (fo=1, unplaced)         0.048     0.396    reg_q316_in
+                         FDRE                                         r  reg_q316_reg/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock CLK rise edge)        4.000     4.000 r  
+                                                      0.000     4.000 r  CLK (IN)
+                         net (fo=223, unset)          0.000     4.000    CLK
+                         FDRE                                         r  reg_q316_reg/C
+                         clock pessimism              0.000     4.000    
+                         clock uncertainty           -0.035     3.965    
+                         FDRE (Setup_FDRE_C_D)        0.025     3.990    reg_q316_reg
+  -------------------------------------------------------------------
+                         required time                          3.990    
+                         arrival time                          -0.396    
+  -------------------------------------------------------------------
+                         slack                                  3.594    
+
+Slack (MET) :             3.594ns  (required time - arrival time)
+  Source:                 reg_q9_reg/C
+                            (rising edge-triggered cell FDRE clocked by CLK  {rise@0.000ns fall@2.000ns period=4.000ns})
+  Destination:            reg_q396_reg/D
+                            (rising edge-triggered cell FDRE clocked by CLK  {rise@0.000ns fall@2.000ns period=4.000ns})
+  Path Group:             CLK
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            4.000ns  (CLK rise@4.000ns - CLK rise@0.000ns)
+  Data Path Delay:        0.396ns  (logic 0.202ns (51.010%)  route 0.194ns (48.990%))
+  Logic Levels:           1  (LUT6=1)
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock CLK rise edge)        0.000     0.000 r  
+                                                      0.000     0.000 r  CLK (IN)
+                         net (fo=223, unset)          0.000     0.000    CLK
+                         FDRE                                         r  reg_q9_reg/C
+  -------------------------------------------------------------------    -------------------
+                         FDRE (Prop_FDRE_C_Q)         0.077     0.077 r  reg_q9_reg/Q
+                         net (fo=12, unplaced)        0.146     0.223    reg_q494
+                                                                      r  reg_q396_i_1/I1
+                         LUT6 (Prop_LUT6_I1_O)        0.125     0.348 r  reg_q396_i_1/O
+                         net (fo=1, unplaced)         0.048     0.396    reg_q396_in
+                         FDRE                                         r  reg_q396_reg/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock CLK rise edge)        4.000     4.000 r  
+                                                      0.000     4.000 r  CLK (IN)
+                         net (fo=223, unset)          0.000     4.000    CLK
+                         FDRE                                         r  reg_q396_reg/C
+                         clock pessimism              0.000     4.000    
+                         clock uncertainty           -0.035     3.965    
+                         FDRE (Setup_FDRE_C_D)        0.025     3.990    reg_q396_reg
+  -------------------------------------------------------------------
+                         required time                          3.990    
+                         arrival time                          -0.396    
+  -------------------------------------------------------------------
+                         slack                                  3.594    
+
+Slack (MET) :             3.594ns  (required time - arrival time)
+  Source:                 reg_q9_reg/C
+                            (rising edge-triggered cell FDRE clocked by CLK  {rise@0.000ns fall@2.000ns period=4.000ns})
+  Destination:            reg_q411_reg/D
+                            (rising edge-triggered cell FDRE clocked by CLK  {rise@0.000ns fall@2.000ns period=4.000ns})
+  Path Group:             CLK
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            4.000ns  (CLK rise@4.000ns - CLK rise@0.000ns)
+  Data Path Delay:        0.396ns  (logic 0.202ns (51.010%)  route 0.194ns (48.990%))
+  Logic Levels:           1  (LUT6=1)
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock CLK rise edge)        0.000     0.000 r  
+                                                      0.000     0.000 r  CLK (IN)
+                         net (fo=223, unset)          0.000     0.000    CLK
+                         FDRE                                         r  reg_q9_reg/C
+  -------------------------------------------------------------------    -------------------
+                         FDRE (Prop_FDRE_C_Q)         0.077     0.077 r  reg_q9_reg/Q
+                         net (fo=12, unplaced)        0.146     0.223    reg_q494
+                                                                      r  reg_q411_i_1/I1
+                         LUT6 (Prop_LUT6_I1_O)        0.125     0.348 r  reg_q411_i_1/O
+                         net (fo=1, unplaced)         0.048     0.396    reg_q411_in
+                         FDRE                                         r  reg_q411_reg/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock CLK rise edge)        4.000     4.000 r  
+                                                      0.000     4.000 r  CLK (IN)
+                         net (fo=223, unset)          0.000     4.000    CLK
+                         FDRE                                         r  reg_q411_reg/C
+                         clock pessimism              0.000     4.000    
+                         clock uncertainty           -0.035     3.965    
+                         FDRE (Setup_FDRE_C_D)        0.025     3.990    reg_q411_reg
+  -------------------------------------------------------------------
+                         required time                          3.990    
+                         arrival time                          -0.396    
+  -------------------------------------------------------------------
+                         slack                                  3.594    
+
+
+
+
+
+Min Delay Paths
+--------------------------------------------------------------------------------------
+Slack (MET) :             0.081ns  (arrival time - required time)
+  Source:                 reg_q120_reg/C
+                            (rising edge-triggered cell FDRE clocked by CLK  {rise@0.000ns fall@2.000ns period=4.000ns})
+  Destination:            reg_q125_reg/D
+                            (rising edge-triggered cell FDRE clocked by CLK  {rise@0.000ns fall@2.000ns period=4.000ns})
+  Path Group:             CLK
+  Path Type:              Hold (Min at Fast Process Corner)
+  Requirement:            0.000ns  (CLK rise@0.000ns - CLK rise@0.000ns)
+  Data Path Delay:        0.127ns  (logic 0.061ns (47.999%)  route 0.066ns (52.001%))
+  Logic Levels:           1  (LUT3=1)
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock CLK rise edge)        0.000     0.000 r  
+                                                      0.000     0.000 r  CLK (IN)
+                         net (fo=223, unset)          0.000     0.000    CLK
+                         FDRE                                         r  reg_q120_reg/C
+  -------------------------------------------------------------------    -------------------
+                         FDRE (Prop_FDRE_C_Q)         0.038     0.038 r  reg_q120_reg/Q
+                         net (fo=2, unplaced)         0.050     0.088    reg_q120
+                                                                      r  reg_q125_i_1/I1
+                         LUT3 (Prop_LUT3_I1_O)        0.023     0.111 r  reg_q125_i_1/O
+                         net (fo=1, unplaced)         0.016     0.127    reg_q125_in
+                         FDRE                                         r  reg_q125_reg/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock CLK rise edge)        0.000     0.000 r  
+                                                      0.000     0.000 r  CLK (IN)
+                         net (fo=223, unset)          0.000     0.000    CLK
+                         FDRE                                         r  reg_q125_reg/C
+                         clock pessimism              0.000     0.000    
+                         FDRE (Hold_FDRE_C_D)         0.046     0.046    reg_q125_reg
+  -------------------------------------------------------------------
+                         required time                         -0.046    
+                         arrival time                           0.127    
+  -------------------------------------------------------------------
+                         slack                                  0.081    
+
+Slack (MET) :             0.081ns  (arrival time - required time)
+  Source:                 reg_q190_reg/C
+                            (rising edge-triggered cell FDRE clocked by CLK  {rise@0.000ns fall@2.000ns period=4.000ns})
+  Destination:            reg_q192_reg/D
+                            (rising edge-triggered cell FDRE clocked by CLK  {rise@0.000ns fall@2.000ns period=4.000ns})
+  Path Group:             CLK
+  Path Type:              Hold (Min at Fast Process Corner)
+  Requirement:            0.000ns  (CLK rise@0.000ns - CLK rise@0.000ns)
+  Data Path Delay:        0.127ns  (logic 0.061ns (47.999%)  route 0.066ns (52.001%))
+  Logic Levels:           1  (LUT5=1)
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock CLK rise edge)        0.000     0.000 r  
+                                                      0.000     0.000 r  CLK (IN)
+                         net (fo=223, unset)          0.000     0.000    CLK
+                         FDRE                                         r  reg_q190_reg/C
+  -------------------------------------------------------------------    -------------------
+                         FDRE (Prop_FDRE_C_Q)         0.038     0.038 r  reg_q190_reg/Q
+                         net (fo=1, unplaced)         0.050     0.088    reg_q190
+                                                                      r  reg_q192_i_1/I3
+                         LUT5 (Prop_LUT5_I3_O)        0.023     0.111 r  reg_q192_i_1/O
+                         net (fo=1, unplaced)         0.016     0.127    reg_q192_in
+                         FDRE                                         r  reg_q192_reg/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock CLK rise edge)        0.000     0.000 r  
+                                                      0.000     0.000 r  CLK (IN)
+                         net (fo=223, unset)          0.000     0.000    CLK
+                         FDRE                                         r  reg_q192_reg/C
+                         clock pessimism              0.000     0.000    
+                         FDRE (Hold_FDRE_C_D)         0.046     0.046    reg_q192_reg
+  -------------------------------------------------------------------
+                         required time                         -0.046    
+                         arrival time                           0.127    
+  -------------------------------------------------------------------
+                         slack                                  0.081    
+
+Slack (MET) :             0.081ns  (arrival time - required time)
+  Source:                 reg_q206_reg/C
+                            (rising edge-triggered cell FDRE clocked by CLK  {rise@0.000ns fall@2.000ns period=4.000ns})
+  Destination:            reg_q206_reg/D
+                            (rising edge-triggered cell FDRE clocked by CLK  {rise@0.000ns fall@2.000ns period=4.000ns})
+  Path Group:             CLK
+  Path Type:              Hold (Min at Fast Process Corner)
+  Requirement:            0.000ns  (CLK rise@0.000ns - CLK rise@0.000ns)
+  Data Path Delay:        0.127ns  (logic 0.061ns (47.999%)  route 0.066ns (52.001%))
+  Logic Levels:           1  (LUT2=1)
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock CLK rise edge)        0.000     0.000 r  
+                                                      0.000     0.000 r  CLK (IN)
+                         net (fo=223, unset)          0.000     0.000    CLK
+                         FDRE                                         r  reg_q206_reg/C
+  -------------------------------------------------------------------    -------------------
+                         FDRE (Prop_FDRE_C_Q)         0.038     0.038 r  reg_q206_reg/Q
+                         net (fo=2, unplaced)         0.050     0.088    reg_q206
+                                                                      r  reg_q206_i_1/I0
+                         LUT2 (Prop_LUT2_I0_O)        0.023     0.111 r  reg_q206_i_1/O
+                         net (fo=1, unplaced)         0.016     0.127    reg_q206_in
+                         FDRE                                         r  reg_q206_reg/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock CLK rise edge)        0.000     0.000 r  
+                                                      0.000     0.000 r  CLK (IN)
+                         net (fo=223, unset)          0.000     0.000    CLK
+                         FDRE                                         r  reg_q206_reg/C
+                         clock pessimism              0.000     0.000    
+                         FDRE (Hold_FDRE_C_D)         0.046     0.046    reg_q206_reg
+  -------------------------------------------------------------------
+                         required time                         -0.046    
+                         arrival time                           0.127    
+  -------------------------------------------------------------------
+                         slack                                  0.081    
+
+Slack (MET) :             0.081ns  (arrival time - required time)
+  Source:                 reg_q178_reg/C
+                            (rising edge-triggered cell FDRE clocked by CLK  {rise@0.000ns fall@2.000ns period=4.000ns})
+  Destination:            reg_q208_reg/D
+                            (rising edge-triggered cell FDRE clocked by CLK  {rise@0.000ns fall@2.000ns period=4.000ns})
+  Path Group:             CLK
+  Path Type:              Hold (Min at Fast Process Corner)
+  Requirement:            0.000ns  (CLK rise@0.000ns - CLK rise@0.000ns)
+  Data Path Delay:        0.127ns  (logic 0.061ns (47.999%)  route 0.066ns (52.001%))
+  Logic Levels:           1  (LUT2=1)
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock CLK rise edge)        0.000     0.000 r  
+                                                      0.000     0.000 r  CLK (IN)
+                         net (fo=223, unset)          0.000     0.000    CLK
+                         FDRE                                         r  reg_q178_reg/C
+  -------------------------------------------------------------------    -------------------
+                         FDRE (Prop_FDRE_C_Q)         0.038     0.038 r  reg_q178_reg/Q
+                         net (fo=2, unplaced)         0.050     0.088    reg_q178
+                                                                      r  reg_q208_i_1/I0
+                         LUT2 (Prop_LUT2_I0_O)        0.023     0.111 r  reg_q208_i_1/O
+                         net (fo=1, unplaced)         0.016     0.127    reg_q208_in
+                         FDRE                                         r  reg_q208_reg/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock CLK rise edge)        0.000     0.000 r  
+                                                      0.000     0.000 r  CLK (IN)
+                         net (fo=223, unset)          0.000     0.000    CLK
+                         FDRE                                         r  reg_q208_reg/C
+                         clock pessimism              0.000     0.000    
+                         FDRE (Hold_FDRE_C_D)         0.046     0.046    reg_q208_reg
+  -------------------------------------------------------------------
+                         required time                         -0.046    
+                         arrival time                           0.127    
+  -------------------------------------------------------------------
+                         slack                                  0.081    
+
+Slack (MET) :             0.081ns  (arrival time - required time)
+  Source:                 reg_q269_reg/C
+                            (rising edge-triggered cell FDRE clocked by CLK  {rise@0.000ns fall@2.000ns period=4.000ns})
+  Destination:            reg_q271_reg/D
+                            (rising edge-triggered cell FDRE clocked by CLK  {rise@0.000ns fall@2.000ns period=4.000ns})
+  Path Group:             CLK
+  Path Type:              Hold (Min at Fast Process Corner)
+  Requirement:            0.000ns  (CLK rise@0.000ns - CLK rise@0.000ns)
+  Data Path Delay:        0.127ns  (logic 0.061ns (47.999%)  route 0.066ns (52.001%))
+  Logic Levels:           1  (LUT5=1)
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock CLK rise edge)        0.000     0.000 r  
+                                                      0.000     0.000 r  CLK (IN)
+                         net (fo=223, unset)          0.000     0.000    CLK
+                         FDRE                                         r  reg_q269_reg/C
+  -------------------------------------------------------------------    -------------------
+                         FDRE (Prop_FDRE_C_Q)         0.038     0.038 r  reg_q269_reg/Q
+                         net (fo=1, unplaced)         0.050     0.088    reg_q269
+                                                                      r  reg_q271_i_1/I3
+                         LUT5 (Prop_LUT5_I3_O)        0.023     0.111 r  reg_q271_i_1/O
+                         net (fo=1, unplaced)         0.016     0.127    reg_q271_in
+                         FDRE                                         r  reg_q271_reg/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock CLK rise edge)        0.000     0.000 r  
+                                                      0.000     0.000 r  CLK (IN)
+                         net (fo=223, unset)          0.000     0.000    CLK
+                         FDRE                                         r  reg_q271_reg/C
+                         clock pessimism              0.000     0.000    
+                         FDRE (Hold_FDRE_C_D)         0.046     0.046    reg_q271_reg
+  -------------------------------------------------------------------
+                         required time                         -0.046    
+                         arrival time                           0.127    
+  -------------------------------------------------------------------
+                         slack                                  0.081    
+
+Slack (MET) :             0.081ns  (arrival time - required time)
+  Source:                 reg_q287_reg/C
+                            (rising edge-triggered cell FDRE clocked by CLK  {rise@0.000ns fall@2.000ns period=4.000ns})
+  Destination:            reg_q291_reg/D
+                            (rising edge-triggered cell FDRE clocked by CLK  {rise@0.000ns fall@2.000ns period=4.000ns})
+  Path Group:             CLK
+  Path Type:              Hold (Min at Fast Process Corner)
+  Requirement:            0.000ns  (CLK rise@0.000ns - CLK rise@0.000ns)
+  Data Path Delay:        0.127ns  (logic 0.061ns (47.999%)  route 0.066ns (52.001%))
+  Logic Levels:           1  (LUT2=1)
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock CLK rise edge)        0.000     0.000 r  
+                                                      0.000     0.000 r  CLK (IN)
+                         net (fo=223, unset)          0.000     0.000    CLK
+                         FDRE                                         r  reg_q287_reg/C
+  -------------------------------------------------------------------    -------------------
+                         FDRE (Prop_FDRE_C_Q)         0.038     0.038 r  reg_q287_reg/Q
+                         net (fo=2, unplaced)         0.050     0.088    reg_q287
+                                                                      r  reg_q291_i_1/I0
+                         LUT2 (Prop_LUT2_I0_O)        0.023     0.111 r  reg_q291_i_1/O
+                         net (fo=1, unplaced)         0.016     0.127    reg_q291_in
+                         FDRE                                         r  reg_q291_reg/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock CLK rise edge)        0.000     0.000 r  
+                                                      0.000     0.000 r  CLK (IN)
+                         net (fo=223, unset)          0.000     0.000    CLK
+                         FDRE                                         r  reg_q291_reg/C
+                         clock pessimism              0.000     0.000    
+                         FDRE (Hold_FDRE_C_D)         0.046     0.046    reg_q291_reg
+  -------------------------------------------------------------------
+                         required time                         -0.046    
+                         arrival time                           0.127    
+  -------------------------------------------------------------------
+                         slack                                  0.081    
+
+Slack (MET) :             0.081ns  (arrival time - required time)
+  Source:                 reg_q293_reg/C
+                            (rising edge-triggered cell FDRE clocked by CLK  {rise@0.000ns fall@2.000ns period=4.000ns})
+  Destination:            reg_q293_reg/D
+                            (rising edge-triggered cell FDRE clocked by CLK  {rise@0.000ns fall@2.000ns period=4.000ns})
+  Path Group:             CLK
+  Path Type:              Hold (Min at Fast Process Corner)
+  Requirement:            0.000ns  (CLK rise@0.000ns - CLK rise@0.000ns)
+  Data Path Delay:        0.127ns  (logic 0.061ns (47.999%)  route 0.066ns (52.001%))
+  Logic Levels:           1  (LUT2=1)
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock CLK rise edge)        0.000     0.000 r  
+                                                      0.000     0.000 r  CLK (IN)
+                         net (fo=223, unset)          0.000     0.000    CLK
+                         FDRE                                         r  reg_q293_reg/C
+  -------------------------------------------------------------------    -------------------
+                         FDRE (Prop_FDRE_C_Q)         0.038     0.038 r  reg_q293_reg/Q
+                         net (fo=2, unplaced)         0.050     0.088    reg_q293
+                                                                      r  reg_q293_i_1/I0
+                         LUT2 (Prop_LUT2_I0_O)        0.023     0.111 r  reg_q293_i_1/O
+                         net (fo=1, unplaced)         0.016     0.127    reg_q293_in
+                         FDRE                                         r  reg_q293_reg/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock CLK rise edge)        0.000     0.000 r  
+                                                      0.000     0.000 r  CLK (IN)
+                         net (fo=223, unset)          0.000     0.000    CLK
+                         FDRE                                         r  reg_q293_reg/C
+                         clock pessimism              0.000     0.000    
+                         FDRE (Hold_FDRE_C_D)         0.046     0.046    reg_q293_reg
+  -------------------------------------------------------------------
+                         required time                         -0.046    
+                         arrival time                           0.127    
+  -------------------------------------------------------------------
+                         slack                                  0.081    
+
+Slack (MET) :             0.081ns  (arrival time - required time)
+  Source:                 reg_q362_reg/C
+                            (rising edge-triggered cell FDRE clocked by CLK  {rise@0.000ns fall@2.000ns period=4.000ns})
+  Destination:            reg_q364_reg/D
+                            (rising edge-triggered cell FDRE clocked by CLK  {rise@0.000ns fall@2.000ns period=4.000ns})
+  Path Group:             CLK
+  Path Type:              Hold (Min at Fast Process Corner)
+  Requirement:            0.000ns  (CLK rise@0.000ns - CLK rise@0.000ns)
+  Data Path Delay:        0.127ns  (logic 0.061ns (47.999%)  route 0.066ns (52.001%))
+  Logic Levels:           1  (LUT6=1)
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock CLK rise edge)        0.000     0.000 r  
+                                                      0.000     0.000 r  CLK (IN)
+                         net (fo=223, unset)          0.000     0.000    CLK
+                         FDRE                                         r  reg_q362_reg/C
+  -------------------------------------------------------------------    -------------------
+                         FDRE (Prop_FDRE_C_Q)         0.038     0.038 r  reg_q362_reg/Q
+                         net (fo=1, unplaced)         0.050     0.088    reg_q362
+                                                                      r  reg_q364_i_1/I4
+                         LUT6 (Prop_LUT6_I4_O)        0.023     0.111 r  reg_q364_i_1/O
+                         net (fo=1, unplaced)         0.016     0.127    reg_q364_in
+                         FDRE                                         r  reg_q364_reg/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock CLK rise edge)        0.000     0.000 r  
+                                                      0.000     0.000 r  CLK (IN)
+                         net (fo=223, unset)          0.000     0.000    CLK
+                         FDRE                                         r  reg_q364_reg/C
+                         clock pessimism              0.000     0.000    
+                         FDRE (Hold_FDRE_C_D)         0.046     0.046    reg_q364_reg
+  -------------------------------------------------------------------
+                         required time                         -0.046    
+                         arrival time                           0.127    
+  -------------------------------------------------------------------
+                         slack                                  0.081    
+
+Slack (MET) :             0.081ns  (arrival time - required time)
+  Source:                 reg_q386_reg/C
+                            (rising edge-triggered cell FDRE clocked by CLK  {rise@0.000ns fall@2.000ns period=4.000ns})
+  Destination:            reg_q386_reg/D
+                            (rising edge-triggered cell FDRE clocked by CLK  {rise@0.000ns fall@2.000ns period=4.000ns})
+  Path Group:             CLK
+  Path Type:              Hold (Min at Fast Process Corner)
+  Requirement:            0.000ns  (CLK rise@0.000ns - CLK rise@0.000ns)
+  Data Path Delay:        0.127ns  (logic 0.061ns (47.999%)  route 0.066ns (52.001%))
+  Logic Levels:           1  (LUT2=1)
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock CLK rise edge)        0.000     0.000 r  
+                                                      0.000     0.000 r  CLK (IN)
+                         net (fo=223, unset)          0.000     0.000    CLK
+                         FDRE                                         r  reg_q386_reg/C
+  -------------------------------------------------------------------    -------------------
+                         FDRE (Prop_FDRE_C_Q)         0.038     0.038 r  reg_q386_reg/Q
+                         net (fo=2, unplaced)         0.050     0.088    reg_q386
+                                                                      r  reg_q386_i_1/I0
+                         LUT2 (Prop_LUT2_I0_O)        0.023     0.111 r  reg_q386_i_1/O
+                         net (fo=1, unplaced)         0.016     0.127    reg_q386_in
+                         FDRE                                         r  reg_q386_reg/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock CLK rise edge)        0.000     0.000 r  
+                                                      0.000     0.000 r  CLK (IN)
+                         net (fo=223, unset)          0.000     0.000    CLK
+                         FDRE                                         r  reg_q386_reg/C
+                         clock pessimism              0.000     0.000    
+                         FDRE (Hold_FDRE_C_D)         0.046     0.046    reg_q386_reg
+  -------------------------------------------------------------------
+                         required time                         -0.046    
+                         arrival time                           0.127    
+  -------------------------------------------------------------------
+                         slack                                  0.081    
+
+Slack (MET) :             0.081ns  (arrival time - required time)
+  Source:                 reg_q388_reg/C
+                            (rising edge-triggered cell FDRE clocked by CLK  {rise@0.000ns fall@2.000ns period=4.000ns})
+  Destination:            reg_q388_reg/D
+                            (rising edge-triggered cell FDRE clocked by CLK  {rise@0.000ns fall@2.000ns period=4.000ns})
+  Path Group:             CLK
+  Path Type:              Hold (Min at Fast Process Corner)
+  Requirement:            0.000ns  (CLK rise@0.000ns - CLK rise@0.000ns)
+  Data Path Delay:        0.127ns  (logic 0.061ns (47.999%)  route 0.066ns (52.001%))
+  Logic Levels:           1  (LUT2=1)
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock CLK rise edge)        0.000     0.000 r  
+                                                      0.000     0.000 r  CLK (IN)
+                         net (fo=223, unset)          0.000     0.000    CLK
+                         FDRE                                         r  reg_q388_reg/C
+  -------------------------------------------------------------------    -------------------
+                         FDRE (Prop_FDRE_C_Q)         0.038     0.038 r  reg_q388_reg/Q
+                         net (fo=2, unplaced)         0.050     0.088    reg_q388
+                                                                      r  reg_q388_i_1/I0
+                         LUT2 (Prop_LUT2_I0_O)        0.023     0.111 r  reg_q388_i_1/O
+                         net (fo=1, unplaced)         0.016     0.127    reg_q388_in
+                         FDRE                                         r  reg_q388_reg/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock CLK rise edge)        0.000     0.000 r  
+                                                      0.000     0.000 r  CLK (IN)
+                         net (fo=223, unset)          0.000     0.000    CLK
+                         FDRE                                         r  reg_q388_reg/C
+                         clock pessimism              0.000     0.000    
+                         FDRE (Hold_FDRE_C_D)         0.046     0.046    reg_q388_reg
+  -------------------------------------------------------------------
+                         required time                         -0.046    
+                         arrival time                           0.127    
+  -------------------------------------------------------------------
+                         slack                                  0.081    
+
+
+
+
+
+Pulse Width Checks
+--------------------------------------------------------------------------------------
+Clock Name:         CLK
+Waveform(ns):       { 0.000 2.000 }
+Period(ns):         4.000
+Sources:            { CLK }
+
+Check Type        Corner  Lib Pin  Reference Pin  Required(ns)  Actual(ns)  Slack(ns)  Location  Pin
+Min Period        n/a     FDRE/C   n/a            0.550         4.000       3.450                reg_q104_reg/C
+Min Period        n/a     FDRE/C   n/a            0.550         4.000       3.450                reg_q106_reg/C
+Min Period        n/a     FDRE/C   n/a            0.550         4.000       3.450                reg_q108_reg/C
+Min Period        n/a     FDRE/C   n/a            0.550         4.000       3.450                reg_q110_reg/C
+Min Period        n/a     FDRE/C   n/a            0.550         4.000       3.450                reg_q112_reg/C
+Min Period        n/a     FDRE/C   n/a            0.550         4.000       3.450                reg_q114_reg/C
+Min Period        n/a     FDRE/C   n/a            0.550         4.000       3.450                reg_q116_reg/C
+Min Period        n/a     FDRE/C   n/a            0.550         4.000       3.450                reg_q133_reg/C
+Min Period        n/a     FDRE/C   n/a            0.550         4.000       3.450                reg_q135_reg/C
+Min Period        n/a     FDRE/C   n/a            0.550         4.000       3.450                reg_q137_reg/C
+Low Pulse Width   Slow    FDRE/C   n/a            0.275         2.000       1.725                reg_q104_reg/C
+Low Pulse Width   Fast    FDRE/C   n/a            0.275         2.000       1.725                reg_q104_reg/C
+Low Pulse Width   Slow    FDRE/C   n/a            0.275         2.000       1.725                reg_q106_reg/C
+Low Pulse Width   Fast    FDRE/C   n/a            0.275         2.000       1.725                reg_q106_reg/C
+Low Pulse Width   Slow    FDRE/C   n/a            0.275         2.000       1.725                reg_q108_reg/C
+Low Pulse Width   Fast    FDRE/C   n/a            0.275         2.000       1.725                reg_q108_reg/C
+Low Pulse Width   Slow    FDRE/C   n/a            0.275         2.000       1.725                reg_q110_reg/C
+Low Pulse Width   Fast    FDRE/C   n/a            0.275         2.000       1.725                reg_q110_reg/C
+Low Pulse Width   Slow    FDRE/C   n/a            0.275         2.000       1.725                reg_q112_reg/C
+Low Pulse Width   Fast    FDRE/C   n/a            0.275         2.000       1.725                reg_q112_reg/C
+High Pulse Width  Slow    FDRE/C   n/a            0.275         2.000       1.725                reg_q104_reg/C
+High Pulse Width  Fast    FDRE/C   n/a            0.275         2.000       1.725                reg_q104_reg/C
+High Pulse Width  Slow    FDRE/C   n/a            0.275         2.000       1.725                reg_q106_reg/C
+High Pulse Width  Fast    FDRE/C   n/a            0.275         2.000       1.725                reg_q106_reg/C
+High Pulse Width  Slow    FDRE/C   n/a            0.275         2.000       1.725                reg_q108_reg/C
+High Pulse Width  Fast    FDRE/C   n/a            0.275         2.000       1.725                reg_q108_reg/C
+High Pulse Width  Slow    FDRE/C   n/a            0.275         2.000       1.725                reg_q110_reg/C
+High Pulse Width  Fast    FDRE/C   n/a            0.275         2.000       1.725                reg_q110_reg/C
+High Pulse Width  Slow    FDRE/C   n/a            0.275         2.000       1.725                reg_q112_reg/C
+High Pulse Width  Fast    FDRE/C   n/a            0.275         2.000       1.725                reg_q112_reg/C
+
+
+
+--------------------------------------------------------------------------------------
+Path Group:  (none)
+From Clock:  CLK
+  To Clock:  
+
+Max Delay             1 Endpoint
+Min Delay             1 Endpoint
+--------------------------------------------------------------------------------------
+
+
+Max Delay Paths
+--------------------------------------------------------------------------------------
+Slack:                    inf
+  Source:                 reg_q540_reg/C
+                            (rising edge-triggered cell FDRE clocked by CLK  {rise@0.000ns fall@2.000ns period=4.000ns})
+  Destination:            FINAL
+                            (output port)
+  Path Group:             (none)
+  Path Type:              Max at Slow Process Corner
+  Data Path Delay:        0.580ns  (logic 0.265ns (45.690%)  route 0.315ns (54.310%))
+  Logic Levels:           2  (LUT5=1 LUT6=1)
+  Clock Uncertainty:      0.025ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.050ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock CLK rise edge)        0.000     0.000 r  
+                                                      0.000     0.000 r  CLK (IN)
+                         net (fo=223, unset)          0.000     0.000    CLK
+                         FDRE                                         r  reg_q540_reg/C
+  -------------------------------------------------------------------    -------------------
+                         FDRE (Prop_FDRE_C_Q)         0.077     0.077 r  reg_q540_reg/Q
+                         net (fo=2, unplaced)         0.118     0.195    reg_q540
+                                                                      r  FINAL_INST_0_i_2/I0
+                         LUT6 (Prop_LUT6_I0_O)        0.150     0.345 r  FINAL_INST_0_i_2/O
+                         net (fo=1, unplaced)         0.197     0.542    FINAL_INST_0_i_2_n_0
+                                                                      r  FINAL_INST_0/I1
+                         LUT5 (Prop_LUT5_I1_O)        0.038     0.580 r  FINAL_INST_0/O
+                         net (fo=0)                   0.000     0.580    FINAL
+                                                                      r  FINAL (OUT)
+  -------------------------------------------------------------------    -------------------
+
+
+
+
+
+Min Delay Paths
+--------------------------------------------------------------------------------------
+Slack:                    inf
+  Source:                 reg_q202_reg/C
+                            (rising edge-triggered cell FDRE clocked by CLK  {rise@0.000ns fall@2.000ns period=4.000ns})
+  Destination:            FINAL
+                            (output port)
+  Path Group:             (none)
+  Path Type:              Min at Fast Process Corner
+  Data Path Delay:        0.102ns  (logic 0.052ns (50.937%)  route 0.050ns (49.063%))
+  Logic Levels:           1  (LUT5=1)
+  Clock Uncertainty:      0.025ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.050ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock CLK rise edge)        0.000     0.000 r  
+                                                      0.000     0.000 r  CLK (IN)
+                         net (fo=223, unset)          0.000     0.000    CLK
+                         FDRE                                         r  reg_q202_reg/C
+  -------------------------------------------------------------------    -------------------
+                         FDRE (Prop_FDRE_C_Q)         0.038     0.038 r  reg_q202_reg/Q
+                         net (fo=2, unplaced)         0.050     0.088    reg_q202
+                                                                      r  FINAL_INST_0/I4
+                         LUT5 (Prop_LUT5_I4_O)        0.014     0.102 r  FINAL_INST_0/O
+                         net (fo=0)                   0.000     0.102    FINAL
+                                                                      r  FINAL (OUT)
+  -------------------------------------------------------------------    -------------------
+
+
+
+
+
+--------------------------------------------------------------------------------------
+Path Group:  (none)
+From Clock:  
+  To Clock:  CLK
+
+Max Delay           658 Endpoints
+Min Delay           658 Endpoints
+--------------------------------------------------------------------------------------
+
+
+Max Delay Paths
+--------------------------------------------------------------------------------------
+Slack:                    inf
+  Source:                 INPUT[5]
+                            (input port)
+  Destination:            reg_q135_reg/D
+                            (rising edge-triggered cell FDRE clocked by CLK  {rise@0.000ns fall@2.000ns period=4.000ns})
+  Path Group:             (none)
+  Path Type:              Setup (Max at Slow Process Corner)
+  Data Path Delay:        0.507ns  (logic 0.289ns (57.002%)  route 0.218ns (42.998%))
+  Logic Levels:           2  (LUT4=1 LUT6=1)
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                                                      0.000     0.000 r  INPUT[5] (IN)
+                         net (fo=61, unset)           0.000     0.000    INPUT[5]
+                                                                      r  reg_q202_i_2/I0
+                         LUT4 (Prop_LUT4_I0_O)        0.139     0.139 r  reg_q202_i_2/O
+                         net (fo=21, unplaced)        0.170     0.309    reg_q202_i_2_n_0
+                                                                      r  reg_q135_i_1/I0
+                         LUT6 (Prop_LUT6_I0_O)        0.150     0.459 r  reg_q135_i_1/O
+                         net (fo=1, unplaced)         0.048     0.507    reg_q135_in
+                         FDRE                                         r  reg_q135_reg/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock CLK rise edge)        0.000     0.000 r  
+                                                      0.000     0.000 r  CLK (IN)
+                         net (fo=223, unset)          0.000     0.000    CLK
+                         FDRE                                         r  reg_q135_reg/C
+
+Slack:                    inf
+  Source:                 INPUT[5]
+                            (input port)
+  Destination:            reg_q190_reg/D
+                            (rising edge-triggered cell FDRE clocked by CLK  {rise@0.000ns fall@2.000ns period=4.000ns})
+  Path Group:             (none)
+  Path Type:              Setup (Max at Slow Process Corner)
+  Data Path Delay:        0.507ns  (logic 0.289ns (57.002%)  route 0.218ns (42.998%))
+  Logic Levels:           2  (LUT4=1 LUT6=1)
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                                                      0.000     0.000 r  INPUT[5] (IN)
+                         net (fo=61, unset)           0.000     0.000    INPUT[5]
+                                                                      r  reg_q202_i_2/I0
+                         LUT4 (Prop_LUT4_I0_O)        0.139     0.139 r  reg_q202_i_2/O
+                         net (fo=21, unplaced)        0.170     0.309    reg_q202_i_2_n_0
+                                                                      r  reg_q190_i_1/I0
+                         LUT6 (Prop_LUT6_I0_O)        0.150     0.459 r  reg_q190_i_1/O
+                         net (fo=1, unplaced)         0.048     0.507    reg_q190_in
+                         FDRE                                         r  reg_q190_reg/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock CLK rise edge)        0.000     0.000 r  
+                                                      0.000     0.000 r  CLK (IN)
+                         net (fo=223, unset)          0.000     0.000    CLK
+                         FDRE                                         r  reg_q190_reg/C
+
+Slack:                    inf
+  Source:                 INPUT[5]
+                            (input port)
+  Destination:            reg_q202_reg/D
+                            (rising edge-triggered cell FDRE clocked by CLK  {rise@0.000ns fall@2.000ns period=4.000ns})
+  Path Group:             (none)
+  Path Type:              Setup (Max at Slow Process Corner)
+  Data Path Delay:        0.507ns  (logic 0.289ns (57.002%)  route 0.218ns (42.998%))
+  Logic Levels:           2  (LUT4=1 LUT6=1)
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                                                      0.000     0.000 r  INPUT[5] (IN)
+                         net (fo=61, unset)           0.000     0.000    INPUT[5]
+                                                                      r  reg_q202_i_2/I0
+                         LUT4 (Prop_LUT4_I0_O)        0.139     0.139 r  reg_q202_i_2/O
+                         net (fo=21, unplaced)        0.170     0.309    reg_q202_i_2_n_0
+                                                                      r  reg_q202_i_1/I0
+                         LUT6 (Prop_LUT6_I0_O)        0.150     0.459 r  reg_q202_i_1/O
+                         net (fo=1, unplaced)         0.048     0.507    reg_q202_in
+                         FDRE                                         r  reg_q202_reg/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock CLK rise edge)        0.000     0.000 r  
+                                                      0.000     0.000 r  CLK (IN)
+                         net (fo=223, unset)          0.000     0.000    CLK
+                         FDRE                                         r  reg_q202_reg/C
+
+Slack:                    inf
+  Source:                 INPUT[5]
+                            (input port)
+  Destination:            reg_q269_reg/D
+                            (rising edge-triggered cell FDRE clocked by CLK  {rise@0.000ns fall@2.000ns period=4.000ns})
+  Path Group:             (none)
+  Path Type:              Setup (Max at Slow Process Corner)
+  Data Path Delay:        0.507ns  (logic 0.289ns (57.002%)  route 0.218ns (42.998%))
+  Logic Levels:           2  (LUT4=1 LUT6=1)
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                                                      0.000     0.000 r  INPUT[5] (IN)
+                         net (fo=61, unset)           0.000     0.000    INPUT[5]
+                                                                      r  reg_q202_i_2/I0
+                         LUT4 (Prop_LUT4_I0_O)        0.139     0.139 r  reg_q202_i_2/O
+                         net (fo=21, unplaced)        0.170     0.309    reg_q202_i_2_n_0
+                                                                      r  reg_q269_i_1/I0
+                         LUT6 (Prop_LUT6_I0_O)        0.150     0.459 r  reg_q269_i_1/O
+                         net (fo=1, unplaced)         0.048     0.507    reg_q269_in
+                         FDRE                                         r  reg_q269_reg/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock CLK rise edge)        0.000     0.000 r  
+                                                      0.000     0.000 r  CLK (IN)
+                         net (fo=223, unset)          0.000     0.000    CLK
+                         FDRE                                         r  reg_q269_reg/C
+
+Slack:                    inf
+  Source:                 INPUT[5]
+                            (input port)
+  Destination:            reg_q534_reg/D
+                            (rising edge-triggered cell FDRE clocked by CLK  {rise@0.000ns fall@2.000ns period=4.000ns})
+  Path Group:             (none)
+  Path Type:              Setup (Max at Slow Process Corner)
+  Data Path Delay:        0.507ns  (logic 0.289ns (57.002%)  route 0.218ns (42.998%))
+  Logic Levels:           2  (LUT4=1 LUT6=1)
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                                                      0.000     0.000 r  INPUT[5] (IN)
+                         net (fo=61, unset)           0.000     0.000    INPUT[5]
+                                                                      r  reg_q202_i_2/I0
+                         LUT4 (Prop_LUT4_I0_O)        0.139     0.139 r  reg_q202_i_2/O
+                         net (fo=21, unplaced)        0.170     0.309    reg_q202_i_2_n_0
+                                                                      r  reg_q534_i_1/I0
+                         LUT6 (Prop_LUT6_I0_O)        0.150     0.459 r  reg_q534_i_1/O
+                         net (fo=1, unplaced)         0.048     0.507    reg_q534_in
+                         FDRE                                         r  reg_q534_reg/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock CLK rise edge)        0.000     0.000 r  
+                                                      0.000     0.000 r  CLK (IN)
+                         net (fo=223, unset)          0.000     0.000    CLK
+                         FDRE                                         r  reg_q534_reg/C
+
+Slack:                    inf
+  Source:                 INPUT[5]
+                            (input port)
+  Destination:            reg_q5_reg/D
+                            (rising edge-triggered cell FDRE clocked by CLK  {rise@0.000ns fall@2.000ns period=4.000ns})
+  Path Group:             (none)
+  Path Type:              Setup (Max at Slow Process Corner)
+  Data Path Delay:        0.503ns  (logic 0.195ns (38.767%)  route 0.308ns (61.233%))
+  Logic Levels:           2  (LUT5=2)
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                                                      0.000     0.000 f  INPUT[5] (IN)
+                         net (fo=61, unset)           0.000     0.000    INPUT[5]
+                                                                      f  reg_q382_i_2/I0
+                         LUT5 (Prop_LUT5_I0_O)        0.125     0.125 r  reg_q382_i_2/O
+                         net (fo=37, unplaced)        0.260     0.385    reg_q382_i_2_n_0
+                                                                      r  reg_q5_i_1/I4
+                         LUT5 (Prop_LUT5_I4_O)        0.070     0.455 r  reg_q5_i_1/O
+                         net (fo=1, unplaced)         0.048     0.503    reg_q490_in
+                         FDRE                                         r  reg_q5_reg/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock CLK rise edge)        0.000     0.000 r  
+                                                      0.000     0.000 r  CLK (IN)
+                         net (fo=223, unset)          0.000     0.000    CLK
+                         FDRE                                         r  reg_q5_reg/C
+
+Slack:                    inf
+  Source:                 INPUT[6]
+                            (input port)
+  Destination:            reg_q118_reg/D
+                            (rising edge-triggered cell FDRE clocked by CLK  {rise@0.000ns fall@2.000ns period=4.000ns})
+  Path Group:             (none)
+  Path Type:              Setup (Max at Slow Process Corner)
+  Data Path Delay:        0.490ns  (logic 0.289ns (58.980%)  route 0.201ns (41.020%))
+  Logic Levels:           2  (LUT4=1 LUT6=1)
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                                                      0.000     0.000 r  INPUT[6] (IN)
+                         net (fo=62, unset)           0.000     0.000    INPUT[6]
+                                                                      r  reg_q120_i_2/I0
+                         LUT4 (Prop_LUT4_I0_O)        0.139     0.139 r  reg_q120_i_2/O
+                         net (fo=10, unplaced)        0.153     0.292    reg_q120_i_2_n_0
+                                                                      r  reg_q118_i_1/I0
+                         LUT6 (Prop_LUT6_I0_O)        0.150     0.442 r  reg_q118_i_1/O
+                         net (fo=1, unplaced)         0.048     0.490    reg_q118_in
+                         FDRE                                         r  reg_q118_reg/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock CLK rise edge)        0.000     0.000 r  
+                                                      0.000     0.000 r  CLK (IN)
+                         net (fo=223, unset)          0.000     0.000    CLK
+                         FDRE                                         r  reg_q118_reg/C
+
+Slack:                    inf
+  Source:                 INPUT[6]
+                            (input port)
+  Destination:            reg_q120_reg/D
+                            (rising edge-triggered cell FDRE clocked by CLK  {rise@0.000ns fall@2.000ns period=4.000ns})
+  Path Group:             (none)
+  Path Type:              Setup (Max at Slow Process Corner)
+  Data Path Delay:        0.490ns  (logic 0.289ns (58.980%)  route 0.201ns (41.020%))
+  Logic Levels:           2  (LUT4=1 LUT6=1)
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                                                      0.000     0.000 r  INPUT[6] (IN)
+                         net (fo=62, unset)           0.000     0.000    INPUT[6]
+                                                                      r  reg_q120_i_2/I0
+                         LUT4 (Prop_LUT4_I0_O)        0.139     0.139 r  reg_q120_i_2/O
+                         net (fo=10, unplaced)        0.153     0.292    reg_q120_i_2_n_0
+                                                                      r  reg_q120_i_1/I0
+                         LUT6 (Prop_LUT6_I0_O)        0.150     0.442 r  reg_q120_i_1/O
+                         net (fo=1, unplaced)         0.048     0.490    reg_q120_in
+                         FDRE                                         r  reg_q120_reg/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock CLK rise edge)        0.000     0.000 r  
+                                                      0.000     0.000 r  CLK (IN)
+                         net (fo=223, unset)          0.000     0.000    CLK
+                         FDRE                                         r  reg_q120_reg/C
+
+Slack:                    inf
+  Source:                 INPUT[6]
+                            (input port)
+  Destination:            reg_q277_reg/D
+                            (rising edge-triggered cell FDRE clocked by CLK  {rise@0.000ns fall@2.000ns period=4.000ns})
+  Path Group:             (none)
+  Path Type:              Setup (Max at Slow Process Corner)
+  Data Path Delay:        0.490ns  (logic 0.289ns (58.980%)  route 0.201ns (41.020%))
+  Logic Levels:           2  (LUT4=1 LUT6=1)
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                                                      0.000     0.000 r  INPUT[6] (IN)
+                         net (fo=62, unset)           0.000     0.000    INPUT[6]
+                                                                      r  reg_q120_i_2/I0
+                         LUT4 (Prop_LUT4_I0_O)        0.139     0.139 r  reg_q120_i_2/O
+                         net (fo=10, unplaced)        0.153     0.292    reg_q120_i_2_n_0
+                                                                      r  reg_q277_i_1/I0
+                         LUT6 (Prop_LUT6_I0_O)        0.150     0.442 r  reg_q277_i_1/O
+                         net (fo=1, unplaced)         0.048     0.490    reg_q277_in
+                         FDRE                                         r  reg_q277_reg/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock CLK rise edge)        0.000     0.000 r  
+                                                      0.000     0.000 r  CLK (IN)
+                         net (fo=223, unset)          0.000     0.000    CLK
+                         FDRE                                         r  reg_q277_reg/C
+
+Slack:                    inf
+  Source:                 INPUT[6]
+                            (input port)
+  Destination:            reg_q279_reg/D
+                            (rising edge-triggered cell FDRE clocked by CLK  {rise@0.000ns fall@2.000ns period=4.000ns})
+  Path Group:             (none)
+  Path Type:              Setup (Max at Slow Process Corner)
+  Data Path Delay:        0.490ns  (logic 0.289ns (58.980%)  route 0.201ns (41.020%))
+  Logic Levels:           2  (LUT4=1 LUT6=1)
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                                                      0.000     0.000 r  INPUT[6] (IN)
+                         net (fo=62, unset)           0.000     0.000    INPUT[6]
+                                                                      r  reg_q120_i_2/I0
+                         LUT4 (Prop_LUT4_I0_O)        0.139     0.139 r  reg_q120_i_2/O
+                         net (fo=10, unplaced)        0.153     0.292    reg_q120_i_2_n_0
+                                                                      r  reg_q279_i_1/I0
+                         LUT6 (Prop_LUT6_I0_O)        0.150     0.442 r  reg_q279_i_1/O
+                         net (fo=1, unplaced)         0.048     0.490    reg_q279_in
+                         FDRE                                         r  reg_q279_reg/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock CLK rise edge)        0.000     0.000 r  
+                                                      0.000     0.000 r  CLK (IN)
+                         net (fo=223, unset)          0.000     0.000    CLK
+                         FDRE                                         r  reg_q279_reg/C
+
+
+
+
+
+Min Delay Paths
+--------------------------------------------------------------------------------------
+Slack:                    inf
+  Source:                 INPUT_EN
+                            (input port)
+  Destination:            reg_q104_reg/CE
+                            (rising edge-triggered cell FDRE clocked by CLK  {rise@0.000ns fall@2.000ns period=4.000ns})
+  Path Group:             (none)
+  Path Type:              Hold (Min at Slow Process Corner)
+  Data Path Delay:        0.000ns  (logic 0.000ns (0.000%)  route 0.000ns (0.000%))
+  Logic Levels:           0  
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                                                      0.000     0.000 r  INPUT_EN (IN)
+                         net (fo=224, unset)          0.000     0.000    INPUT_EN
+                         FDRE                                         r  reg_q104_reg/CE
+  -------------------------------------------------------------------    -------------------
+
+                         (clock CLK rise edge)        0.000     0.000 r  
+                                                      0.000     0.000 r  CLK (IN)
+                         net (fo=223, unset)          0.000     0.000    CLK
+                         FDRE                                         r  reg_q104_reg/C
+
+Slack:                    inf
+  Source:                 INPUT_EN
+                            (input port)
+  Destination:            reg_q106_reg/CE
+                            (rising edge-triggered cell FDRE clocked by CLK  {rise@0.000ns fall@2.000ns period=4.000ns})
+  Path Group:             (none)
+  Path Type:              Hold (Min at Slow Process Corner)
+  Data Path Delay:        0.000ns  (logic 0.000ns (0.000%)  route 0.000ns (0.000%))
+  Logic Levels:           0  
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                                                      0.000     0.000 r  INPUT_EN (IN)
+                         net (fo=224, unset)          0.000     0.000    INPUT_EN
+                         FDRE                                         r  reg_q106_reg/CE
+  -------------------------------------------------------------------    -------------------
+
+                         (clock CLK rise edge)        0.000     0.000 r  
+                                                      0.000     0.000 r  CLK (IN)
+                         net (fo=223, unset)          0.000     0.000    CLK
+                         FDRE                                         r  reg_q106_reg/C
+
+Slack:                    inf
+  Source:                 INPUT_EN
+                            (input port)
+  Destination:            reg_q108_reg/CE
+                            (rising edge-triggered cell FDRE clocked by CLK  {rise@0.000ns fall@2.000ns period=4.000ns})
+  Path Group:             (none)
+  Path Type:              Hold (Min at Slow Process Corner)
+  Data Path Delay:        0.000ns  (logic 0.000ns (0.000%)  route 0.000ns (0.000%))
+  Logic Levels:           0  
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                                                      0.000     0.000 r  INPUT_EN (IN)
+                         net (fo=224, unset)          0.000     0.000    INPUT_EN
+                         FDRE                                         r  reg_q108_reg/CE
+  -------------------------------------------------------------------    -------------------
+
+                         (clock CLK rise edge)        0.000     0.000 r  
+                                                      0.000     0.000 r  CLK (IN)
+                         net (fo=223, unset)          0.000     0.000    CLK
+                         FDRE                                         r  reg_q108_reg/C
+
+Slack:                    inf
+  Source:                 INPUT_EN
+                            (input port)
+  Destination:            reg_q110_reg/CE
+                            (rising edge-triggered cell FDRE clocked by CLK  {rise@0.000ns fall@2.000ns period=4.000ns})
+  Path Group:             (none)
+  Path Type:              Hold (Min at Slow Process Corner)
+  Data Path Delay:        0.000ns  (logic 0.000ns (0.000%)  route 0.000ns (0.000%))
+  Logic Levels:           0  
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                                                      0.000     0.000 r  INPUT_EN (IN)
+                         net (fo=224, unset)          0.000     0.000    INPUT_EN
+                         FDRE                                         r  reg_q110_reg/CE
+  -------------------------------------------------------------------    -------------------
+
+                         (clock CLK rise edge)        0.000     0.000 r  
+                                                      0.000     0.000 r  CLK (IN)
+                         net (fo=223, unset)          0.000     0.000    CLK
+                         FDRE                                         r  reg_q110_reg/C
+
+Slack:                    inf
+  Source:                 INPUT_EN
+                            (input port)
+  Destination:            reg_q112_reg/CE
+                            (rising edge-triggered cell FDRE clocked by CLK  {rise@0.000ns fall@2.000ns period=4.000ns})
+  Path Group:             (none)
+  Path Type:              Hold (Min at Slow Process Corner)
+  Data Path Delay:        0.000ns  (logic 0.000ns (0.000%)  route 0.000ns (0.000%))
+  Logic Levels:           0  
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                                                      0.000     0.000 r  INPUT_EN (IN)
+                         net (fo=224, unset)          0.000     0.000    INPUT_EN
+                         FDRE                                         r  reg_q112_reg/CE
+  -------------------------------------------------------------------    -------------------
+
+                         (clock CLK rise edge)        0.000     0.000 r  
+                                                      0.000     0.000 r  CLK (IN)
+                         net (fo=223, unset)          0.000     0.000    CLK
+                         FDRE                                         r  reg_q112_reg/C
+
+Slack:                    inf
+  Source:                 INPUT_EN
+                            (input port)
+  Destination:            reg_q114_reg/CE
+                            (rising edge-triggered cell FDRE clocked by CLK  {rise@0.000ns fall@2.000ns period=4.000ns})
+  Path Group:             (none)
+  Path Type:              Hold (Min at Slow Process Corner)
+  Data Path Delay:        0.000ns  (logic 0.000ns (0.000%)  route 0.000ns (0.000%))
+  Logic Levels:           0  
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                                                      0.000     0.000 r  INPUT_EN (IN)
+                         net (fo=224, unset)          0.000     0.000    INPUT_EN
+                         FDRE                                         r  reg_q114_reg/CE
+  -------------------------------------------------------------------    -------------------
+
+                         (clock CLK rise edge)        0.000     0.000 r  
+                                                      0.000     0.000 r  CLK (IN)
+                         net (fo=223, unset)          0.000     0.000    CLK
+                         FDRE                                         r  reg_q114_reg/C
+
+Slack:                    inf
+  Source:                 INPUT_EN
+                            (input port)
+  Destination:            reg_q116_reg/CE
+                            (rising edge-triggered cell FDRE clocked by CLK  {rise@0.000ns fall@2.000ns period=4.000ns})
+  Path Group:             (none)
+  Path Type:              Hold (Min at Slow Process Corner)
+  Data Path Delay:        0.000ns  (logic 0.000ns (0.000%)  route 0.000ns (0.000%))
+  Logic Levels:           0  
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                                                      0.000     0.000 r  INPUT_EN (IN)
+                         net (fo=224, unset)          0.000     0.000    INPUT_EN
+                         FDRE                                         r  reg_q116_reg/CE
+  -------------------------------------------------------------------    -------------------
+
+                         (clock CLK rise edge)        0.000     0.000 r  
+                                                      0.000     0.000 r  CLK (IN)
+                         net (fo=223, unset)          0.000     0.000    CLK
+                         FDRE                                         r  reg_q116_reg/C
+
+Slack:                    inf
+  Source:                 INPUT_EN
+                            (input port)
+  Destination:            reg_q118_reg/CE
+                            (rising edge-triggered cell FDRE clocked by CLK  {rise@0.000ns fall@2.000ns period=4.000ns})
+  Path Group:             (none)
+  Path Type:              Hold (Min at Slow Process Corner)
+  Data Path Delay:        0.000ns  (logic 0.000ns (0.000%)  route 0.000ns (0.000%))
+  Logic Levels:           0  
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                                                      0.000     0.000 r  INPUT_EN (IN)
+                         net (fo=224, unset)          0.000     0.000    INPUT_EN
+                         FDRE                                         r  reg_q118_reg/CE
+  -------------------------------------------------------------------    -------------------
+
+                         (clock CLK rise edge)        0.000     0.000 r  
+                                                      0.000     0.000 r  CLK (IN)
+                         net (fo=223, unset)          0.000     0.000    CLK
+                         FDRE                                         r  reg_q118_reg/C
+
+Slack:                    inf
+  Source:                 INPUT_EN
+                            (input port)
+  Destination:            reg_q120_reg/CE
+                            (rising edge-triggered cell FDRE clocked by CLK  {rise@0.000ns fall@2.000ns period=4.000ns})
+  Path Group:             (none)
+  Path Type:              Hold (Min at Slow Process Corner)
+  Data Path Delay:        0.000ns  (logic 0.000ns (0.000%)  route 0.000ns (0.000%))
+  Logic Levels:           0  
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                                                      0.000     0.000 r  INPUT_EN (IN)
+                         net (fo=224, unset)          0.000     0.000    INPUT_EN
+                         FDRE                                         r  reg_q120_reg/CE
+  -------------------------------------------------------------------    -------------------
+
+                         (clock CLK rise edge)        0.000     0.000 r  
+                                                      0.000     0.000 r  CLK (IN)
+                         net (fo=223, unset)          0.000     0.000    CLK
+                         FDRE                                         r  reg_q120_reg/C
+
+Slack:                    inf
+  Source:                 INPUT_EN
+                            (input port)
+  Destination:            reg_q125_reg/CE
+                            (rising edge-triggered cell FDRE clocked by CLK  {rise@0.000ns fall@2.000ns period=4.000ns})
+  Path Group:             (none)
+  Path Type:              Hold (Min at Slow Process Corner)
+  Data Path Delay:        0.000ns  (logic 0.000ns (0.000%)  route 0.000ns (0.000%))
+  Logic Levels:           0  
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                                                      0.000     0.000 r  INPUT_EN (IN)
+                         net (fo=224, unset)          0.000     0.000    INPUT_EN
+                         FDRE                                         r  reg_q125_reg/CE
+  -------------------------------------------------------------------    -------------------
+
+                         (clock CLK rise edge)        0.000     0.000 r  
+                                                      0.000     0.000 r  CLK (IN)
+                         net (fo=223, unset)          0.000     0.000    CLK
+                         FDRE                                         r  reg_q125_reg/C
+
+
+
+
+
