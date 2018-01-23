@@ -115,7 +115,7 @@ def reg(name):
       if (RESET = '1') then
         reg_"""+str(name)+""" <= reg_"""+str(name)+"""_init;
       elsif (INPUT_EN = '1') then
-        if (initialize = '1')
+        if (initialize = '1') then
           reg_"""+str(name)+""" <= reg_"""+str(name)+"""_init;
         else
           reg_"""+str(name)+""" <= reg_"""+str(name)+"""_in;

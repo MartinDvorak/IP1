@@ -1,38 +1,8 @@
--- pattern_match.vhd: a simple pattern matching unit with some optimizations
 
-library ieee;
+	library ieee;
 use ieee.std_logic_1164.all;
 
--- A simple pattern matching unit
-entity pattern_match is
-  generic
-  (
-    DATA_WIDTH : positive := 8  -- The data width of the input (assume
-                                -- 8-bit ASCII as default)
-  );
-  port
-  (
-    --------------------------- INPUT --------------------------
-    CLK         :  in std_logic;           -- clock
-    RESET       :  in std_logic;           -- reset
-
-    -- The input character and its enable signal
-    INPUT       :  in std_logic_vector(DATA_WIDTH - 1 downto 0);
-    INPUT_EN    :  in std_logic;
-
-    INPUT_EOF   :  in std_logic;           -- end of frame
-
-    -- a signal that moves the automaton into the initial state (maybe useless?)
-    INIT        :  in std_logic;
-
-    -------------------------- OUTPUT --------------------------
-    -- A signal denoting whether in the next state, at least one final state is
-    -- set to '1' (is useful only when INPUT_EOF = 1 /\ INPUT_EN = 1)
-    FINAL       : out std_logic
-  );
-end entity;
-
-
+architecture http-attacks of pattern_match is
 architecture arch of pattern_match is
 --#################################################
 -- start section fullgraph: 0
@@ -824,23 +794,6 @@ architecture arch of pattern_match is
 
   -- intialization signal
   signal initialize   : std_logic;
-
-  
-  ------------------ KILLL START
-  -- The data stored in the register
-  signal reg_data : std_logic_vector(DATA_WIDTH - 1 downto 0) :=
-                      (others => '0');
-  -- The input data of the register
-  signal data_in : std_logic_vector(DATA_WIDTH - 1 downto 0);
-
-  -- The state of the register
-  signal reg_state : std_logic := (others => '0');
-  -- The input data of the state
-  signal state_in : std_logic;
-
-  -- The write signal for the data and state registers
-  signal write : std_logic;
-  ------------------ KILLL END
 
 	begin
 	-- initialization
@@ -2678,7 +2631,7 @@ reg_fullgraph0_in <=
       if (RESET = '1') then
         reg_fullgraph0 <= reg_fullgraph0_init;
       elsif (INPUT_EN = '1') then
-        if (initialize = '1')
+        if (initialize = '1') then
           reg_fullgraph0 <= reg_fullgraph0_init;
         else
           reg_fullgraph0 <= reg_fullgraph0_in;
@@ -3315,7 +3268,7 @@ reg_fullgraph1_in <=
       if (RESET = '1') then
         reg_fullgraph1 <= reg_fullgraph1_init;
       elsif (INPUT_EN = '1') then
-        if (initialize = '1')
+        if (initialize = '1') then
           reg_fullgraph1 <= reg_fullgraph1_init;
         else
           reg_fullgraph1 <= reg_fullgraph1_in;
@@ -3850,7 +3803,7 @@ reg_q312_init <= '0' ;
       if (RESET = '1') then
         reg_q312 <= reg_q312_init;
       elsif (INPUT_EN = '1') then
-        if (initialize = '1')
+        if (initialize = '1') then
           reg_q312 <= reg_q312_init;
         else
           reg_q312 <= reg_q312_in;
@@ -5907,7 +5860,7 @@ reg_fullgraph3_in <=
       if (RESET = '1') then
         reg_fullgraph3 <= reg_fullgraph3_init;
       elsif (INPUT_EN = '1') then
-        if (initialize = '1')
+        if (initialize = '1') then
           reg_fullgraph3 <= reg_fullgraph3_init;
         else
           reg_fullgraph3 <= reg_fullgraph3_in;
@@ -6448,7 +6401,7 @@ reg_q187_init <= '0' ;
       if (RESET = '1') then
         reg_q187 <= reg_q187_init;
       elsif (INPUT_EN = '1') then
-        if (initialize = '1')
+        if (initialize = '1') then
           reg_q187 <= reg_q187_init;
         else
           reg_q187 <= reg_q187_in;
@@ -6977,7 +6930,7 @@ reg_q28_init <= '0' ;
       if (RESET = '1') then
         reg_q28 <= reg_q28_init;
       elsif (INPUT_EN = '1') then
-        if (initialize = '1')
+        if (initialize = '1') then
           reg_q28 <= reg_q28_init;
         else
           reg_q28 <= reg_q28_in;
@@ -7506,7 +7459,7 @@ reg_q91_init <= '0' ;
       if (RESET = '1') then
         reg_q91 <= reg_q91_init;
       elsif (INPUT_EN = '1') then
-        if (initialize = '1')
+        if (initialize = '1') then
           reg_q91 <= reg_q91_init;
         else
           reg_q91 <= reg_q91_in;
@@ -8035,7 +7988,7 @@ reg_q211_init <= '0' ;
       if (RESET = '1') then
         reg_q211 <= reg_q211_init;
       elsif (INPUT_EN = '1') then
-        if (initialize = '1')
+        if (initialize = '1') then
           reg_q211 <= reg_q211_init;
         else
           reg_q211 <= reg_q211_in;
@@ -8564,7 +8517,7 @@ reg_q292_init <= '0' ;
       if (RESET = '1') then
         reg_q292 <= reg_q292_init;
       elsif (INPUT_EN = '1') then
-        if (initialize = '1')
+        if (initialize = '1') then
           reg_q292 <= reg_q292_init;
         else
           reg_q292 <= reg_q292_in;
@@ -9091,7 +9044,7 @@ reg_q135_init <= '0' ;
       if (RESET = '1') then
         reg_q135 <= reg_q135_init;
       elsif (INPUT_EN = '1') then
-        if (initialize = '1')
+        if (initialize = '1') then
           reg_q135 <= reg_q135_init;
         else
           reg_q135 <= reg_q135_in;
@@ -9620,7 +9573,7 @@ reg_q41_init <= '0' ;
       if (RESET = '1') then
         reg_q41 <= reg_q41_init;
       elsif (INPUT_EN = '1') then
-        if (initialize = '1')
+        if (initialize = '1') then
           reg_q41 <= reg_q41_init;
         else
           reg_q41 <= reg_q41_in;
@@ -10149,7 +10102,7 @@ reg_q238_init <= '0' ;
       if (RESET = '1') then
         reg_q238 <= reg_q238_init;
       elsif (INPUT_EN = '1') then
-        if (initialize = '1')
+        if (initialize = '1') then
           reg_q238 <= reg_q238_init;
         else
           reg_q238 <= reg_q238_in;
@@ -10678,7 +10631,7 @@ reg_q189_init <= '0' ;
       if (RESET = '1') then
         reg_q189 <= reg_q189_init;
       elsif (INPUT_EN = '1') then
-        if (initialize = '1')
+        if (initialize = '1') then
           reg_q189 <= reg_q189_init;
         else
           reg_q189 <= reg_q189_in;
@@ -11463,7 +11416,7 @@ reg_q75_init <= '0' ;
       if (RESET = '1') then
         reg_q75 <= reg_q75_init;
       elsif (INPUT_EN = '1') then
-        if (initialize = '1')
+        if (initialize = '1') then
           reg_q75 <= reg_q75_init;
         else
           reg_q75 <= reg_q75_in;
@@ -11992,7 +11945,7 @@ reg_q216_init <= '0' ;
       if (RESET = '1') then
         reg_q216 <= reg_q216_init;
       elsif (INPUT_EN = '1') then
-        if (initialize = '1')
+        if (initialize = '1') then
           reg_q216 <= reg_q216_init;
         else
           reg_q216 <= reg_q216_in;
@@ -12521,7 +12474,7 @@ reg_q0_init <= '0' ;
       if (RESET = '1') then
         reg_q0 <= reg_q0_init;
       elsif (INPUT_EN = '1') then
-        if (initialize = '1')
+        if (initialize = '1') then
           reg_q0 <= reg_q0_init;
         else
           reg_q0 <= reg_q0_in;
@@ -13050,7 +13003,7 @@ reg_q286_init <= '0' ;
       if (RESET = '1') then
         reg_q286 <= reg_q286_init;
       elsif (INPUT_EN = '1') then
-        if (initialize = '1')
+        if (initialize = '1') then
           reg_q286 <= reg_q286_init;
         else
           reg_q286 <= reg_q286_in;
@@ -13193,7 +13146,7 @@ reg_fullgraph17_in <=
       if (RESET = '1') then
         reg_fullgraph17 <= reg_fullgraph17_init;
       elsif (INPUT_EN = '1') then
-        if (initialize = '1')
+        if (initialize = '1') then
           reg_fullgraph17 <= reg_fullgraph17_init;
         else
           reg_fullgraph17 <= reg_fullgraph17_in;
@@ -13730,7 +13683,7 @@ reg_q83_init <= '0' ;
       if (RESET = '1') then
         reg_q83 <= reg_q83_init;
       elsif (INPUT_EN = '1') then
-        if (initialize = '1')
+        if (initialize = '1') then
           reg_q83 <= reg_q83_init;
         else
           reg_q83 <= reg_q83_in;
@@ -14259,7 +14212,7 @@ reg_q242_init <= '0' ;
       if (RESET = '1') then
         reg_q242 <= reg_q242_init;
       elsif (INPUT_EN = '1') then
-        if (initialize = '1')
+        if (initialize = '1') then
           reg_q242 <= reg_q242_init;
         else
           reg_q242 <= reg_q242_in;
@@ -14788,7 +14741,7 @@ reg_q131_init <= '0' ;
       if (RESET = '1') then
         reg_q131 <= reg_q131_init;
       elsif (INPUT_EN = '1') then
-        if (initialize = '1')
+        if (initialize = '1') then
           reg_q131 <= reg_q131_init;
         else
           reg_q131 <= reg_q131_in;
@@ -15317,7 +15270,7 @@ reg_q137_init <= '0' ;
       if (RESET = '1') then
         reg_q137 <= reg_q137_init;
       elsif (INPUT_EN = '1') then
-        if (initialize = '1')
+        if (initialize = '1') then
           reg_q137 <= reg_q137_init;
         else
           reg_q137 <= reg_q137_in;
@@ -15844,7 +15797,7 @@ reg_q240_init <= '0' ;
       if (RESET = '1') then
         reg_q240 <= reg_q240_init;
       elsif (INPUT_EN = '1') then
-        if (initialize = '1')
+        if (initialize = '1') then
           reg_q240 <= reg_q240_init;
         else
           reg_q240 <= reg_q240_in;
@@ -15920,7 +15873,7 @@ reg_fullgraph23_in <=
       if (RESET = '1') then
         reg_fullgraph23 <= reg_fullgraph23_init;
       elsif (INPUT_EN = '1') then
-        if (initialize = '1')
+        if (initialize = '1') then
           reg_fullgraph23 <= reg_fullgraph23_init;
         else
           reg_fullgraph23 <= reg_fullgraph23_in;
@@ -15977,7 +15930,7 @@ reg_fullgraph24_in <=
       if (RESET = '1') then
         reg_fullgraph24 <= reg_fullgraph24_init;
       elsif (INPUT_EN = '1') then
-        if (initialize = '1')
+        if (initialize = '1') then
           reg_fullgraph24 <= reg_fullgraph24_init;
         else
           reg_fullgraph24 <= reg_fullgraph24_in;
@@ -16002,7 +15955,7 @@ reg_q296_init <= '0' ;
       if (RESET = '1') then
         reg_q296 <= reg_q296_init;
       elsif (INPUT_EN = '1') then
-        if (initialize = '1')
+        if (initialize = '1') then
           reg_q296 <= reg_q296_init;
         else
           reg_q296 <= reg_q296_in;

@@ -51,6 +51,17 @@ end entity;
 
 """
 	return head
+
+def entity(name):
+
+	entity = """
+	library ieee;
+use ieee.std_logic_1164.all;
+
+architecture """+str(name)+""" of pattern_match is
+"""
+	return entity
+
 def head_signals():
 	head = """
 
@@ -59,23 +70,6 @@ def head_signals():
 
   -- intialization signal
   signal initialize   : std_logic;
-
-  
-  ------------------ KILLL START
-  -- The data stored in the register
-  signal reg_data : std_logic_vector(DATA_WIDTH - 1 downto 0) :=
-                      (others => '0');
-  -- The input data of the register
-  signal data_in : std_logic_vector(DATA_WIDTH - 1 downto 0);
-
-  -- The state of the register
-  signal reg_state : std_logic := (others => '0');
-  -- The input data of the state
-  signal state_in : std_logic;
-
-  -- The write signal for the data and state registers
-  signal write : std_logic;
-  ------------------ KILLL END
 
 	"""
 	return head
@@ -149,7 +143,7 @@ def reg(name):
       if (RESET = '1') then
         reg_"""+str(name)+""" <= reg_"""+str(name)+"""_init;
       elsif (INPUT_EN = '1') then
-        if (initialize = '1')
+        if (initialize = '1') then
           reg_"""+str(name)+""" <= reg_"""+str(name)+"""_init;
         else
           reg_"""+str(name)+""" <= reg_"""+str(name)+"""_in;
@@ -317,7 +311,7 @@ def get_alphabet(trans):
 	
 	return alphabet
 
-def generate(alphabet,end_state,start,transitions,clicks):
+def generate(alphabet,end_state,start,transitions,clicks,name):
 	signal = ""
 	reverse = reverse_trans(transitions)
 	registers = ""
@@ -327,7 +321,7 @@ def generate(alphabet,end_state,start,transitions,clicks):
 		registers = registers + register(reverse,start,click,count)
 		count = count +1
 
-	return head() + architecture() + signal +head_signals()+ inicalize() + decoder(alphabet) + registers + final(end_state)
+	return entity(name[:-4:]) + architecture() + signal +head_signals()+ inicalize() + decoder(alphabet) + registers + final(end_state)
 
 ############################
 #MAIN
@@ -372,7 +366,7 @@ if __name__ == '__main__':
 	#fd_out = open(sys.argv[1],"w")
 	fd_out = open(sys.argv[2],"w")
 	
-	fd_out.write(generate(alphabet,end_state,initial,Trans,clicks))
+	fd_out.write(generate(alphabet,end_state,initial,Trans,clicks,sys.argv[1]))
 	#fd_out.write(head() + architecture() + signals(state) + inicalize() + decoder(alphabet) +register(Trans,initial)+ final(end_state))
 	fd_out.close()
 
