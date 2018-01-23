@@ -5389,6 +5389,7 @@ reg_q211_init <= '0' ;
   end process;
 
 	
+reg_q313_in <= '0' ;
 reg_q313_init <= '1' ;
 	p_reg_q313: process (CLK)
 	begin

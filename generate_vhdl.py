@@ -155,6 +155,7 @@ def register(transitions,start_state,states):
 		if state in reverse.keys():
 			register = register + set_logic(state,reverse[state],bool(state in start_state))
 		else:
+			register = register + "\nreg_"+str(state)+"_in <= '0' ;"
 			if state in start_state:
 				register = register + "\nreg_"+str(state)+"_init <= '1' ;"
 			else:
