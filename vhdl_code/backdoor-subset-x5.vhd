@@ -3,37 +3,8 @@
 library ieee;
 use ieee.std_logic_1164.all;
 
--- A simple pattern matching unit
-entity pattern_match is
-  generic
-  (
-    DATA_WIDTH : positive := 8  -- The data width of the input (assume
-                                -- 8-bit ASCII as default)
-  );
-  port
-  (
-    --------------------------- INPUT --------------------------
-    CLK         :  in std_logic;           -- clock
-    RESET       :  in std_logic;           -- reset
 
-    -- The input character and its enable signal
-    INPUT       :  in std_logic_vector(DATA_WIDTH - 1 downto 0);
-    INPUT_EN    :  in std_logic;
-
-    INPUT_EOF   :  in std_logic;           -- end of frame
-
-    -- a signal that moves the automaton into the initial state (maybe useless?)
-    INIT        :  in std_logic;
-
-    -------------------------- OUTPUT --------------------------
-    -- A signal denoting whether in the next state, at least one final state is
-    -- set to '1' (is useful only when INPUT_EOF = 1 /\ INPUT_EN = 1)
-    FINAL       : out std_logic
-  );
-end entity;
-
-
-architecture arch of pattern_match is
+architecture backdoor_subset_4 of pattern_match is
 
   -- state q889
   signal reg_q889        : std_logic;
