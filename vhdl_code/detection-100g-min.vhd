@@ -2,7 +2,7 @@
 	library ieee;
 use ieee.std_logic_1164.all;
 
-architecture ./vtf_tests/detection-100g of pattern_match is
+architecture detection_100g of pattern_match is
 
 --#################################################
 -- start section fullgraph: 0
